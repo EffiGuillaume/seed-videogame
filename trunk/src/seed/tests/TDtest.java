@@ -4,13 +4,19 @@ import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 
 public class TDtest extends BasicGame {
-	FieldBlock field = new FieldBlock();
+	int SCREEN_WIDTH = 800;
+	int SCREEN_HEIGHT = 600;
+	Field field = new Field(SCREEN_WIDTH,SCREEN_HEIGHT);
 	Vector2f position = new Vector2f(0,0);
+	
+	Image plant;
+	int plant_x, plant_y;
 	
 	
 	public TDtest(String title) {
@@ -34,8 +40,8 @@ public class TDtest extends BasicGame {
 	}
 
 	public void init(GameContainer gc) throws SlickException {
-		
 		field.init(gc);
+		plant = new Image("res/point.png");
 	}
 
 	public void update(GameContainer gc, int delta) throws SlickException  {
@@ -43,11 +49,14 @@ public class TDtest extends BasicGame {
 		 if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)){
 			 field.setShowGrid(!field.getShowGrid());
 	     }
+		 
+		 plant_x = input.getMouseX()/Block.BLOCK_SIZE * Block.BLOCK_SIZE;
+		 plant_y = input.getMouseY()/Block.BLOCK_SIZE * Block.BLOCK_SIZE;
 	}
 
 	public void render(GameContainer gc, Graphics gr) throws SlickException {
-		
-		field.render(gc, gr);
+		field.render(gc,null, gr);
+		plant.draw(plant_x,plant_y);
 	}
 
 }
