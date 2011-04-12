@@ -12,7 +12,7 @@ import org.newdawn.slick.geom.Vector2f;
 public class TDtest extends BasicGame {
 	int SCREEN_WIDTH = 800;
 	int SCREEN_HEIGHT = 600;
-	Field field = new Field(SCREEN_WIDTH,SCREEN_HEIGHT);
+	Field field = new Field("Field",SCREEN_WIDTH,SCREEN_HEIGHT);
 	Vector2f position = new Vector2f(0,0);
 	
 	Image plant;
