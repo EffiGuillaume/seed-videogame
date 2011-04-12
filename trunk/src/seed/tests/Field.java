@@ -7,7 +7,9 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class Field {
+import seed.engine.Entity;
+
+public class Field  extends Entity{
 	int screenWidth = 800;	//valeur par defaut 800
 	int screenHeight = 600;	//valeur par defaut 600
 	int blockRowNumber;
@@ -17,12 +19,14 @@ public class Field {
 	Block[][] grid;
 	boolean show_grid=false;
 	
-	public Field(){
+	public Field(String id){
+		super(id);
 		blockRowNumber = screenWidth/Block.BLOCK_SIZE;
 		blockColumnNumber = screenHeight/Block.BLOCK_SIZE;
 	}
 	
-	public Field(int screen_width,int screen_height){
+	public Field(String id,int screen_width,int screen_height){
+		super(id);
 		screenWidth = screen_width;
 		screenHeight = screen_height;
 		blockRowNumber = screenWidth/Block.BLOCK_SIZE;
