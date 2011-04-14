@@ -6,29 +6,31 @@ import org.newdawn.slick.SlickException;
 import seed.engine.Entity;
 
 public class Block extends Entity {
+	static int MAX_NUMBER_TYPE = 10;
 	static int BLOCK_SIZE = 50;
 	boolean used;
 	boolean showBorder = false;
-	Image texture;
+	BlockType[] types = new BlockType[MAX_NUMBER_TYPE];
+	int nb_types = 0;
 	
 	public Block(String id) throws SlickException{
 		super(id);
 		used = false;
-		texture = new Image("res/texture.png");
+		this.AddComponent(new ImageRenderComponent("TextureRender",new Image("res/texture.png")));
 		this.AddComponent(new BlockRenderComponent(id+"Render",new Image("res/vertical.png"),new Image("res/horizontal.png")));
 	}
 	
 	public Block(String id, Image block_texture,Image vertical_border, Image horizontal_border) throws SlickException{
 		super(id);
 		used = false;
-		this.texture = block_texture;
+		this.AddComponent(new ImageRenderComponent("TextureRender",block_texture));
 		this.AddComponent(new BlockRenderComponent(id+"Render",vertical_border,horizontal_border));
 	}
 	
 	public Block(String id, Image block_texture) throws SlickException{
 		super(id);
 		used = false;
-		this.texture = block_texture;
+		this.AddComponent(new ImageRenderComponent("TextureRender",block_texture));
 		this.AddComponent(new BlockRenderComponent(id+"Render",new Image("res/vertical.png"),new Image("res/horizontal.png")));
 	}
 	
@@ -41,9 +43,34 @@ public class Block extends Entity {
 	}
 	
 	public Image getTexture(){
-		return texture;
+		return ((ImageRenderComponent)this.getComponent("TextureRender")).getImage();
 	}
 	public void setTexture(Image block_texture){
-		texture = block_texture;
+		((ImageRenderComponent)this.getComponent("TextureRender")).setImage(block_texture);
 	}
+	
+	public boolean isType(BlockType.Types t){
+		int i;
+		for(i = 0; i < nb_types && t != types[i].getType(); i++);
+		if(i == nb_types)
+			return false;
+		return true;
+	}
+	
+	public void addType(BlockType t){
+		if(nb_types < MAX_NUMBER_TYPE){
+			types[nb_types] = t;
+			nb_types++;
+		}	
+	}
+	
+	public void removeType(BlockType.Types t){
+		int i;
+		for(i = 0; i < nb_types && t != types[i].getType(); i++);
+		if(i != nb_types){
+			types[i].setType(types[nb_types].getType());
+			nb_types--;
+		}
+	}	
+	
 }
