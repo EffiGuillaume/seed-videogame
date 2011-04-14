@@ -12,7 +12,7 @@ public class BlockRenderComponent extends RenderComponent {
 	
 	Image verticalBorder;
 	Image horizontalBorder;
- 
+	
 	public BlockRenderComponent(String id, Image vertical_border, Image horizontal_border)
 	{
 		super(id);
@@ -23,11 +23,22 @@ public class BlockRenderComponent extends RenderComponent {
 	@Override
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr) {
 		Vector2f pos = owner.getPosition();
-		float scale = owner.getScale();
-		verticalBorder.draw(pos.getX(),pos.getY(),scale);
-		verticalBorder.draw(pos.getX()+Block.BLOCK_SIZE,pos.getY(),scale);
-		horizontalBorder.draw(pos.getX(),pos.getY(),scale);
-		horizontalBorder.draw(pos.getX(),pos.getY()+Block.BLOCK_SIZE,scale);
+		Image texture = ((Block)owner).getTexture();
+		float texture_scale = (float)Block.BLOCK_SIZE/texture.getWidth();
+		texture.draw(pos.getX(),pos.getY(),texture_scale);
+		if(((Block)owner).isBorderVisible()){
+			float horizontal_border_scale = (float)(Block.BLOCK_SIZE+verticalBorder.getWidth())/horizontalBorder.getWidth();
+			float vertical_border_scale = (float)(Block.BLOCK_SIZE+horizontalBorder.getHeight())/verticalBorder.getHeight();
+			
+			System.out.println(Block.BLOCK_SIZE);
+			System.out.println(horizontalBorder.getWidth());
+			
+			horizontalBorder.draw(pos.getX(),pos.getY(),horizontal_border_scale);
+			horizontalBorder.draw(pos.getX(),pos.getY()+Block.BLOCK_SIZE,horizontal_border_scale);
+			verticalBorder.draw(pos.getX(),pos.getY(),vertical_border_scale);
+			verticalBorder.draw(pos.getX()+Block.BLOCK_SIZE,pos.getY(),vertical_border_scale);
+			
+		}
 	}
  
 	@Override

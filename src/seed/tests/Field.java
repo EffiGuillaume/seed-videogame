@@ -39,28 +39,32 @@ public class Field  extends Entity{
 		grid = new Block[blockRowNumber][blockColumnNumber];
 		for(int i=0;i<blockRowNumber;i++){
 			for(int j=0;j<blockColumnNumber;j++){
-				grid[i][j] = new Block("Block["+i+"]["+j+"]");
+				grid[i][j] = new Block("Block["+i+"]["+j+"]",new Image("res/desert.png"));
 				Vector2f position = new Vector2f(i*Block.BLOCK_SIZE, j*Block.BLOCK_SIZE);
 				grid[i][j].setPosition(position);
 			}
 		}
 	}
 	
-	public void setShowGrid(boolean show){
+	public void setGridVisibility(boolean show){
 		show_grid = show;
 	}
 	
-	public boolean getShowGrid(){
+	public boolean isGridVisible(){
 		return show_grid;
+	}
+	
+	public void changeBlockTexture(int x, int y, Image new_texture){
+		if(x <= blockColumnNumber && y <= blockRowNumber && x > 0 && y > 0)
+			grid[x-1][y-1].setTexture(new_texture);
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr){
 		background.render(gc, null, gr);
-		if(show_grid){
-			for(int i=0;i<blockRowNumber;i++){
-				for(int j=0;j<blockColumnNumber;j++){
-					grid[i][j].render(gc, sb, gr);
-				}
+		for(int i=0;i<blockRowNumber;i++){
+			for(int j=0;j<blockColumnNumber;j++){
+				grid[i][j].setBorderVisibility(show_grid);
+				grid[i][j].render(gc, sb, gr);
 			}
 		}
 	}
