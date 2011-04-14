@@ -42,12 +42,13 @@ public class TDtest extends BasicGame {
 	public void init(GameContainer gc) throws SlickException {
 		field.init(gc);
 		plant = new Image("res/point.png");
+		field.changeBlockTexture(10,5,new Image("res/texture.png"));
 	}
 
 	public void update(GameContainer gc, int delta) throws SlickException  {
 		Input input = gc.getInput();
 		 if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)){
-			 field.setShowGrid(!field.getShowGrid());
+			 field.setGridVisibility(!field.isGridVisible());
 	     }
 		 
 		 plant_x = input.getMouseX()/Block.BLOCK_SIZE * Block.BLOCK_SIZE;
