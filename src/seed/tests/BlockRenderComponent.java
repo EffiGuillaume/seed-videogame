@@ -30,9 +30,6 @@ public class BlockRenderComponent extends RenderComponent {
 			float horizontal_border_scale = (float)(Block.BLOCK_SIZE+verticalBorder.getWidth())/horizontalBorder.getWidth();
 			float vertical_border_scale = (float)(Block.BLOCK_SIZE+horizontalBorder.getHeight())/verticalBorder.getHeight();
 			
-			System.out.println(Block.BLOCK_SIZE);
-			System.out.println(horizontalBorder.getWidth());
-			
 			horizontalBorder.draw(pos.getX(),pos.getY(),horizontal_border_scale);
 			horizontalBorder.draw(pos.getX(),pos.getY()+Block.BLOCK_SIZE,horizontal_border_scale);
 			verticalBorder.draw(pos.getX(),pos.getY(),vertical_border_scale);

@@ -43,6 +43,7 @@ public class TDtest extends BasicGame {
 		field.init(gc);
 		plant = new Image("res/point.png");
 		field.changeBlockTexture(10,5,new Image("res/texture.png"));
+		field.addBlockType(10,5,new BlockType(BlockType.Types.FORET));
 	}
 
 	public void update(GameContainer gc, int delta) throws SlickException  {

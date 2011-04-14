@@ -42,6 +42,7 @@ public class Field  extends Entity{
 				grid[i][j] = new Block("Block["+i+"]["+j+"]",new Image("res/desert.png"));
 				Vector2f position = new Vector2f(i*Block.BLOCK_SIZE, j*Block.BLOCK_SIZE);
 				grid[i][j].setPosition(position);
+				grid[i][j].addType(new BlockType(BlockType.Types.DESSERT));
 			}
 		}
 	}
@@ -57,6 +58,16 @@ public class Field  extends Entity{
 	public void changeBlockTexture(int x, int y, Image new_texture){
 		if(x <= blockColumnNumber && y <= blockRowNumber && x > 0 && y > 0)
 			grid[x-1][y-1].setTexture(new_texture);
+	}
+	
+	public void addBlockType(int x, int y, BlockType new_type){
+		if(x <= blockColumnNumber && y <= blockRowNumber && x > 0 && y > 0)
+			grid[x-1][y-1].addType(new_type);
+	}
+	
+	public void removeBlockType(int x, int y, BlockType.Types type){
+		if(x <= blockColumnNumber && y <= blockRowNumber && x > 0 && y > 0)
+			grid[x-1][y-1].removeType(type);
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr){
