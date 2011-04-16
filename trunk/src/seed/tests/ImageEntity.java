@@ -8,6 +8,6 @@ import seed.engine.Entity;
 public class ImageEntity extends Entity {
 	public ImageEntity(String id, Image img) throws SlickException{
 		super(id);
-		this.AddComponent(new ImageRenderComponent(id+"Render", img));
+		this.addComponent(new ImageRenderComponent(id+"Render", img));
 	}
 }
