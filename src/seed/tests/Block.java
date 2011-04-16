@@ -6,8 +6,9 @@ import org.newdawn.slick.SlickException;
 import seed.engine.Entity;
 
 public class Block extends Entity {
-	static int MAX_NUMBER_TYPE = 10;
-	static int BLOCK_SIZE = 50;
+	public static int MAX_NUMBER_TYPE = 10;
+	public static int BLOCK_SIZE = 50;
+	
 	boolean used;
 	boolean showBorder = false;
 	BlockType[] types = new BlockType[MAX_NUMBER_TYPE];
@@ -16,22 +17,22 @@ public class Block extends Entity {
 	public Block(String id) throws SlickException{
 		super(id);
 		used = false;
-		this.AddComponent(new ImageRenderComponent("TextureRender",new Image("res/texture.png")));
-		this.AddComponent(new BlockRenderComponent(id+"Render",new Image("res/vertical.png"),new Image("res/horizontal.png")));
+		this.addComponent(new ImageRenderComponent("TextureRender",new Image("res/texture.png")));
+		this.addComponent(new BlockRenderComponent(id+"Render",new Image("res/vertical.png"),new Image("res/horizontal.png")));
 	}
 	
 	public Block(String id, Image block_texture,Image vertical_border, Image horizontal_border) throws SlickException{
 		super(id);
 		used = false;
-		this.AddComponent(new ImageRenderComponent("TextureRender",block_texture));
-		this.AddComponent(new BlockRenderComponent(id+"Render",vertical_border,horizontal_border));
+		this.addComponent(new ImageRenderComponent("TextureRender",block_texture));
+		this.addComponent(new BlockRenderComponent(id+"Render",vertical_border,horizontal_border));
 	}
 	
 	public Block(String id, Image block_texture) throws SlickException{
 		super(id);
 		used = false;
-		this.AddComponent(new ImageRenderComponent("TextureRender",block_texture));
-		this.AddComponent(new BlockRenderComponent(id+"Render",new Image("res/vertical.png"),new Image("res/horizontal.png")));
+		this.addComponent(new ImageRenderComponent("TextureRender",block_texture));
+		this.addComponent(new BlockRenderComponent(id+"Render",new Image("res/vertical.png"),new Image("res/horizontal.png")));
 	}
 	
 	public void setBorderVisibility(boolean show){

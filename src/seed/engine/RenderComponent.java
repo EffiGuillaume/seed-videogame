@@ -16,7 +16,7 @@ public abstract class RenderComponent extends Component {
 	{
 		this.id = id;
 	}
-	
+
 	public abstract void render(GameContainer gc, StateBasedGame sb, Graphics gr);
 
 }
