@@ -49,8 +49,6 @@ public class TDtest extends BasicGame {
 
 	public void init(GameContainer gc) throws SlickException {
 		field.init(gc);
-		field.changeBlockTexture(10,5,new Image("res/texture.png"));
-		field.addBlockType(10,5,new BlockType(BlockType.Types.FORET));
 		
 		/* test rayon du soleil*/
 		Cursor.getInstance().setState(CursorState.SUN);

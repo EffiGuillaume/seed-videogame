@@ -1,5 +1,7 @@
 package seed.tests;
 
+import java.util.ArrayList;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -45,6 +47,20 @@ public class Field  extends Entity{
 				grid[i][j].addType(new BlockType(BlockType.Types.DESSERT));
 			}
 		}
+		
+		//path
+		ArrayList<Vector2f> path = new ArrayList<Vector2f>();
+		path.add(new Vector2f(1,1));
+		path.add(new Vector2f(1,5));
+		path.add(new Vector2f(5,5));
+		path.add(new Vector2f(12,5));
+		path.add(new Vector2f(12,10));
+		path.add(new Vector2f(6,10));
+		path.add(new Vector2f(6,12));
+		path.add(new Vector2f(blockRowNumber,blockColumnNumber));
+		PathComponent c= new PathComponent("path",path);
+		this.AddComponent(c);
+		c.init(gc);
 	}
 	
 	public void setGridVisibility(boolean show){
@@ -56,17 +72,17 @@ public class Field  extends Entity{
 	}
 	
 	public void changeBlockTexture(int x, int y, Image new_texture){
-		if(x <= blockColumnNumber && y <= blockRowNumber && x > 0 && y > 0)
+		if(x <= blockRowNumber && y <= blockColumnNumber && x > 0 && y > 0)
 			grid[x-1][y-1].setTexture(new_texture);
 	}
 	
 	public void addBlockType(int x, int y, BlockType new_type){
-		if(x <= blockColumnNumber && y <= blockRowNumber && x > 0 && y > 0)
+		if(x <= blockRowNumber && y <= blockColumnNumber && x > 0 && y > 0)
 			grid[x-1][y-1].addType(new_type);
 	}
 	
 	public void removeBlockType(int x, int y, BlockType.Types type){
-		if(x <= blockColumnNumber && y <= blockRowNumber && x > 0 && y > 0)
+		if(x <= blockRowNumber && y <= blockColumnNumber && x > 0 && y > 0)
 			grid[x-1][y-1].removeType(type);
 	}
 	
