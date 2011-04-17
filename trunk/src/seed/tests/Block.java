@@ -59,7 +59,7 @@ public class Block extends Entity {
 	}
 	
 	public void addType(BlockType t){
-		if(nb_types < MAX_NUMBER_TYPE){
+		if(nb_types < MAX_NUMBER_TYPE && !isType(t.getType())){
 			types[nb_types] = t;
 			nb_types++;
 		}	
