@@ -8,6 +8,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 
+import seed.field.Field;
 import seed.interactions.Cursor;
 import seed.interactions.CursorState;
 import seed.interactions.Plant;
@@ -15,9 +16,9 @@ import seed.interactions.Sunbeam;
 import seed.interactions.Wave;
 
 public class TDtest extends BasicGame {
-	int SCREEN_WIDTH = 800;
-	int SCREEN_HEIGHT = 600;
-	Field field = new Field("Field",SCREEN_WIDTH,SCREEN_HEIGHT);
+	//int SCREEN_WIDTH = 800;
+	//int SCREEN_HEIGHT = 600;
+	//Field field = new Field("Field",SCREEN_WIDTH,SCREEN_HEIGHT);
 	Vector2f position = new Vector2f(0,0);
 	
 	Sunbeam sun = new Sunbeam("Sunbeam", 100);
@@ -48,7 +49,7 @@ public class TDtest extends BasicGame {
 	}
 
 	public void init(GameContainer gc) throws SlickException {
-		field.init(gc);
+		Field.getInstance().init(gc);
 		
 		/* test rayon du soleil*/
 		Cursor.getInstance().setState(CursorState.SUN);
@@ -71,13 +72,12 @@ public class TDtest extends BasicGame {
 //		 plant_y = input.getMouseY()/Block.BLOCK_SIZE * Block.BLOCK_SIZE;
 		 
 		 plant.update(gc, null, delta);
-		 
 		 sun.update(gc, null, delta);
 		 water.update(gc, null, delta);
 	}
 
 	public void render(GameContainer gc, Graphics gr) throws SlickException {
-		field.render(gc,null, gr);
+		Field.getInstance().render(gc,null, gr);
 		plant.render(gc, null, gr);
 		sun.render(gc, null, gr);
 		water.render(gc, null, gr);
