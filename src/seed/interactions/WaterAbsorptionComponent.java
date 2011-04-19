@@ -6,7 +6,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.state.StateBasedGame;
 
 import seed.engine.Component;
-import seed.tests.Block;
+import seed.field.Block;
 
 public class WaterAbsorptionComponent extends Component {
 	

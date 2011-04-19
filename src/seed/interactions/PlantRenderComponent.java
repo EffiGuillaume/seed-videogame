@@ -8,7 +8,7 @@ import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.StateBasedGame;
 
 import seed.engine.RenderComponent;
-import seed.tests.Block;
+import seed.field.Block;
 
 public class PlantRenderComponent extends RenderComponent {
 

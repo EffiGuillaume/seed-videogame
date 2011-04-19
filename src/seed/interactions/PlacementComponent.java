@@ -6,7 +6,7 @@ import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.StateBasedGame;
 
 import seed.engine.Component;
-import seed.tests.Block;
+import seed.field.Block;
 
 public class PlacementComponent extends Component {
 
