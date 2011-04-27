@@ -1,8 +1,10 @@
 package seed.interactions;
  
 import org.newdawn.slick.Image;
+import org.newdawn.slick.geom.Vector2f;
 
 import seed.engine.Entity;
+import seed.field.Block;
 
 public class Plant extends Entity {
 	
@@ -43,6 +45,13 @@ public class Plant extends Entity {
 
 	public int getDelay() {
 		return delay;
+	}
+	
+	//TODO ˆ revoir
+	public Vector2f getCenter(){
+		Vector2f center = new Vector2f(this.getPosition());
+		center.set(center.getX() + Block.BLOCK_SIZE, center.getY() + Block.BLOCK_SIZE);
+		return center;
 	}
 
 }

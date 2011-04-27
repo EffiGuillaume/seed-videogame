@@ -5,11 +5,10 @@ import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.StateBasedGame;
 
 import seed.engine.Component;
+import seed.field.Block;
+import seed.field.Field;
 
 public class RailMovementComponent extends Component {
-	
-	float[] waypoint_x = {40, 140, 140, 220, 220, 80, 80, 340, 340, 420, 420};
-	float[] waypoint_y = {140, 140, 60, 60, 240, 240, 320, 320, 100, 50, -20};
 	
 	private int nextWaypoint = 0;
 
@@ -32,7 +31,7 @@ public class RailMovementComponent extends Component {
 				dist_y = toReach.getY() - water_y;
 				
 				if ((Math.abs(dist_x)+Math.abs(dist_y))<1) {
-					if(nextWaypoint >= waypoint_x.length)
+					if(nextWaypoint >= Field.getInstance().getPath().size())
 					{
 						nextWaypoint = 0;
 						((Water)owner).setToReach(new Vector2f(0, 0));
@@ -41,7 +40,9 @@ public class RailMovementComponent extends Component {
 					}
 					else 
 					{
-						((Water)owner).setToReach(new Vector2f(waypoint_x[nextWaypoint], waypoint_y[nextWaypoint]));
+						Vector2f nextPosition = new Vector2f(Field.getInstance().getPath().get(nextWaypoint));
+						nextPosition.set(nextPosition.getX() * Block.BLOCK_SIZE - Block.BLOCK_SIZE, nextPosition.getY() * Block.BLOCK_SIZE - Block.BLOCK_SIZE);
+						((Water)owner).setToReach(nextPosition);
 						nextWaypoint++;
 					}
 				}

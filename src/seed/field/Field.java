@@ -1,6 +1,7 @@
 package seed.field;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -26,12 +27,16 @@ public class Field  extends Entity{
 	Block[][] grid;
 	boolean show_grid=false;
 	
-	private static final Field instance = new Field("field");
+	ArrayList<Vector2f> path;
 	
+	private static Field field  = null;
+
 	public Field(String id){
 		super(id);
 		blockRowNumber = screenWidth/Block.BLOCK_SIZE;
 		blockColumnNumber = screenHeight/Block.BLOCK_SIZE;
+		
+		field = this;
 	}
 	
 	public Field(String id,int screen_width,int screen_height){
@@ -40,10 +45,8 @@ public class Field  extends Entity{
 		screenHeight = screen_height;
 		blockRowNumber = screenWidth/Block.BLOCK_SIZE;
 		blockColumnNumber = screenHeight/Block.BLOCK_SIZE;
-	}
-	
-	public final static Field getInstance() {
-		return instance;
+		
+		field = this;
 	}
 	
 	public void init(GameContainer gc) throws SlickException {
@@ -59,19 +62,35 @@ public class Field  extends Entity{
 			}
 		}
 		
-		//path
-		ArrayList<Vector2f> path = new ArrayList<Vector2f>();
-		path.add(new Vector2f(3,1));
-		path.add(new Vector2f(3,5));
-		path.add(new Vector2f(5,5));
-		path.add(new Vector2f(12,5));
-		path.add(new Vector2f(12,10));
-		path.add(new Vector2f(6,10));
-		path.add(new Vector2f(6,12));
-		path.add(new Vector2f(blockRowNumber,blockColumnNumber));
-		PathComponent c= new PathComponent("path",path);
-		this.addComponent(c);
-		c.init(gc);
+	}
+	
+	public void createPath(ArrayList<Vector2f> p) throws SlickException {
+		path = p;
+		
+		Iterator<Vector2f> it = path.iterator();
+		Vector2f prev_coord = null;
+		float dist_x, dist_y;
+		while(it.hasNext()){
+			Vector2f cur_coord = (Vector2f) it.next();
+			if(prev_coord != null){
+				dist_x =  cur_coord.getX() - prev_coord.getX();
+				dist_y =  cur_coord.getY() - prev_coord.getY();
+				while(!((Math.abs(dist_x)+Math.abs(dist_y))<1)){
+					this.changeBlockTexture((int)prev_coord.getX(),(int)prev_coord.getY(), new Image("res/path.png"));
+					this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.CHEMIN));
+					this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.NON_CONSTRUCTIBLE));
+					double angle = Math.atan2(dist_y, dist_x);
+					prev_coord.set((float) (prev_coord.getX() + Math.cos(angle)), (float) (prev_coord.getY() + Math.sin(angle)));
+					dist_x =  cur_coord.getX() - prev_coord.getX();
+					dist_y =  cur_coord.getY() - prev_coord.getY();
+				}
+				this.changeBlockTexture((int)prev_coord.getX(),(int)prev_coord.getY(), new Image("res/path.png"));
+				this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.CHEMIN));
+				this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.NON_CONSTRUCTIBLE));
+			}
+			prev_coord = cur_coord;
+		}
+		
 	}
 	
 	public void setGridVisibility(boolean show){
@@ -105,5 +124,23 @@ public class Field  extends Entity{
 				grid[i][j].render(gc, sb, gr);
 			}
 		}
+	}
+	
+	public int getNumRowBlock(){
+		return blockRowNumber;
+	}
+	
+	public int getNumColumnBlock(){
+		return blockColumnNumber;
+	}
+	
+	
+	public ArrayList<Vector2f> getPath() {
+		return path;
+	}
+
+
+	public static Field getInstance() {
+		return field;
 	}
 }

@@ -20,8 +20,8 @@ public class PathComponent extends Component{
 		path = p;
 	}
 	
-	public void init(GameContainer gc) throws SlickException{
-		Iterator it = path.iterator();
+	public void init() throws SlickException{
+		Iterator<Vector2f> it = path.iterator();
 		Vector2f prev_coord = null;
 		float dist_x, dist_y;
 		while(it.hasNext()){
@@ -30,17 +30,17 @@ public class PathComponent extends Component{
 				dist_x =  cur_coord.getX() - prev_coord.getX();
 				dist_y =  cur_coord.getY() - prev_coord.getY();
 				while(!((Math.abs(dist_x)+Math.abs(dist_y))<1)){
-					Field.getInstance().changeBlockTexture((int)prev_coord.getX(),(int)prev_coord.getY(), new Image("res/path.png"));
-					Field.getInstance().addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.CHEMIN));
-					Field.getInstance().addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.NON_CONSTRUCTIBLE));
+					((Field)owner).changeBlockTexture((int)prev_coord.getX(),(int)prev_coord.getY(), new Image("res/path.png"));
+					((Field)owner).addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.CHEMIN));
+					((Field)owner).addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.NON_CONSTRUCTIBLE));
 					double angle = Math.atan2(dist_y, dist_x);
 					prev_coord.set((float) (prev_coord.getX() + Math.cos(angle)), (float) (prev_coord.getY() + Math.sin(angle)));
 					dist_x =  cur_coord.getX() - prev_coord.getX();
 					dist_y =  cur_coord.getY() - prev_coord.getY();
 				}
-				Field.getInstance().changeBlockTexture((int)prev_coord.getX(),(int)prev_coord.getY(), new Image("res/path.png"));
-				Field.getInstance().addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.CHEMIN));
-				Field.getInstance().addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.NON_CONSTRUCTIBLE));
+				((Field)owner).changeBlockTexture((int)prev_coord.getX(),(int)prev_coord.getY(), new Image("res/path.png"));
+				((Field)owner).addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.CHEMIN));
+				((Field)owner).addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.NON_CONSTRUCTIBLE));
 			}
 			prev_coord = cur_coord;
 		}

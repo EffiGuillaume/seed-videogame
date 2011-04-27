@@ -35,10 +35,11 @@ public class PlantRenderComponent extends RenderComponent {
 				float range = ((Plant) owner).getRange();
 				circle.setColor(Color.red);
 				
-				if(!((Plant) owner).isPlaced())
+				if((!((Plant) owner).isPlaced()) || Cursor.getInstance().getPosition().distance(((Plant)owner).getCenter()) < Block.BLOCK_SIZE)
 				{
-					circle.drawOval((pos.x + Block.BLOCK_SIZE/2) - range/2, (pos.y + Block.BLOCK_SIZE/2) - range/2, range, range);
+					circle.drawOval((pos.x + Block.BLOCK_SIZE/2) - range, (pos.y + Block.BLOCK_SIZE/2) - range, range*2, range*2);
 				}
+					
 			}
 		}
 		catch(Exception ex)
