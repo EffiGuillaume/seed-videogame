@@ -4,19 +4,22 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Vector2f;
 
 import seed.engine.Entity;
-import seed.field.Block;
 
 public class Plant extends Entity {
 	
 	private boolean placed;
 	private int delay;
 	private float range;
+	
+	private Vector2f imageSize;
 
 	public Plant(String id, int delay, float range, Image image) {
 		super(id);
 		this.setPlaced(false);
 		this.delay = delay;
 		this.setRange(range);
+		
+		this.imageSize = new Vector2f(image.getWidth(), image.getHeight());
 		
 		addComponent(new WaterAbsorptionComponent());
 		addComponent(new PlacementComponent());
@@ -47,11 +50,10 @@ public class Plant extends Entity {
 		return delay;
 	}
 	
-	//TODO ˆ revoir
 	public Vector2f getCenter(){
-		Vector2f center = new Vector2f(this.getPosition());
-		center.set(center.getX() + Block.BLOCK_SIZE, center.getY() + Block.BLOCK_SIZE);
-		return center;
+		float x = getPosition().getX() + imageSize.getX()/2;
+		float y = getPosition().getY() + imageSize.getY()/2;
+		return new Vector2f(x,y);
 	}
 
 }

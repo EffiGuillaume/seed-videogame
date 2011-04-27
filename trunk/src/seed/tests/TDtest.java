@@ -76,7 +76,7 @@ public class TDtest extends BasicGame {
 		plant = new Plant("Plantest", 300, 200, new Image("res/point.png"));
 		
 		/* test Water */
-		water = new Wave("Watertest", 8, 500, 10, 1, "res/water.png");
+		water = new Wave("Watertest", 8, 500, 100, 1, "res/water.png");
 	}
 
 	public void update(GameContainer gc, int delta) throws SlickException  {

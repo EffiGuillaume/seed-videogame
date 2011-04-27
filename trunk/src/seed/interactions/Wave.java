@@ -41,5 +41,4 @@ public class Wave extends Entity {
 			water.get(i).render(gc, sb, gr);
 		}
 	}
-
 }

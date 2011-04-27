@@ -58,7 +58,7 @@ public class Field  extends Entity{
 				grid[i][j] = new Block("Block["+i+"]["+j+"]",new Image("res/desert.png"));
 				Vector2f position = new Vector2f(i*Block.BLOCK_SIZE, j*Block.BLOCK_SIZE);
 				grid[i][j].setPosition(position);
-				grid[i][j].addType(new BlockType(BlockType.Types.DESSERT));
+				grid[i][j].addType(BlockType.DESERT);
 			}
 		}
 		
@@ -77,16 +77,16 @@ public class Field  extends Entity{
 				dist_y =  cur_coord.getY() - prev_coord.getY();
 				while(!((Math.abs(dist_x)+Math.abs(dist_y))<1)){
 					this.changeBlockTexture((int)prev_coord.getX(),(int)prev_coord.getY(), new Image("res/path.png"));
-					this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.CHEMIN));
-					this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.NON_CONSTRUCTIBLE));
+					this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(), BlockType.CHEMIN);
+					this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(), BlockType.NON_CONSTRUCTIBLE);
 					double angle = Math.atan2(dist_y, dist_x);
 					prev_coord.set((float) (prev_coord.getX() + Math.cos(angle)), (float) (prev_coord.getY() + Math.sin(angle)));
 					dist_x =  cur_coord.getX() - prev_coord.getX();
 					dist_y =  cur_coord.getY() - prev_coord.getY();
 				}
 				this.changeBlockTexture((int)prev_coord.getX(),(int)prev_coord.getY(), new Image("res/path.png"));
-				this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.CHEMIN));
-				this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(),new BlockType(BlockType.Types.NON_CONSTRUCTIBLE));
+				this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(), BlockType.CHEMIN);
+				this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(), BlockType.NON_CONSTRUCTIBLE);
 			}
 			prev_coord = cur_coord;
 		}
@@ -111,7 +111,7 @@ public class Field  extends Entity{
 			grid[x-1][y-1].addType(new_type);
 	}
 	
-	public void removeBlockType(int x, int y, BlockType.Types type){
+	public void removeBlockType(int x, int y, BlockType type){
 		if(x <= blockRowNumber && y <= blockColumnNumber && x > 0 && y > 0)
 			grid[x-1][y-1].removeType(type);
 	}

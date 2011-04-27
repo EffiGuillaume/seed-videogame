@@ -24,6 +24,7 @@ public class PlantRenderComponent extends RenderComponent {
 	@Override
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr) {
 		Vector2f pos = owner.getPosition();
+		Vector2f center = ((Plant)owner).getCenter();
 		float scale = owner.getScale();
  
 		image.draw(pos.x, pos.y, scale);
@@ -37,7 +38,7 @@ public class PlantRenderComponent extends RenderComponent {
 				
 				if((!((Plant) owner).isPlaced()) || Cursor.getInstance().getPosition().distance(((Plant)owner).getCenter()) < Block.BLOCK_SIZE)
 				{
-					circle.drawOval((pos.x + Block.BLOCK_SIZE/2) - range, (pos.y + Block.BLOCK_SIZE/2) - range, range*2, range*2);
+					circle.drawOval(center.getX() - range, center.getY() - range, range*2, range*2);
 				}
 					
 			}

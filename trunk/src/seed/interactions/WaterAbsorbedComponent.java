@@ -28,6 +28,7 @@ public class WaterAbsorbedComponent extends Component {
 				{
 					((Wave)owner).water.remove(waterPosition);
 					absorbed = true;
+					owner = new Wave("Watertest", 8, 500, 100, 1, "res/water.png");
 				}
 			}
 		}
