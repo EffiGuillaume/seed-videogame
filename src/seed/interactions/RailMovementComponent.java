@@ -14,16 +14,14 @@ public class RailMovementComponent extends Component {
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sb, int delta) {
-		// TODO bricolage en attendant les blocks "Lane", à changer quand ils seront implémentés
 		try
 		{
 			if(owner instanceof Water)
 			{
 				int speed;
-				Vector2f toReach;
+				Vector2f toReach = ((Water) owner).getToReach();
 				double water_x, water_y;
 				double dist_x, dist_y;
-				toReach = ((Water) owner).getToReach();
 				water_x = owner.getPosition().getX();
 				water_y = owner.getPosition().getY();
 				speed = ((Water) owner).getSpeed();
@@ -47,8 +45,8 @@ public class RailMovementComponent extends Component {
 					}
 				}
 				double angle = Math.atan2(dist_y, dist_x);
-				water_x = water_x + speed * 0.01 * delta * Math.cos(angle);
-				water_y = water_y + speed * 0.01 * delta * Math.sin(angle);
+				water_x = water_x + speed * 0.001 * delta * Math.cos(angle);
+				water_y = water_y + speed * 0.001 * delta * Math.sin(angle);
 				
 				owner.setPosition(new Vector2f((float)water_x, (float)water_y));
 				

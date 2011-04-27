@@ -37,9 +37,9 @@ public class WaveComponent extends Component {
 			{
 				if(numberOfWaterCreated < numberOfWater)
 				{
-					timer++;
+					timer += delta;
 				}
-				if(timer>=delay)
+				if(timer >= delay)
 				{
 					((Wave)owner).water.add(new Water("Water"+numberOfWaterCreated, speed, quantity, new Image(imageRef)));
 					

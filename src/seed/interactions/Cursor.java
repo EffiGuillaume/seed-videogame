@@ -31,5 +31,4 @@ public class Cursor extends Entity {
 	public CursorState getState() {
 		return state;
 	}
-
 }

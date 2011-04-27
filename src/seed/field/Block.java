@@ -2,6 +2,7 @@ package seed.field;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Vector2f;
 
 import seed.engine.Entity;
 
@@ -50,28 +51,34 @@ public class Block extends Entity {
 		((ImageRenderComponent)this.getComponent("TextureRender")).setImage(block_texture);
 	}
 	
-	public boolean isType(BlockType.Types t){
+	public boolean isType(BlockType t){
 		int i;
-		for(i = 0; i < nb_types && t != types[i].getType(); i++);
+		for(i = 0; i < nb_types && t != types[i]; i++);
 		if(i == nb_types)
 			return false;
 		return true;
 	}
 	
 	public void addType(BlockType t){
-		if(nb_types < MAX_NUMBER_TYPE && !isType(t.getType())){
+		if(nb_types < MAX_NUMBER_TYPE && !isType(t)){
 			types[nb_types] = t;
 			nb_types++;
 		}	
 	}
 	
-	public void removeType(BlockType.Types t){
+	public void removeType(BlockType t){
 		int i;
-		for(i = 0; i < nb_types && t != types[i].getType(); i++);
+		for(i = 0; i < nb_types && t != types[i]; i++);
 		if(i != nb_types){
-			types[i].setType(types[nb_types].getType());
+			types[i] = types[nb_types];
 			nb_types--;
 		}
+	}
+
+	public Vector2f getCenter() {
+		float x = getPosition().getX() + BLOCK_SIZE/2;
+		float y = getPosition().getY() + BLOCK_SIZE/2;
+		return new Vector2f(x,y);
 	}	
 	
 }

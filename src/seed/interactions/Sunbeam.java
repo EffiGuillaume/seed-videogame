@@ -1,5 +1,5 @@
 package seed.interactions;
- 
+
 import seed.engine.Entity;
 
 public class Sunbeam extends Entity {
