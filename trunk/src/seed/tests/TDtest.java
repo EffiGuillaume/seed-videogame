@@ -1,5 +1,7 @@
 package seed.tests;
  
+import java.util.ArrayList;
+
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
@@ -16,9 +18,9 @@ import seed.interactions.Sunbeam;
 import seed.interactions.Wave;
 
 public class TDtest extends BasicGame {
-	//int SCREEN_WIDTH = 800;
-	//int SCREEN_HEIGHT = 600;
-	//Field field = new Field("Field",SCREEN_WIDTH,SCREEN_HEIGHT);
+	static int SCREEN_WIDTH = 800;
+	static int SCREEN_HEIGHT = 600;
+	Field field = new Field("Field",SCREEN_WIDTH,SCREEN_HEIGHT);
 	Vector2f position = new Vector2f(0,0);
 	
 	Sunbeam sun = new Sunbeam("Sunbeam", 100);
@@ -44,12 +46,28 @@ public class TDtest extends BasicGame {
 	public static void main(String[] args) throws SlickException {
 		AppGameContainer app = new AppGameContainer(new TDtest());
 		
-		app.setDisplayMode(800, 600, false);
+		app.setDisplayMode(SCREEN_WIDTH, SCREEN_HEIGHT, false);
 		app.start();
 	}
 
 	public void init(GameContainer gc) throws SlickException {
-		Field.getInstance().init(gc);
+		
+		field.init(gc);
+		
+		/* test chemin */
+		
+		//path
+		ArrayList<Vector2f> path = new ArrayList<Vector2f>();
+		path.add(new Vector2f(1,1));
+		path.add(new Vector2f(3,1));
+		path.add(new Vector2f(3,5));
+		path.add(new Vector2f(5,5));
+		path.add(new Vector2f(12,5));
+		path.add(new Vector2f(12,10));
+		path.add(new Vector2f(6,10));
+		path.add(new Vector2f(6,12));
+		path.add(new Vector2f(field.getNumRowBlock(),field.getNumColumnBlock()));
+		field.createPath(path);
 		
 		/* test rayon du soleil*/
 		Cursor.getInstance().setState(CursorState.SUN);
@@ -77,7 +95,7 @@ public class TDtest extends BasicGame {
 	}
 
 	public void render(GameContainer gc, Graphics gr) throws SlickException {
-		Field.getInstance().render(gc,null, gr);
+		field.render(gc,null, gr);
 		plant.render(gc, null, gr);
 		sun.render(gc, null, gr);
 		water.render(gc, null, gr);

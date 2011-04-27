@@ -10,21 +10,26 @@ public class WaterAbsorbedComponent extends Component {
 	
 	private Vector2f targetPosition;
 	private int waterPosition;
+	private boolean absorbed = false;
 
 	public WaterAbsorbedComponent(String string, Vector2f position, int waterPosition) {
 		this.id = string;
 		this.targetPosition = position;
 		this.waterPosition = waterPosition;
-		
 	}
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sb, int delta) {
 		try
 		{
-			//TODO ici il y a une grosse erreur de sortie de portée
-			if(((Wave)owner).water.get(waterPosition).getPosition().distance(targetPosition) < 2)
-				((Wave)owner).water.remove(waterPosition);
+			if(!absorbed)
+			{
+				if(((Wave)owner).water.get(waterPosition).getPosition().distance(targetPosition) < 2)
+				{
+					((Wave)owner).water.remove(waterPosition);
+					absorbed = true;
+				}
+			}
 		}
 		catch(Exception ex)
 		{

@@ -27,7 +27,7 @@ public class WaterAbsorptionComponent extends Component {
 			{
 				if(((Plant) owner).isPlaced())
 				{
-					if(timer < ((Plant)owner).getDelay() * delta * 10)
+					if(timer < ((Plant)owner).getDelay() * 10)
 					{
 						timer++;
 					}
