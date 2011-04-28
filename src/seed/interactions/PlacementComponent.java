@@ -14,9 +14,9 @@ public class PlacementComponent extends Component {
 	public void update(GameContainer gc, StateBasedGame sb, int delta) {
 		try
 		{
-			if(owner instanceof Plant)
+			if(owner instanceof Absorber)
 			{
-				if(!((Plant) owner).isPlaced())
+				if(!((Absorber) owner).isPlaced())
 				{
 					Input input = gc.getInput();
 					int plant_x, plant_y;
@@ -25,13 +25,13 @@ public class PlacementComponent extends Component {
 					owner.setPosition(new Vector2f(plant_x, plant_y));
 					
 					if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)){
-						 ((Plant)owner).setPlaced(true);
+						 ((Absorber)owner).setPlaced(true);
 					}
 				}
 			}
 			else
 			{
-				throw new Exception("PlacementComponent ne s'applique qu'à l'Entity Plant");
+				throw new Exception("PlacementComponent ne s'applique qu'à l'Entity Absorber");
 			}
 		}
 		catch(Exception ex)
