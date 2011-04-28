@@ -13,9 +13,9 @@ import org.newdawn.slick.geom.Vector2f;
 import seed.field.Field;
 import seed.interactions.Cursor;
 import seed.interactions.CursorState;
-import seed.interactions.Plant;
-import seed.interactions.Sunbeam;
-import seed.interactions.Wave;
+import seed.units.Plant;
+import seed.units.Sunbeam;
+import seed.units.Wave;
 
 public class TDtest extends BasicGame {
 	static int SCREEN_WIDTH = 800;
@@ -23,7 +23,7 @@ public class TDtest extends BasicGame {
 	Field field = new Field("Field",SCREEN_WIDTH,SCREEN_HEIGHT);
 	Vector2f position = new Vector2f(0,0);
 	
-	Sunbeam sun = new Sunbeam("Sunbeam", 100);
+//	Sunbeam.getInstance().set
 	Plant plant = null;
 	Wave water = null;
 	
@@ -71,6 +71,7 @@ public class TDtest extends BasicGame {
 		
 		/* test rayon du soleil*/
 		Cursor.getInstance().setState(CursorState.SUN);
+		Sunbeam.getInstance().setScope(150);
 		
 		/* test plante */
 		plant = new Plant("Plantest", 300, 200, new Image("res/point.png"));
@@ -81,6 +82,8 @@ public class TDtest extends BasicGame {
 
 	public void update(GameContainer gc, int delta) throws SlickException  {
 		Cursor.getInstance().update(gc, null, delta);
+		Sunbeam.getInstance().update(gc, null, delta);
+		
 //		Input input = gc.getInput();
 //		 if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)){
 //			 field.setGridVisibility(!field.isGridVisible());
@@ -90,15 +93,15 @@ public class TDtest extends BasicGame {
 //		 plant_y = input.getMouseY()/Block.BLOCK_SIZE * Block.BLOCK_SIZE;
 		 
 		 plant.update(gc, null, delta);
-		 sun.update(gc, null, delta);
 		 water.update(gc, null, delta);
 	}
 
 	public void render(GameContainer gc, Graphics gr) throws SlickException {
 		field.render(gc,null, gr);
 		plant.render(gc, null, gr);
-		sun.render(gc, null, gr);
 		water.render(gc, null, gr);
+		
+		Sunbeam.getInstance().render(gc, null, gr);
 	}
 
 }
