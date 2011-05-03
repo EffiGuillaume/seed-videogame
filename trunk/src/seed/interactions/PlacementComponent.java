@@ -7,6 +7,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import seed.engine.Component;
 import seed.field.Block;
+import seed.field.Field;
 
 public class PlacementComponent extends Component {
 
@@ -25,7 +26,10 @@ public class PlacementComponent extends Component {
 					owner.setPosition(new Vector2f(plant_x, plant_y));
 					
 					if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)){
-						 ((Absorber)owner).setPlaced(true);
+						if(Field.getInstance().isBlockFree(plant_x,plant_y)){
+							((Absorber)owner).setPlaced(true);
+							Field.getInstance().setBlockOccupant(plant_x, plant_y, owner);
+						}
 					}
 				}
 			}

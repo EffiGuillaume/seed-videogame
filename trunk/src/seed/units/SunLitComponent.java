@@ -10,6 +10,7 @@ import seed.interactions.CursorState;
 public class SunLitComponent extends Component {
 	
 	private int timer = 0;
+	private int timer_decrement = 0;
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sb, int delta) {
@@ -23,7 +24,7 @@ public class SunLitComponent extends Component {
 					{
 						if(((Plant)owner).getCenter().distance(Sunbeam.getInstance().getPosition()) < Sunbeam.getInstance().getScope()/2)
 						{
-							if(timer < ((Plant)owner).getDelay() * 10 )
+							if(timer < ((Plant)owner).getDelay() * 10/*gamma*/) // * une valeur gamma trouvŽe expŽrimentalement
 							{
 								timer += delta;
 							}
@@ -32,6 +33,19 @@ public class SunLitComponent extends Component {
 								((Plant)owner).setEnergy(((Plant)owner).getEnergy() + 1);
 								
 								timer = 0;
+							}
+						}
+						else
+						{
+							if(timer_decrement < ((Plant)owner).getDelay() * 20/*gamma*2*/) //dŽcrŽmente deux fois plus lentement que l'incrŽmentation (donc gamma * 2)
+							{
+								timer_decrement += delta;
+							}
+							else
+							{
+								((Plant)owner).setEnergy(((Plant)owner).getEnergy() - 1);
+
+								timer_decrement = 0;
 							}
 						}
 					}

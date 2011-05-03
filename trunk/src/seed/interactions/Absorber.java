@@ -8,9 +8,9 @@ import seed.engine.Entity;
 public class Absorber extends Entity {
 	
 	private boolean placed;
-	private int delay;
-	private float range;
-	private int storage;
+	protected int delay;
+	protected float range;
+	protected int storage;
 	
 	private Vector2f imageSize;
 
