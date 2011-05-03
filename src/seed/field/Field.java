@@ -116,6 +116,15 @@ public class Field  extends Entity{
 			grid[x-1][y-1].removeType(type);
 	}
 	
+	public Block getBlock(float x, float y) throws Exception{
+		int grid_x = (int)x/Block.BLOCK_SIZE;
+		int grid_y = (int)y/Block.BLOCK_SIZE;
+		if(!(grid_x <= blockRowNumber && grid_y <= blockColumnNumber && grid_x > 0 && grid_y > 0))
+			throw new Exception("Error : coordonnée invalide");
+		return grid[grid_x][grid_y];
+			                    
+	}
+	
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr){
 		background.render(gc, null, gr);
 		for(int i=0;i<blockRowNumber;i++){
@@ -142,5 +151,21 @@ public class Field  extends Entity{
 
 	public static Field getInstance() {
 		return field;
+	}
+	
+	public boolean isBlockFree(float x, float y) throws Exception{
+		int grid_x = (int)x/Block.BLOCK_SIZE;
+		int grid_y = (int)y/Block.BLOCK_SIZE;
+		if(!(grid_x <= blockRowNumber && grid_y <= blockColumnNumber && grid_x > 0 && grid_y > 0))
+			throw new Exception("Error : coordonnée invalide");
+		return grid[grid_x][grid_y].isFree();
+	}
+	
+	public void setBlockOccupant(float x, float y, Entity e) throws Exception{
+		int grid_x = (int)x/Block.BLOCK_SIZE;
+		int grid_y = (int)y/Block.BLOCK_SIZE;
+		if(!(grid_x <= blockRowNumber && grid_y <= blockColumnNumber && grid_x > 0 && grid_y > 0))
+			throw new Exception("Error : coordonnée invalide");
+		grid[grid_x][grid_y].setOccupant(e);
 	}
 }

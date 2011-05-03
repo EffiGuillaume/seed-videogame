@@ -12,8 +12,12 @@ public class Block extends Entity {
 	
 	boolean used;
 	boolean showBorder = false;
+	
+	//types du block
 	BlockType[] types = new BlockType[MAX_NUMBER_TYPE];
 	int nb_types = 0;
+	
+	Entity occupant;
 	
 	public Block(String id) throws SlickException{
 		super(id);
@@ -79,6 +83,14 @@ public class Block extends Entity {
 		float x = getPosition().getX() + BLOCK_SIZE/2;
 		float y = getPosition().getY() + BLOCK_SIZE/2;
 		return new Vector2f(x,y);
-	}	
+	}
+	
+	public boolean isFree() {
+		return (!isType(BlockType.NON_CONSTRUCTIBLE) && occupant==null);
+	}
+	
+	public void setOccupant(Entity e){
+		occupant = e;
+	}
 	
 }
