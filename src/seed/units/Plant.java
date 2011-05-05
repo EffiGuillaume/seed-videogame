@@ -1,8 +1,12 @@
 package seed.units;
 
+import java.util.ArrayList;
+
 import org.newdawn.slick.Image;
 
 import seed.interactions.Absorber;
+import seed.interactions.Evolution;
+import seed.interactions.EvolveComponent;
 
 public class Plant extends Absorber {
 	
@@ -12,7 +16,8 @@ public class Plant extends Absorber {
 	//champs d'une plante
 	protected int cost;
 	protected int waterEvolQty;
-	//TODO protected ArrayList<Evolution> evolutions;
+	/* /!\ le tableau d'évolution doit être trié suivant le coût d'énergie /!\ */
+	protected ArrayList<Evolution> evolutions = new ArrayList<Evolution>();
 	protected int airProd;
 	protected int waterRegressQty;
 	protected int energyRegressQty;
@@ -22,6 +27,7 @@ public class Plant extends Absorber {
 		this.setEnergy(0);
 		
 		addComponent(new SunLitComponent());
+		addComponent(new EvolveComponent());
 		addComponent(new PlantRenderComponent(id+"_Render", image));
 	}
 
@@ -79,6 +85,14 @@ public class Plant extends Absorber {
 
 	public int getEnergy() {
 		return energy;
+	}
+
+	public ArrayList<Evolution> getEvolutions() {
+		return evolutions;
+	}
+
+	public void setEvolutions(ArrayList<Evolution> evolutions) {
+		this.evolutions = evolutions;
 	}
 
 }
