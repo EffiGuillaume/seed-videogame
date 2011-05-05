@@ -1,5 +1,8 @@
 package seed.field;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
@@ -7,15 +10,13 @@ import org.newdawn.slick.geom.Vector2f;
 import seed.engine.Entity;
 
 public class Block extends Entity {
-	public static int MAX_NUMBER_TYPE = 10;
 	public static int BLOCK_SIZE = 50;
 	
 	boolean used;
 	boolean showBorder = false;
 	
 	//types du block
-	BlockType[] types = new BlockType[MAX_NUMBER_TYPE];
-	int nb_types = 0;
+	ArrayList<BlockType> types = new ArrayList<BlockType>();
 	
 	Entity occupant;
 	
@@ -56,27 +57,23 @@ public class Block extends Entity {
 	}
 	
 	public boolean isType(BlockType t){
-		int i;
-		for(i = 0; i < nb_types && t != types[i]; i++);
-		if(i == nb_types)
-			return false;
-		return true;
+		Iterator<BlockType> it = types.iterator();
+		while(it.hasNext()){
+			BlockType type = (BlockType) it.next();
+			if(type==t)
+				return true;
+		}
+		return false;
 	}
 	
 	public void addType(BlockType t){
-		if(nb_types < MAX_NUMBER_TYPE && !isType(t)){
-			types[nb_types] = t;
-			nb_types++;
-		}	
+		if(!isType(t)){
+			types.add(t);
+		}
 	}
 	
 	public void removeType(BlockType t){
-		int i;
-		for(i = 0; i < nb_types && t != types[i]; i++);
-		if(i != nb_types){
-			types[i] = types[nb_types];
-			nb_types--;
-		}
+		types.remove(t);
 	}
 
 	public Vector2f getCenter() {
@@ -91,6 +88,10 @@ public class Block extends Entity {
 	
 	public void setOccupant(Entity e){
 		occupant = e;
+	}
+
+	public ArrayList<BlockType> getTypes() {
+		return types;
 	}
 	
 }
