@@ -6,6 +6,7 @@ import java.util.Iterator;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.state.StateBasedGame;
 
+import seed.config.PlantConfig;
 import seed.engine.Component;
 import seed.field.BlockType;
 import seed.field.Field;
@@ -43,8 +44,14 @@ public class EvolveComponent extends Component{
 							System.out.println("Evolution !!! " + evolName);
 							
 							//TODO Aller chercher dans la base de donnée les caractéristiques de l'évolution à partir du nom
+							// Pour ça, il y a juste à faire : 'PlantConfig.getProperty(evolName + "DELAY")' par exemple pour avoir la caractéristique 'delay' du niveau 'evolName'
 							
 							//TODO Modifier tout les caractéristiques de la Plant(owner) suivant l'évolution
+								// exemple : 
+								((Plant)owner).setDelay(Integer.parseInt(PlantConfig.getProperty(evolName + "DELAY")));
+								((Plant)owner).setRange(Integer.parseInt(PlantConfig.getProperty(evolName + "RANGE")));
+								//fin exemple
+							
 							surProdActivate = false;
 							((Plant)owner).setStorage(0);
 							((Plant)owner).setEnergy(0);

@@ -1,9 +1,11 @@
 package seed.interactions;
 
+import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -12,13 +14,16 @@ import seed.field.Block;
 
 public class AbsorberRenderComponent extends RenderComponent {
 
-	Image image;
+	SpriteSheet image;
 	Graphics circle;
+	Animation anim;
 
 	public AbsorberRenderComponent(String id, Image image) {
 		super(id);
-		this.image = image;
+
+		this.image = new SpriteSheet(image, image.getWidth(), image.getWidth());
 		this.circle = new Graphics();
+		this.anim = new Animation(this.image, 100);
 	}
 
 	@Override
@@ -27,19 +32,25 @@ public class AbsorberRenderComponent extends RenderComponent {
 		{
 			Vector2f pos = owner.getPosition();
 			Vector2f center = ((Absorber)owner).getCenter();
-			float scale = owner.getScale();
-	 
-			image.draw(pos.x, pos.y, scale);
 			
 			if(owner instanceof Absorber)
 			{
 				float range = ((Absorber) owner).getRange();
 				circle.setColor(Color.red);
-				
-				if((!((Absorber) owner).isPlaced()) || Cursor.getInstance().getPosition().distance(((Absorber)owner).getCenter()) < Block.BLOCK_SIZE)
+				if(!((Absorber) owner).isPlaced())
 				{
+					anim.draw(pos.x - image.getWidth()/2 + Block.BLOCK_SIZE/2, pos.y - image.getWidth()/2 + Block.BLOCK_SIZE/2);
 					circle.drawOval(center.getX() - range, center.getY() - range, range*2, range*2);
-					gr.drawString(String.valueOf(((Absorber)owner).getStorage()), center.getX(), center.getY());
+					gr.drawString(String.valueOf(((Absorber)owner).getStorage()), center.getX()+15, center.getY());
+				}
+				else
+				{
+					image.getSubImage(0, image.getWidth()*(((Absorber)owner).getImageReference()-1), image.getWidth(), image.getWidth()).draw(pos.x - image.getWidth()/2 + Block.BLOCK_SIZE/2, pos.y - image.getWidth()/2 + Block.BLOCK_SIZE/2);
+					if(Cursor.getInstance().getPosition().distance(((Absorber)owner).getCenter()) < Block.BLOCK_SIZE)
+					{
+						circle.drawOval(center.getX() - range, center.getY() - range, range*2, range*2);
+						gr.drawString(String.valueOf(((Absorber)owner).getStorage()), center.getX()+15, center.getY());
+					}
 				}
 
 			} else
