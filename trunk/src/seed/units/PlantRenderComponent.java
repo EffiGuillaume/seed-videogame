@@ -16,7 +16,6 @@ public class PlantRenderComponent extends AbsorberRenderComponent {
 
 	public PlantRenderComponent(String id, Image image) {
 		super(id, image);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
@@ -32,7 +31,7 @@ public class PlantRenderComponent extends AbsorberRenderComponent {
 				if((!((Plant) owner).isPlaced()) || Cursor.getInstance().getPosition().distance(((Plant)owner).getCenter()) < Block.BLOCK_SIZE)
 				{
 					gr.setColor(Color.yellow);
-					gr.drawString(String.valueOf(((Plant)owner).getEnergy()), center.getX(), center.getY() - 15);
+					gr.drawString(String.valueOf(((Plant)owner).getEnergy()), center.getX()+15, center.getY()-15);
 					gr.setColor(Color.white);
 				}
 
