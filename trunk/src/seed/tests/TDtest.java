@@ -10,9 +10,13 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 
+import seed.config.FlowerConfig;
+import seed.config.HerbConfig;
 import seed.field.Field;
 import seed.interactions.Cursor;
 import seed.interactions.CursorState;
+import seed.interactions.Evolution;
+import seed.units.Herb;
 import seed.units.Plant;
 import seed.units.Sunbeam;
 import seed.units.Wave;
@@ -72,9 +76,12 @@ public class TDtest extends BasicGame {
 		/* test rayon du soleil*/
 		Cursor.getInstance().setState(CursorState.SUN);
 		Sunbeam.getInstance().setScope(150);
+		HerbConfig.init();
+		FlowerConfig.init();
 		
 		/* test plante */
-		plant = new Plant("Plantest", 300, 200, new Image("res/point.png"));
+//		plant = new Plant("Plantest", 300, 200, 300, 100, 5, 100, 0, -5, new ArrayList<Evolution>(), 1, new Image("res/point.png"));
+		plant = new Herb("test");
 		
 		/* test Water */
 		water = new Wave("Watertest", 8, 500, 100, 1, "res/water.png");
@@ -98,8 +105,8 @@ public class TDtest extends BasicGame {
 
 	public void render(GameContainer gc, Graphics gr) throws SlickException {
 		field.render(gc,null, gr);
-		plant.render(gc, null, gr);
 		water.render(gc, null, gr);
+		plant.render(gc, null, gr);
 		
 		Sunbeam.getInstance().render(gc, null, gr);
 	}
