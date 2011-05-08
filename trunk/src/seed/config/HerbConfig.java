@@ -1,23 +1,9 @@
 package seed.config;
 
-import java.util.Properties;
-
 public class HerbConfig extends PlantConfig{
-	
-	protected static Properties properties = new Properties();
-	
-	public static String getProperty(String key) {
-		return properties.getProperty(key);
-	}
-	public static void setProperty(String key, String value) {
-		properties.setProperty(key, value);
-	}
-	
-	protected HerbConfig(){
+		
+	public HerbConfig(){
 		super();
-	}
-	
-	public static void init(){
 		properties.setProperty("LVL0_DELAY", "600");
 		properties.setProperty("LVL0_RANGE", "100");
 		properties.setProperty("LVL0_ENERGYDELAY", "200");

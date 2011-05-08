@@ -6,16 +6,14 @@ import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 
-import seed.config.FlowerConfig;
-import seed.config.HerbConfig;
+import seed.config.Configs;
 import seed.field.Field;
 import seed.interactions.Cursor;
 import seed.interactions.CursorState;
-import seed.interactions.Evolution;
+import seed.units.Flower;
 import seed.units.Herb;
 import seed.units.Plant;
 import seed.units.Sunbeam;
@@ -76,8 +74,7 @@ public class TDtest extends BasicGame {
 		/* test rayon du soleil*/
 		Cursor.getInstance().setState(CursorState.SUN);
 		Sunbeam.getInstance().setScope(150);
-		HerbConfig.init();
-		FlowerConfig.init();
+		Configs.init();
 		
 		/* test plante */
 //		plant = new Plant("Plantest", 300, 200, 300, 100, 5, 100, 0, -5, new ArrayList<Evolution>(), 1, new Image("res/point.png"));

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
-import seed.config.FlowerConfig;
+import seed.config.Configs;
 import seed.field.BlockType;
 import seed.interactions.Evolution;
 
@@ -13,39 +13,42 @@ public class Flower extends Plant {
 	
 	public Flower(String id) throws SlickException {
 		super(id);
-		this.delay = Integer.parseInt(FlowerConfig.getProperty("LVL1_DELAY"));
-		this.range = Integer.parseInt(FlowerConfig.getProperty("LVL1_RANGE"));
+		this.delay = Integer.parseInt(Configs.getType("FLOWER").getProperty("LVL1_DELAY"));
+		this.range = Integer.parseInt(Configs.getType("FLOWER").getProperty("LVL1_RANGE"));
 		this.storage = 0;
 		this.energy = 0;
-		this.energyDelay = Integer.parseInt(FlowerConfig.getProperty("LVL1_ENERGYDELAY"));
-		this.cost = Integer.parseInt(FlowerConfig.getProperty("LVL1_COST"));
-		this.waterEvolQty = Integer.parseInt(FlowerConfig.getProperty("LVL1_WATEREVOLQTY"));
-		this.airProd = Integer.parseInt(FlowerConfig.getProperty("LVL1_AIRPROD"));
-		this.waterRegressQty = Integer.parseInt(FlowerConfig.getProperty("LVL1_WATERREGRESSQTY"));
-		this.energyRegressQty = Integer.parseInt(FlowerConfig.getProperty("LVL1_ENERGYREGRESSQTY"));
-		this.imageReference = Integer.parseInt(FlowerConfig.getProperty("LVL1_IMAGEREFERENCE"));
+		this.energyDelay = Integer.parseInt(Configs.getType("FLOWER").getProperty("LVL1_ENERGYDELAY"));
+		this.cost = Integer.parseInt(Configs.getType("FLOWER").getProperty("LVL1_COST"));
+		this.waterEvolQty = Integer.parseInt(Configs.getType("FLOWER").getProperty("LVL1_WATEREVOLQTY"));
+		this.airProd = Integer.parseInt(Configs.getType("FLOWER").getProperty("LVL1_AIRPROD"));
+		this.waterRegressQty = Integer.parseInt(Configs.getType("FLOWER").getProperty("LVL1_WATERREGRESSQTY"));
+		this.energyRegressQty = Integer.parseInt(Configs.getType("FLOWER").getProperty("LVL1_ENERGYREGRESSQTY"));
+		this.imageReference = Integer.parseInt(Configs.getType("FLOWER").getProperty("LVL1_IMAGEREFERENCE"));
 		
 		ArrayList<Evolution> evolutions = new ArrayList<Evolution>();
-			Evolution lvl1 = new Evolution("LVL1_Flower_Evolution");
-			lvl1.setEnergyCost(Integer.parseInt(FlowerConfig.getProperty("LVL1_EVOLCOST")));
+			Evolution lvl1 = new Evolution("FLOWER_LVL1_Evolution");
+			lvl1.setEnergyCost(Integer.parseInt(Configs.getType("FLOWER").getProperty("LVL1_EVOLCOST")));
 			ArrayList<BlockType> fields0 = new ArrayList<BlockType>();
 				fields0.add(BlockType.FORET);
 			lvl1.setFields(fields0);
-			lvl1.setType("LVL1");
+			lvl1.setType("FLOWER");
+			lvl1.setEvol("LVL1");
 		
-			Evolution lvl2 = new Evolution("LVL2_Flower_Evolution");
-				lvl2.setEnergyCost(Integer.parseInt(FlowerConfig.getProperty("LVL2_EVOLCOST")));
+			Evolution lvl2 = new Evolution("FLOWER_LVL2_Evolution");
+				lvl2.setEnergyCost(Integer.parseInt(Configs.getType("FLOWER").getProperty("LVL2_EVOLCOST")));
 				ArrayList<BlockType> fields = new ArrayList<BlockType>();
 					fields.add(BlockType.FORET);
 				lvl2.setFields(fields);
-				lvl2.setType("LVL2");
+				lvl2.setType("FLOWER");
+				lvl2.setEvol("LVL2");
 				
-			Evolution lvl3 = new Evolution("LVL3_Flower_Evolution");
-				lvl3.setEnergyCost(Integer.parseInt(FlowerConfig.getProperty("LVL3_EVOLCOST"))); 
+			Evolution lvl3 = new Evolution("FLOWER_LVL3_Evolution");
+				lvl3.setEnergyCost(Integer.parseInt(Configs.getType("FLOWER").getProperty("LVL3_EVOLCOST"))); 
 				ArrayList<BlockType> fields2 = new ArrayList<BlockType>();
 					fields2.add(BlockType.FORET);
 				lvl3.setFields(fields2);
-				lvl3.setType("LVL3");
+				lvl3.setType("FLOWER");
+				lvl3.setEvol("LVL3");
 		
 		this.evolutions = evolutions;
 		

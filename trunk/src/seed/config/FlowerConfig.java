@@ -2,11 +2,8 @@ package seed.config;
 
 public class FlowerConfig extends PlantConfig {
 	
-	protected FlowerConfig(){
+	public FlowerConfig(){
 		super();
-	}
-	
-	public static void init(){
 		properties.setProperty("LVL0_DELAY", "600");
 		properties.setProperty("LVL0_RANGE", "50");
 		properties.setProperty("LVL0_ENERGYDELAY", "300");

@@ -10,6 +10,7 @@ import seed.field.BlockType;
 
 public class Evolution extends Entity{
 	private String type;
+	private String evol;
 	private int energyCost;
 	private ArrayList<BlockType> fields = new ArrayList<BlockType>();
 	
@@ -43,6 +44,14 @@ public class Evolution extends Entity{
 		this.type = type;
 	}
 	
+	public void setEvol(String evol) {
+		this.evol = evol;
+	}
+
+	public String getEvol() {
+		return evol;
+	}
+
 	//Vérifie la constructibilité suivant un autre tableau de type de terrain
 	public boolean isConstructibleOnField(ArrayList<BlockType> fieldArray){
 		Iterator<BlockType> it = fields.iterator();
