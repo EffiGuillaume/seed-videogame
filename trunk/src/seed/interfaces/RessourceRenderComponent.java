@@ -16,7 +16,6 @@ public class RessourceRenderComponent extends RenderComponent {
 	
 	@Override
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr) {
-		System.out.println("arzae");
 		try
 		{
 			if(owner instanceof Ressource)
