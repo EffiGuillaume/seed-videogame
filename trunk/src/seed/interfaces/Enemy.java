@@ -6,7 +6,7 @@ public class Enemy extends Entity{
 	int MAX_EVOLUTIONS = 3;
 	
 	int evolutionNumber = 0;
-	int[][] evolutions = new int[MAX_EVOLUTIONS][2];
+	int[][] evolutions = new int[MAX_EVOLUTIONS][3];
 	
 	public Enemy(String id) {
 		super(id);
@@ -18,7 +18,7 @@ public class Enemy extends Entity{
 		int delayBeforeEvolve = 1000000;
 		for(int i=0;i < MAX_EVOLUTIONS; i++){
 			evolutions[i][0] = pollutionProfQty;
-			evolutions[i][1] = 5000;
+			evolutions[i][1] = 500;
 			evolutions[i][2] = delayBeforeEvolve;
 			pollutionProfQty += 1;
 			delayBeforeEvolve += 1000000;

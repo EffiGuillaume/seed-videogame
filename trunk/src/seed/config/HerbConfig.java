@@ -2,50 +2,83 @@ package seed.config;
 
 public class HerbConfig extends PlantConfig{
 		
-	public HerbConfig(){
-		super();
-		properties.setProperty("LVL0_DELAY", "600");
-		properties.setProperty("LVL0_RANGE", "100");
-		properties.setProperty("LVL0_ENERGYDELAY", "200");
-		properties.setProperty("LVL0_COST", "100");
-		properties.setProperty("LVL0_WATEREVOLQTY", "5");
-		properties.setProperty("LVL0_AIRPROD", "0");
-		properties.setProperty("LVL0_WATERREGRESSQTY", "0");
-		properties.setProperty("LVL0_ENERGYREGRESSQTY", "-10");
-		properties.setProperty("LVL0_IMAGEREFERENCE", "6");
+	public HerbConfig(int level){
+		super(level);
 		
-		properties.setProperty("LVL1_EVOLCOST", "5");
-		properties.setProperty("LVL1_DELAY", "300");
-		properties.setProperty("LVL1_RANGE", "100");
-		properties.setProperty("LVL1_ENERGYDELAY", "100");
-		properties.setProperty("LVL1_COST", "100");
-		properties.setProperty("LVL1_WATEREVOLQTY", "5");
-		properties.setProperty("LVL1_AIRPROD", "100");
-		properties.setProperty("LVL1_WATERREGRESSQTY", "0");
-		properties.setProperty("LVL1_ENERGYREGRESSQTY", "-5");
-		properties.setProperty("LVL1_IMAGEREFERENCE", "6");
+		switch(level){
+		case(0): //création d'un HerbConfig LVL0
+		{
+			properties.setProperty("DELAY", "600");
+			properties.setProperty("RANGE", "100");
+			properties.setProperty("ENERGYDELAY", "200");
+			properties.setProperty("COST", "100");
+			properties.setProperty("WATEREVOLQTY", "5");
+			properties.setProperty("AIRPROD", "0");
+			properties.setProperty("WATERREGRESSQTY", "0");
+			properties.setProperty("ENERGYREGRESSQTY", "-10");
+			properties.setProperty("IMAGEREFERENCE", "6");
+			
+			break;
+		}
+		case(1): //création d'un HerbConfig LVL1
+		{
+			properties.setProperty("EVOLCOST", "5");
+			properties.setProperty("DELAY", "300");
+			properties.setProperty("RANGE", "100");
+			properties.setProperty("ENERGYDELAY", "100");
+			properties.setProperty("COST", "100");
+			properties.setProperty("WATEREVOLQTY", "5");
+			properties.setProperty("AIRPROD", "100");
+			properties.setProperty("WATERREGRESSQTY", "0");
+			properties.setProperty("ENERGYREGRESSQTY", "-5");
+			properties.setProperty("IMAGEREFERENCE", "6");
+			
+			break;
+		}
+		case(2): //création d'un HerbConfig LVL2
+		{
+			properties.setProperty("EVOLCOST", "10");
+			properties.setProperty("DELAY", "200");
+			properties.setProperty("RANGE", "125");
+			properties.setProperty("ENERGYDELAY", "75");
+			properties.setProperty("COST", "100");
+			properties.setProperty("WATEREVOLQTY", "10");
+			properties.setProperty("AIRPROD", "200");
+			properties.setProperty("WATERREGRESSQTY", "0");
+			properties.setProperty("ENERGYREGRESSQTY", "0");
+			properties.setProperty("IMAGEREFERENCE", "6");
+			
+			break;
+		}
+		case(3): //création d'un HerbConfig LVL3
+		{
+			properties.setProperty("EVOLCOST", "15");
+			properties.setProperty("DELAY", "150");
+			properties.setProperty("RANGE", "150");
+			properties.setProperty("ENERGYDELAY", "75");
+			properties.setProperty("COST", "100");
+			properties.setProperty("WATEREVOLQTY", "10");
+			properties.setProperty("AIRPROD", "300");
+			properties.setProperty("WATERREGRESSQTY", "5");
+			properties.setProperty("ENERGYREGRESSQTY", "5");
+			properties.setProperty("IMAGEREFERENCE", "6");
+			
+			break;
+		}
+		default: //création d'un HerbConfig par défaut
+		{
+			properties.setProperty("DELAY", "600");
+			properties.setProperty("RANGE", "100");
+			properties.setProperty("ENERGYDELAY", "200");
+			properties.setProperty("COST", "100");
+			properties.setProperty("WATEREVOLQTY", "5");
+			properties.setProperty("AIRPROD", "0");
+			properties.setProperty("WATERREGRESSQTY", "0");
+			properties.setProperty("ENERGYREGRESSQTY", "-10");
+			properties.setProperty("IMAGEREFERENCE", "6");
+		}
+		}//end of switch
 		
-		properties.setProperty("LVL2_EVOLCOST", "10");
-		properties.setProperty("LVL2_DELAY", "200");
-		properties.setProperty("LVL2_RANGE", "125");
-		properties.setProperty("LVL2_ENERGYDELAY", "75");
-		properties.setProperty("LVL2_COST", "100");
-		properties.setProperty("LVL2_WATEREVOLQTY", "10");
-		properties.setProperty("LVL2_AIRPROD", "200");
-		properties.setProperty("LVL2_WATERREGRESSQTY", "0");
-		properties.setProperty("LVL2_ENERGYREGRESSQTY", "0");
-		properties.setProperty("LVL2_IMAGEREFERENCE", "6");
-		
-		properties.setProperty("LVL3_EVOLCOST", "15");
-		properties.setProperty("LVL3_DELAY", "150");
-		properties.setProperty("LVL3_RANGE", "150");
-		properties.setProperty("LVL3_ENERGYDELAY", "75");
-		properties.setProperty("LVL3_COST", "100");
-		properties.setProperty("LVL3_WATEREVOLQTY", "10");
-		properties.setProperty("LVL3_AIRPROD", "300");
-		properties.setProperty("LVL3_WATERREGRESSQTY", "5");
-		properties.setProperty("LVL3_ENERGYREGRESSQTY", "5");
-		properties.setProperty("LVL3_IMAGEREFERENCE", "6");
 	}
 
 }

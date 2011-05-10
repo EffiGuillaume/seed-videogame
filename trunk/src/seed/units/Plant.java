@@ -8,6 +8,7 @@ import org.newdawn.slick.SlickException;
 import seed.interactions.Absorber;
 import seed.interactions.Evolution;
 import seed.interactions.EvolveComponent;
+import seed.interfaces.ProduceAirComponent;
 
 public class Plant extends Absorber {
 	
@@ -36,6 +37,7 @@ public class Plant extends Absorber {
 		
 		addComponent(new SunLitComponent());
 		addComponent(new EvolveComponent());
+		addComponent(new ProduceAirComponent());
 		addComponent(new PlantRenderComponent(id+"_Render", new Image("res/point.png")));
 	}
 	
