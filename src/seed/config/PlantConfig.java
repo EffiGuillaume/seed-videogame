@@ -13,7 +13,7 @@ public abstract class PlantConfig {
 		properties.setProperty(key, value);
 	}
 	
-	public PlantConfig(){
+	public PlantConfig(int level){
 		properties = new Properties();
 	}
 }

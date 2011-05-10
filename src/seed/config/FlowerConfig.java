@@ -2,49 +2,82 @@ package seed.config;
 
 public class FlowerConfig extends PlantConfig {
 	
-	public FlowerConfig(){
-		super();
-		properties.setProperty("LVL0_DELAY", "600");
-		properties.setProperty("LVL0_RANGE", "50");
-		properties.setProperty("LVL0_ENERGYDELAY", "300");
-		properties.setProperty("LVL0_COST", "150");
-		properties.setProperty("LVL0_WATEREVOLQTY", "5");
-		properties.setProperty("LVL0_AIRPROD", "10");
-		properties.setProperty("LVL0_WATERREGRESSQTY", "0");
-		properties.setProperty("LVL0_ENERGYREGRESSQTY", "-5");
-		properties.setProperty("LVL0_IMAGEREFERENCE", "6");
+	public FlowerConfig(int level){
+		super(level);
 		
-		properties.setProperty("LVL1_EVOLCOST", "10");
-		properties.setProperty("LVL1_DELAY", "300");
-		properties.setProperty("LVL1_RANGE", "100");
-		properties.setProperty("LVL1_ENERGYDELAY", "150");
-		properties.setProperty("LVL1_COST", "150");
-		properties.setProperty("LVL1_WATEREVOLQTY", "5");
-		properties.setProperty("LVL1_AIRPROD", "300");
-		properties.setProperty("LVL1_WATERREGRESSQTY", "0");
-		properties.setProperty("LVL1_ENERGYREGRESSQTY", "-1");
-		properties.setProperty("LVL1_IMAGEREFERENCE", "6");
-		
-		properties.setProperty("LVL2_EVOLCOST", "20");
-		properties.setProperty("LVL2_DELAY", "300");
-		properties.setProperty("LVL2_RANGE", "100");
-		properties.setProperty("LVL2_ENERGYDELAY", "150");
-		properties.setProperty("LVL2_COST", "150");
-		properties.setProperty("LVL2_WATEREVOLQTY", "10");
-		properties.setProperty("LVL2_AIRPROD", "600");
-		properties.setProperty("LVL2_WATERREGRESSQTY", "0");
-		properties.setProperty("LVL2_ENERGYREGRESSQTY", "5");
-		properties.setProperty("LVL2_IMAGEREFERENCE", "6");
-		
-		properties.setProperty("LVL3_EVOLCOST", "30");
-		properties.setProperty("LVL3_DELAY", "300");
-		properties.setProperty("LVL3_RANGE", "100");
-		properties.setProperty("LVL3_ENERGYDELAY", "100");
-		properties.setProperty("LVL3_COST", "150");
-		properties.setProperty("LVL3_WATEREVOLQTY", "10");
-		properties.setProperty("LVL3_AIRPROD", "900");
-		properties.setProperty("LVL3_WATERREGRESSQTY", "5");
-		properties.setProperty("LVL3_ENERGYREGRESSQTY", "10");
-		properties.setProperty("LVL3_IMAGEREFERENCE", "6");
+		switch(level){
+		case(0): //création d'un FlowerConfig LVL0
+		{
+			properties.setProperty("DELAY", "600");
+			properties.setProperty("RANGE", "50");
+			properties.setProperty("ENERGYDELAY", "300");
+			properties.setProperty("COST", "150");
+			properties.setProperty("WATEREVOLQTY", "5");
+			properties.setProperty("AIRPROD", "10");
+			properties.setProperty("WATERREGRESSQTY", "0");
+			properties.setProperty("ENERGYREGRESSQTY", "-5");
+			properties.setProperty("IMAGEREFERENCE", "6");
+			
+			break;
+		}
+		case(1): //création d'un FlowerConfig LVL1
+		{
+			properties.setProperty("EVOLCOST", "10");
+			properties.setProperty("DELAY", "300");
+			properties.setProperty("RANGE", "100");
+			properties.setProperty("ENERGYDELAY", "150");
+			properties.setProperty("COST", "150");
+			properties.setProperty("WATEREVOLQTY", "5");
+			properties.setProperty("AIRPROD", "300");
+			properties.setProperty("WATERREGRESSQTY", "0");
+			properties.setProperty("ENERGYREGRESSQTY", "-1");
+			properties.setProperty("IMAGEREFERENCE", "6");
+			
+			break;
+		}
+		case(2): //création d'un FlowerConfig LVL2
+		{
+			properties.setProperty("EVOLCOST", "20");
+			properties.setProperty("DELAY", "300");
+			properties.setProperty("RANGE", "100");
+			properties.setProperty("ENERGYDELAY", "150");
+			properties.setProperty("COST", "150");
+			properties.setProperty("WATEREVOLQTY", "10");
+			properties.setProperty("AIRPROD", "600");
+			properties.setProperty("WATERREGRESSQTY", "0");
+			properties.setProperty("ENERGYREGRESSQTY", "5");
+			properties.setProperty("IMAGEREFERENCE", "6");
+			
+			break;
+		}
+		case(3): //création d'un FlowerConfig LVL3
+		{
+			properties.setProperty("EVOLCOST", "30");
+			properties.setProperty("DELAY", "300");
+			properties.setProperty("RANGE", "100");
+			properties.setProperty("ENERGYDELAY", "100");
+			properties.setProperty("COST", "150");
+			properties.setProperty("WATEREVOLQTY", "10");
+			properties.setProperty("AIRPROD", "900");
+			properties.setProperty("WATERREGRESSQTY", "5");
+			properties.setProperty("ENERGYREGRESSQTY", "10");
+			properties.setProperty("IMAGEREFERENCE", "6");
+			
+			break;
+		}
+		default: //création d'un FlowerConfig par défaut
+		{
+			properties.setProperty("DELAY", "600");
+			properties.setProperty("RANGE", "50");
+			properties.setProperty("ENERGYDELAY", "300");
+			properties.setProperty("COST", "150");
+			properties.setProperty("WATEREVOLQTY", "5");
+			properties.setProperty("AIRPROD", "10");
+			properties.setProperty("WATERREGRESSQTY", "0");
+			properties.setProperty("ENERGYREGRESSQTY", "-5");
+			properties.setProperty("IMAGEREFERENCE", "6");
+		}
+		}//end of switch
+
 	}
 }

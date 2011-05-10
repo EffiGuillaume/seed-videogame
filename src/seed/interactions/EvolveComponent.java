@@ -42,12 +42,12 @@ public class EvolveComponent extends Component{
 							System.out.println("Evolution !!! " + evolName);
 							
 							//TODO Aller chercher dans la base de donnée les caractéristiques de l'évolution à partir du nom
-							// Pour ça, il y a juste à faire : 'Configs.getType(typeName).getProperty(evolName + "_DELAY")' par exemple pour avoir la caractéristique 'delay' du niveau 'evolName' de la plante 'typeName'
+							// Pour ça, il y a juste à faire : 'Configs.getPlantConfig(typeName+"_"+evolName).getProperty("DELAY")' par exemple pour avoir la caractéristique 'delay' du niveau 'evolName' de la plante 'typeName'
 							
 							//TODO Modifier tout les caractéristiques de la Plant(owner) suivant l'évolution
 								// exemple : 
-								((Plant)owner).setDelay(Integer.parseInt(Configs.getType(typeName).getProperty(evolName + "_DELAY")));
-								((Plant)owner).setRange(Integer.parseInt(Configs.getType(typeName).getProperty(evolName + "_RANGE")));
+								((Plant)owner).setDelay(Integer.parseInt(Configs.getPlantConfig(typeName+"_"+evolName).getProperty("DELAY")));
+								((Plant)owner).setRange(Integer.parseInt(Configs.getPlantConfig(typeName+"_"+evolName).getProperty("RANGE")));
 								//fin exemple
 							
 							surProdActivate = false;
