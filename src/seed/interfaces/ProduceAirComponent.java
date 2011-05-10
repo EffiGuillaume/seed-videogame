@@ -24,6 +24,7 @@ public class ProduceAirComponent extends Component {
 					else
 					{
 						Ressource.getInstance().transformPoluIntoAir(((Plant) owner).getAirProd());
+						timer = 0;
 					}
 				}
 			}

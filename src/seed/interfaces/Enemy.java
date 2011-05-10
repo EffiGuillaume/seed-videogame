@@ -23,6 +23,8 @@ public class Enemy extends Entity{
 			pollutionProfQty += 1;
 			delayBeforeEvolve += 1000000;
 		}
+		
+		addComponent(new EnemyComponent());
 	}
 
 	public int getPollutionProdQty() {

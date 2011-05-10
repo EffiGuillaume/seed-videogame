@@ -129,5 +129,9 @@ public class Plant extends Absorber {
 	public void setEvolutions(ArrayList<Evolution> evolutions) {
 		this.evolutions = evolutions;
 	}
+	
+	public boolean isReadyToEvolve() {
+		return (this.storage >= this.waterEvolQty);
+	}
 
 }

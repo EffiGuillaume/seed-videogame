@@ -24,17 +24,6 @@ public class Evolution extends Entity{
 	public void setEnergyCost(int energyCost) {
 		this.energyCost = energyCost;
 	}
-	public ArrayList<BlockType> getFields() {
-		return fields;
-	}
-	
-	public void setFields(ArrayList<BlockType> fields) {
-		this.fields = fields;
-	}
-	
-	public void addField(BlockType f) {
-		this.fields.add(f);
-	}
 	
 	public String getType() {
 		return type;
@@ -51,8 +40,20 @@ public class Evolution extends Entity{
 	public String getEvol() {
 		return evol;
 	}
+	
+	public ArrayList<BlockType> getFields() {
+		return fields;
+	}
+	
+	public void setFields(ArrayList<BlockType> fields) {
+		this.fields = fields;
+	}
+	
+	public void addField(BlockType f) {
+		this.fields.add(f);
+	}
 
-	//Vérifie la constructibilité suivant un autre tableau de type de terrain
+//	Vérifie la constructibilité suivant un autre tableau de type de terrain
 	public boolean isConstructibleOnField(ArrayList<BlockType> fieldArray){
 		Iterator<BlockType> it = fields.iterator();
 		while(it.hasNext()){
