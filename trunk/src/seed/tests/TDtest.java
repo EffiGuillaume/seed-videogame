@@ -18,6 +18,7 @@ import seed.units.Herb;
 import seed.units.Plant;
 import seed.units.Sunbeam;
 import seed.units.Wave;
+import seed.interfaces.Ressource;
 
 public class TDtest extends BasicGame {
 	static int SCREEN_WIDTH = 800;
@@ -82,6 +83,7 @@ public class TDtest extends BasicGame {
 		
 		/* test Water */
 		water = new Wave("Watertest", 8, 500, 100, 1, "res/water.png");
+
 	}
 
 	public void update(GameContainer gc, int delta) throws SlickException  {
@@ -98,6 +100,7 @@ public class TDtest extends BasicGame {
 		 
 		 plant.update(gc, null, delta);
 		 water.update(gc, null, delta);
+		 Ressource.getInstance().update(gc, null, delta);
 	}
 
 	public void render(GameContainer gc, Graphics gr) throws SlickException {
@@ -106,6 +109,7 @@ public class TDtest extends BasicGame {
 		plant.render(gc, null, gr);
 		
 		Sunbeam.getInstance().render(gc, null, gr);
+		Ressource.getInstance().render(gc, null, gr);
 	}
 
 }

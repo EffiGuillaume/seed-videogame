@@ -21,16 +21,13 @@ public class EvolveComponent extends Component{
 	public void update(GameContainer gc, StateBasedGame sb, int delta) {
 		if(((Plant)owner).isPlaced()){
 			int regressionPoint = ((Plant)owner).getEnergyRegressQty();
-			int evolutionPoint = ((Plant)owner).getWaterEvolQty();
-			
-			int waterQty = ((Plant)owner).getStorage();
 			int energyQty = ((Plant)owner).getEnergy();
 			float plant_x = owner.getPosition().getX();
 			float plant_y = owner.getPosition().getY();
 			
 			try
 			{
-				if(waterQty>=evolutionPoint){	//quantité d'eau suffisant pour evoluer
+				if(((Plant) owner).isReadyToEvolve()){	//quantité d'eau suffisant pour evoluer
 						Evolution evolution = getEvolution(energyQty,Field.getInstance().getBlockType(plant_x,plant_y));
 						if(evolution == null){ //mode surproduction
 							if(!surProdActivate){

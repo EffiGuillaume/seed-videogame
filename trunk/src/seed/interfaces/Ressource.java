@@ -10,6 +10,7 @@ public class Ressource extends Entity {
 	
 	private Ressource(String id) {
 		super(id);
+		addComponent(new RessourceRenderComponent("Ressource_Render"));
 	}
 	
 	public final static Ressource getInstance() {
