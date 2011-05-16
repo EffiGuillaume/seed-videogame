@@ -1,6 +1,7 @@
 package seed.interactions;
 
 import seed.engine.Entity;
+import seed.units.Plant;
  
 /**
  * Classe Cursor
@@ -13,6 +14,7 @@ public class Cursor extends Entity {
 	private static final Cursor instance = new Cursor("cursor");
 	
 	private CursorState state;
+	private Entity occupant = null;
 
 	private Cursor(String id) {
 		super(id);
@@ -30,5 +32,13 @@ public class Cursor extends Entity {
 
 	public CursorState getState() {
 		return state;
+	}
+
+	public Entity getOccupant() {
+		return occupant;
+	}
+
+	public void setOccupant(Entity occupant) {
+		this.occupant = occupant;
 	}
 }
