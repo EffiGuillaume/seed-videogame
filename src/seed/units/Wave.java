@@ -9,6 +9,7 @@ import org.newdawn.slick.state.StateBasedGame;
 import seed.engine.Entity;
 import seed.interactions.Absorbable;
 import seed.interactions.AbsorptionComponent;
+import seed.interfaces.GameBoard;
 
 /**
  * Classe Wave
@@ -20,11 +21,16 @@ import seed.interactions.AbsorptionComponent;
 public class Wave extends Entity {
 
 	public ArrayList<Absorbable> content;
+	
+	public static int nbOfAbsorbable;
+	public static int level;
 
-	public Wave(String id, int numberOfAbsorbable, int delay, int speed, int absorbableQuantity, String imageRef) {
+	public Wave(String id, int level, int numberOfAbsorbable, int delay, int speed, int absorbableQuantity, String imageRef) {
 		super(id);
 		
-		content = new ArrayList<Absorbable>();
+		this.content = new ArrayList<Absorbable>();
+		Wave.nbOfAbsorbable = numberOfAbsorbable;
+		Wave.level = level;
 		addComponent(new WaveComponent(id+"_Component", numberOfAbsorbable, delay, speed, absorbableQuantity, imageRef));
 		
 		//Utilisation du pattern Listener : on enregistre l'instance de Wave auprès de AbsorptionComponent afin que ce dernier ait une référence sur l'instance
@@ -49,5 +55,10 @@ public class Wave extends Entity {
 		{
 			content.get(i).render(gc, sb, gr);
 		}
+	}
+
+	public static void newWave() {
+		System.out.println("NEW WAVE");
+		GameBoard.getInstance().setWaves(new Wave((level+1)+"Wave", level+1, level*10, 500, 100, 1, "res/WaterSprite.png"));
 	}
 }

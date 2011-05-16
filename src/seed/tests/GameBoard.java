@@ -71,7 +71,7 @@ public class GameBoard extends Entity {
 		plant = new Herb("test");
 
 		/* test Water */
-		water = new Wave("Watertest", 40, 500, 100, 1, "res/WaterSprite.png");
+		water = new Wave("Watertest", 1, 2, 500, 100, 1, "res/WaterSprite.png");
 
 		/* test Ressource */
 		Ressource.getInstance().setPollution(10000); // pollution de départ
