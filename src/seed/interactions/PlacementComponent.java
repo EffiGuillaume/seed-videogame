@@ -31,6 +31,7 @@ public class PlacementComponent extends Component {
 							if(Field.getInstance().isBlockFree(plant_x,plant_y)){
 								((Absorber)owner).setPlaced(true);
 								Field.getInstance().setBlockOccupant(plant_x, plant_y, owner);
+								Cursor.getInstance().setOccupant(null);
 							}
 						}
 					}
