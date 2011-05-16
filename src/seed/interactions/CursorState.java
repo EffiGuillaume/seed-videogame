@@ -1,6 +1,6 @@
 package seed.interactions;
 
 public enum CursorState {
-	NONE, SUN, CONSTRUCTION
+	NONE, SUN, CONSTRUCTION, NOT_VISIBLE
 }
  

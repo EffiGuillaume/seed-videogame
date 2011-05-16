@@ -6,13 +6,13 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import seed.config.Configs;
-import seed.field.BlockType;
 import seed.interactions.Evolution;
 
 public class Herb extends Plant {
 	
 	public Herb(String id) throws SlickException {
 		super(id);
+		this.evolution = "HERB_LVL1";
 		this.delay = Integer.parseInt(Configs.getPlantConfig("HERB_LVL1").getProperty("DELAY"));
 		this.range = Integer.parseInt(Configs.getPlantConfig("HERB_LVL1").getProperty("RANGE"));
 		this.storage = 0;
@@ -70,7 +70,7 @@ public class Herb extends Plant {
 			ArrayList<Evolution> evolutions, 
 			int imageReference,
 			Image image){
-		super(id+"_Herb", delay, range, energyDelay, cost, waterEvolQty, airProd, waterRegressQty, energyRegressQty, evolutions, imageReference, image);
+		super(id+"_Herb", delay, range, energyDelay, cost, waterEvolQty, airProd, waterRegressQty, energyRegressQty, imageReference, image);
 	}
 
 }

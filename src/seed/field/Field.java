@@ -50,7 +50,7 @@ public class Field  extends Entity{
 	}
 	
 	public void init(GameContainer gc) throws SlickException {
-		background = new ImageEntity("background",new Image("res/TD.jpg"));
+		background = new ImageEntity("background", new Image("res/texture.png"));
 		
 		grid = new Block[blockRowNumber][blockColumnNumber];
 		for(int i=0;i<blockRowNumber;i++){
@@ -176,4 +176,22 @@ public class Field  extends Entity{
 			throw new Exception("Error : coordonnée invalide");
 		grid[grid_x][grid_y].setOccupant(e);
 	}
+
+	public int getScreenWidth() {
+		return screenWidth;
+	}
+
+	public void setScreenWidth(int screenWidth) {
+		this.screenWidth = screenWidth;
+	}
+
+	public int getScreenHeight() {
+		return screenHeight;
+	}
+
+	public void setScreenHeight(int screenHeight) {
+		this.screenHeight = screenHeight;
+	}
+	
+	
 }

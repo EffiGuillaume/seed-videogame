@@ -1,12 +1,9 @@
 package seed.units;
 
-import java.util.ArrayList;
-
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import seed.interactions.Absorber;
-import seed.interactions.Evolution;
 import seed.interactions.EvolveComponent;
 import seed.interfaces.ProduceAirComponent;
 
@@ -19,10 +16,12 @@ public class Plant extends Absorber {
 	protected int cost;
 	protected int waterEvolQty;
 	/* /!\ le tableau d'évolution doit être trié suivant le coût d'énergie /!\ */
-	protected ArrayList<Evolution> evolutions = new ArrayList<Evolution>();
+	//protected ArrayList<Evolution> evolutions = new ArrayList<Evolution>();
 	protected int airProd;
 	protected int waterRegressQty;
 	protected int energyRegressQty;
+	
+	protected String evolution;
 
 	public Plant(String id) throws SlickException {
 		super(id);
@@ -33,7 +32,7 @@ public class Plant extends Absorber {
 		this.airProd = 0;
 		this.waterRegressQty = 100;
 		this.energyRegressQty = 100;
-		this.evolutions = new ArrayList<Evolution>();
+		//this.evolutions = new ArrayList<Evolution>();
 		
 		addComponent(new SunLitComponent());
 		addComponent(new EvolveComponent());
@@ -41,7 +40,7 @@ public class Plant extends Absorber {
 		addComponent(new PlantRenderComponent(id+"_Render", new Image("res/point.png")));
 	}
 	
-	public Plant(String id, 
+	/*public Plant(String id, 
 			int delay, 
 			float range, 
 			int energyDelay, 
@@ -66,6 +65,39 @@ public class Plant extends Absorber {
 		addComponent(new SunLitComponent());
 		addComponent(new EvolveComponent());
 		addComponent(new PlantRenderComponent(id+"_Render", image));
+	}*/
+	
+	public Plant(String id, 
+			int delay, 
+			float range, 
+			int energyDelay, 
+			int cost, 
+			int waterEvolQty, 
+			int airProd, 
+			int waterRegressQty, 
+			int energyRegressQty,
+			int imageReference,
+			Image image) {
+		super(id, delay, range, imageReference, image);
+		this.energy = 0;
+		this.energyDelay = energyDelay;
+		this.cost = cost;
+		this.waterEvolQty = waterEvolQty;
+		this.airProd = airProd;
+		this.waterRegressQty = waterRegressQty;
+		this.energyRegressQty = energyRegressQty;
+
+		addComponent(new SunLitComponent());
+		addComponent(new EvolveComponent());
+		addComponent(new PlantRenderComponent(id+"_Render", image));
+	}
+	
+	public String getEvolution() {
+		return evolution;
+	}
+
+	public void setEvolution(String evolution) {
+		this.evolution = evolution;
 	}
 
 	public int getEnergyDelay() {
@@ -124,13 +156,13 @@ public class Plant extends Absorber {
 		return energy;
 	}
 
-	public ArrayList<Evolution> getEvolutions() {
+	/*public ArrayList<Evolution> getEvolutions() {
 		return evolutions;
 	}
 
 	public void setEvolutions(ArrayList<Evolution> evolutions) {
 		this.evolutions = evolutions;
-	}
+	}*/
 	
 	public boolean isReadyToEvolve() {
 		return (this.storage >= this.waterEvolQty);

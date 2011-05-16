@@ -4,7 +4,6 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Vector2f;
 
 import seed.engine.Entity;
-import seed.field.ImageRenderComponent;
 
 public class Absorbable extends Entity {
 	
@@ -24,7 +23,7 @@ public class Absorbable extends Entity {
 		this.imageSize = new Vector2f((float)image.getWidth(), (float)image.getHeight());
 		
 		addComponent(new RailMovementComponent());
-		addComponent(new ImageRenderComponent(id+"_Render", image));
+		addComponent(new AbsorbableRenderComponent(id+"_Render", image));
 	}
 
 	public void setSpeed(int speed) {

@@ -6,7 +6,6 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import seed.config.Configs;
-import seed.field.BlockType;
 import seed.interactions.Evolution;
 
 public class Tree extends Plant {
@@ -71,7 +70,7 @@ public class Tree extends Plant {
 			ArrayList<Evolution> evolutions, 
 			int imageReference,
 			Image image){
-		super(id+"_Tree", delay, range, energyDelay, cost, waterEvolQty, airProd, waterRegressQty, energyRegressQty, evolutions, imageReference, image);
+		super(id+"_Tree", delay, range, energyDelay, cost, waterEvolQty, airProd, waterRegressQty, energyRegressQty, imageReference, image);
 	}
 
 }
