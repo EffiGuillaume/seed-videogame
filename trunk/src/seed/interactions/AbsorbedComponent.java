@@ -29,8 +29,10 @@ public class AbsorbedComponent extends Component {
 					absorber.setStorage(absorber.getStorage()+1);
 					((Wave)owner).content.remove(absorbablePosition);
 					absorbed = true;
-					//TODO bricolage bizarre pour éviter le lancement d'une exception de sortie de portée
-					owner = new Wave("Watertest", 8, 500, 100, 1, "res/water.png");
+					Wave.nbOfAbsorbable--;
+					
+					if(Wave.nbOfAbsorbable == 0)
+						Wave.newWave();
 				}
 			}
 		}

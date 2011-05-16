@@ -9,7 +9,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import seed.engine.Entity;
 import seed.interfaces.Enemy;
-import seed.tests.GameBoard;
+import seed.interfaces.GameBoard;
 
 public class SideBoard extends Entity  {
 	static int width = 150;

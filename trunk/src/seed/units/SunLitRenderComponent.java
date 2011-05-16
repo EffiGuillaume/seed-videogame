@@ -8,7 +8,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import seed.engine.RenderComponent;
 import seed.interactions.Cursor;
-import seed.interactions.CursorState;
+import seed.interfaces.SideBoard;
 
 public class SunLitRenderComponent extends RenderComponent {
 
@@ -21,7 +21,9 @@ public class SunLitRenderComponent extends RenderComponent {
 		Vector2f position = owner.getPosition();
 		float scope;
 		
-		if(Cursor.getInstance().getState() == CursorState.SUN) // on n'éclaire que si le curseur est dans l'état SUN
+//		if(Cursor.getInstance().getState() == CursorState.SUN) // on n'éclaire que si le curseur est dans l'état SUN
+//		{
+		if(!SideBoard.inside(position.getX(), position.getY()))
 		{
 			try
 			{

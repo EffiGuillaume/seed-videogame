@@ -4,8 +4,8 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.state.StateBasedGame;
 
 import seed.engine.Component;
-import seed.interactions.Cursor;
-import seed.interactions.CursorState;
+//import seed.interactions.Cursor;
+//import seed.interactions.CursorState;
 
 public class SunLitComponent extends Component {
 	
@@ -20,8 +20,8 @@ public class SunLitComponent extends Component {
 			{
 				if(((Plant) owner).isPlaced())
 				{
-					if(Cursor.getInstance().getState() == CursorState.SUN) // on n'éclaire que si le curseur est dans l'état SUN
-					{
+//					if(Cursor.getInstance().getState() == CursorState.SUN) // on n'éclaire que si le curseur est dans l'état SUN
+//					{
 						if(((Plant)owner).getCenter().distance(Sunbeam.getInstance().getPosition()) < Sunbeam.getInstance().getScope()/2)
 						{
 							if(timer < ((Plant)owner).getDelay() * 10/*gamma*/) // * une valeur gamma trouvŽe expŽrimentalement
@@ -48,7 +48,7 @@ public class SunLitComponent extends Component {
 								timer_decrement = 0;
 							}
 						}
-					}
+//					}
 				}
 			}
 			else
