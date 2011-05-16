@@ -12,13 +12,13 @@ import seed.field.Field;
 import seed.interactions.Cursor;
 import seed.units.Sunbeam;
 import seed.interfaces.Ressource;
-import seed.interfaces.Ressource;
+import seed.interfaces.SideBoard;
 
 public class TDtest extends BasicGame {
-	static int GAMEBOARD_WIDTH = 700;
-	static int GAMEBOARD_HEIGHT = 600;
-	static int SIDEBOARD_WIDTH = 150;
-	static int SIDEBOARD_HEIGHT = 600;
+	public static int GAMEBOARD_WIDTH = 700;
+	public static int GAMEBOARD_HEIGHT = 600;
+	public static int SIDEBOARD_WIDTH = 150;
+	public static int SIDEBOARD_HEIGHT = 600;
 
 	Vector2f position = new Vector2f(0,0);
 
@@ -48,6 +48,7 @@ public class TDtest extends BasicGame {
 		field.init(gc);
 		Configs.init();
 		GameBoard.getInstance().init(gc, field);
+		SideBoard.getInstance().init(gc,SIDEBOARD_WIDTH,SIDEBOARD_HEIGHT);
 
 
 	}
@@ -57,12 +58,13 @@ public class TDtest extends BasicGame {
 		Sunbeam.getInstance().update(gc, null, delta);
 		GameBoard.getInstance().update(gc, null, delta);
 		Ressource.getInstance().update(gc, null, delta);
-		 Ressource.getInstance().update(gc, null, delta);
+		SideBoard.getInstance().update(gc, null, delta);
 	}
 
 	public void render(GameContainer gc, Graphics gr) throws SlickException {
 		GameBoard.getInstance().render(gc, null, gr);
 		Ressource.getInstance().render(gc, null, gr);
+		SideBoard.getInstance().render(gc, null, gr);
 	}
 
 }

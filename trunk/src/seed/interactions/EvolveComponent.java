@@ -20,7 +20,7 @@ public class EvolveComponent extends Component{
 	@Override
 	public void update(GameContainer gc, StateBasedGame sb, int delta) {
 		if(((Plant)owner).isPlaced()){
-			int regressionPoint = ((Plant)owner).getEnergyRegressQty();
+			//int regressionPoint = ((Plant)owner).getEnergyRegressQty();
 			int energyQty = ((Plant)owner).getEnergy();
 			float plant_x = owner.getPosition().getX();
 			float plant_y = owner.getPosition().getY();
@@ -45,16 +45,16 @@ public class EvolveComponent extends Component{
 							// Pour ça, il y a juste à faire : 'Configs.getPlantConfig(typeName+"_"+evolName).getProperty("DELAY")' par exemple pour avoir la caractéristique 'delay' du niveau 'evolName' de la plante 'typeName'
 							
 							//TODO Modifier tout les caractéristiques de la Plant(owner) suivant l'évolution
-								// exemple : 
-								((Plant)owner).setDelay(Integer.parseInt(Configs.getPlantConfig(typeName+"_"+evolName).getProperty("DELAY")));
-								((Plant)owner).setRange(Integer.parseInt(Configs.getPlantConfig(typeName+"_"+evolName).getProperty("RANGE")));
-								//fin exemple
+							Configs.LoadPlantConfig(typeName+"_"+evolName,(Plant)owner);
+							System.out.println("Evolution : "+((Plant)owner).getEvolution());
+							System.out.println("Air prod : "+((Plant)owner).getAirProd());
 							
 							surProdActivate = false;
 							((Plant)owner).setStorage(0);
 							((Plant)owner).setEnergy(0);
 						}
 				}
+				/*
 				if(energyQty <= regressionPoint){
 					System.out.println("Rregression!!");
 					
@@ -63,6 +63,7 @@ public class EvolveComponent extends Component{
 					((Plant)owner).setStorage(0);
 					((Plant)owner).setEnergy(0);
 				}
+				*/
 			}
 			catch(Exception ex)
 			{
@@ -70,16 +71,17 @@ public class EvolveComponent extends Component{
 			}
 		}
 	}
-	
+
 	public Evolution getEvolution(int energy, ArrayList<BlockType> field){
-		/* /!\ le tableau d'évolution doit être trié suivant le coût d'énergie /!\ */
-		ArrayList<Evolution> evolutions = ((Plant)owner).getEvolutions();
+		 
+		// /!\ le tableau d'évolution doit être trié suivant le coût d'énergie /!\
+		ArrayList<Evolution> evolutions = Configs.getEvolution(((Plant)owner).getEvolution());
 		Iterator<Evolution> it = evolutions.iterator();
 		Evolution evolution=null;
 		while(it.hasNext()){
 			Evolution curEvol = (Evolution) it.next();
 			if(curEvol.isConstructibleOnField(field)){
-				if(energy>curEvol.getEnergyCost())	//on a trouvé une evolution, on en cherche une autre meilleure
+				if(energy>=curEvol.getEnergyCost())	//on a trouvé une evolution, on en cherche une autre meilleure
 					evolution = curEvol;
 				else
 					return evolution;	//l'évolution suivant coût plus que ce que l'on possède

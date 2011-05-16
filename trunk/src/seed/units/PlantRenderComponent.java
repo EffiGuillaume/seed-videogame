@@ -11,28 +11,31 @@ import seed.field.Block;
 import seed.interactions.Absorber;
 import seed.interactions.AbsorberRenderComponent;
 import seed.interactions.Cursor;
+import seed.interactions.CursorState;
 
 public class PlantRenderComponent extends AbsorberRenderComponent {
 
 	public PlantRenderComponent(String id, Image image) {
 		super(id, image);
 	}
-	
+
 	@Override
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr) {
 		super.render(gc, sb, gr);
-		
+
 		try
 		{
 			Vector2f center = ((Absorber)owner).getCenter();
-	 
+
 			if(owner instanceof Plant)
 			{
 				if((!((Plant) owner).isPlaced()) || Cursor.getInstance().getPosition().distance(((Plant)owner).getCenter()) < Block.BLOCK_SIZE)
 				{
-					gr.setColor(Color.yellow);
-					gr.drawString(String.valueOf(((Plant)owner).getEnergy()), center.getX()+15, center.getY()-15);
-					gr.setColor(Color.white);
+					if(Cursor.getInstance().getState() != CursorState.NOT_VISIBLE){
+						gr.setColor(Color.yellow);
+						gr.drawString(String.valueOf(((Plant)owner).getEnergy()), center.getX()+15, center.getY()-15);
+						gr.setColor(Color.white);
+					}
 				}
 
 			} else

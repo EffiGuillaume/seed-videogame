@@ -12,7 +12,6 @@ import seed.engine.Entity;
 import seed.field.Field;
 import seed.interactions.Cursor;
 import seed.interactions.CursorState;
-import seed.interfaces.Enemy;
 import seed.interfaces.Ressource;
 import seed.units.Herb;
 import seed.units.Plant;
@@ -20,6 +19,8 @@ import seed.units.Sunbeam;
 import seed.units.Wave;
 
 public class GameBoard extends Entity {
+	static int width = 750;
+	static int height = 600;
 
 	private static final GameBoard instance = new GameBoard("gameBoard");
 
@@ -37,12 +38,14 @@ public class GameBoard extends Entity {
 	/* --- Tests --- */
 	Plant plant = null;
 	Wave water = null;
-	Enemy enemy = null;
+	
 	
 	int plant_x, plant_y;
 
 	public void init(GameContainer gc, Field field) throws SlickException{
 		this.field = field;
+		GameBoard.width = field.getScreenWidth();
+		GameBoard.height = field.getScreenHeight();
 
 		/* test chemin */
 
@@ -68,13 +71,12 @@ public class GameBoard extends Entity {
 		plant = new Herb("test");
 
 		/* test Water */
-		water = new Wave("Watertest", 8, 500, 100, 1, "res/water.png");
+		water = new Wave("Watertest", 40, 500, 100, 1, "res/WaterSprite.png");
 
 		/* test Ressource */
 		Ressource.getInstance().setPollution(10000); // pollution de dŽpart
+		Ressource.getInstance().setAir(400); // air de dŽépart
 
-		/* test enemi */
-		enemy = new Enemy("Enemytest");
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sb, int delta)  {
@@ -88,7 +90,6 @@ public class GameBoard extends Entity {
 		 
 		 plant.update(gc, null, delta);
 		 water.update(gc, null, delta);
-		 enemy.update(gc, null, delta);
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr) {
@@ -98,6 +99,31 @@ public class GameBoard extends Entity {
 		
 		Sunbeam.getInstance().render(gc, null, gr);
 		Ressource.getInstance().render(gc, null, gr);
+	}
+
+	public static int getWidth() {
+		return width;
+	}
+
+	public static void setWidth(int width) {
+		GameBoard.width = width;
+	}
+
+	public static int getHeight() {
+		return height;
+	}
+
+	public static void setHeight(int height) {
+		GameBoard.height = height;
+	}
+	
+	public static boolean inside(float x, float y)
+	{
+		if(x>=0 && x<width){
+			if(y>=0 && y<height)
+				return true;
+		}
+		return false;
 	}
 
 }

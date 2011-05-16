@@ -32,16 +32,18 @@ public class AbsorberRenderComponent extends RenderComponent {
 		{
 			Vector2f pos = owner.getPosition();
 			Vector2f center = ((Absorber)owner).getCenter();
-			
+
 			if(owner instanceof Absorber)
 			{
 				float range = ((Absorber) owner).getRange();
 				circle.setColor(Color.red);
 				if(!((Absorber) owner).isPlaced())
 				{
-					anim.draw(pos.x - image.getWidth()/2 + Block.BLOCK_SIZE/2, pos.y - image.getWidth()/2 + Block.BLOCK_SIZE/2);
-					circle.drawOval(center.getX() - range, center.getY() - range, range*2, range*2);
-					gr.drawString(String.valueOf(((Absorber)owner).getStorage()), center.getX()+15, center.getY());
+					if(Cursor.getInstance().getState() != CursorState.NOT_VISIBLE){
+						anim.draw(pos.x - image.getWidth()/2 + Block.BLOCK_SIZE/2, pos.y - image.getWidth()/2 + Block.BLOCK_SIZE/2);
+						circle.drawOval(center.getX() - range, center.getY() - range, range*2, range*2);
+						gr.drawString(String.valueOf(((Absorber)owner).getStorage()), center.getX()+15, center.getY());
+					}
 				}
 				else
 				{
@@ -64,7 +66,7 @@ public class AbsorberRenderComponent extends RenderComponent {
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sb, int delta) {
-		
+
 		image.rotate(owner.getRotation() - image.getRotation());
 
 	}
