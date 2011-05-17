@@ -9,13 +9,15 @@ import seed.units.Wave;
 public class AbsorbedComponent extends Component {
 
 	private Absorber absorber;
-	private int absorbablePosition;
+	private Wave wave;
+	private int position;
 	private boolean absorbed = false;
 
-	public AbsorbedComponent(String string, Absorber absorber, int absorbablePosition) {
+	public AbsorbedComponent(String string, Absorber absorber, Wave wave, int absorbablePosition) {
 		this.id = string;
 		this.absorber = absorber;
-		this.absorbablePosition = absorbablePosition;
+		this.wave = wave;
+		this.position = absorbablePosition;
 	}
 
 	@Override
@@ -24,12 +26,12 @@ public class AbsorbedComponent extends Component {
 		{
 			if(!absorbed)
 			{
-				if(((Wave)owner).content.get(absorbablePosition) != null){
-					if(((Wave)owner).content.get(absorbablePosition).getPosition().distance(absorber.getPosition()) < 2)
+				if(owner != null){
+					if(owner.getPosition().distance(absorber.getPosition()) < 2)
 					{
 						absorbed = true;
 						absorber.setStorage(absorber.getStorage()+1);
-						((Wave)owner).content.remove(absorbablePosition);
+						wave.content.remove(position);
 						Wave.nbOfAbsorbable--;
 
 						if(Wave.nbOfAbsorbable == 0)
