@@ -1,5 +1,5 @@
 package seed.interactions;
- 
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -7,7 +7,7 @@ import seed.engine.Component;
 import seed.units.Wave;
 
 public class AbsorbedComponent extends Component {
-	
+
 	private Absorber absorber;
 	private int absorbablePosition;
 	private boolean absorbed = false;
@@ -24,15 +24,17 @@ public class AbsorbedComponent extends Component {
 		{
 			if(!absorbed)
 			{
-				if(((Wave)owner).content.get(absorbablePosition).getPosition().distance(absorber.getPosition()) < 2)
-				{
-					absorber.setStorage(absorber.getStorage()+1);
-					((Wave)owner).content.remove(absorbablePosition);
-					absorbed = true;
-					Wave.nbOfAbsorbable--;
-					
-					if(Wave.nbOfAbsorbable == 0)
-						Wave.newWave();
+				if(((Wave)owner).content.get(absorbablePosition) != null){
+					if(((Wave)owner).content.get(absorbablePosition).getPosition().distance(absorber.getPosition()) < 2)
+					{
+						absorbed = true;
+						absorber.setStorage(absorber.getStorage()+1);
+						((Wave)owner).content.remove(absorbablePosition);
+						Wave.nbOfAbsorbable--;
+
+						if(Wave.nbOfAbsorbable == 0)
+							Wave.newWave();
+					}
 				}
 			}
 		}

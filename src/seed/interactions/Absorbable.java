@@ -12,6 +12,8 @@ public class Absorbable extends Entity {
 	
 	private Vector2f toReach;
 	private Vector2f imageSize;
+	
+	private boolean isAbsorbed;
 
 	public Absorbable(String id, int speed, int quantity, Image image) {
 		super(id);
@@ -54,6 +56,14 @@ public class Absorbable extends Entity {
 		float x = getPosition().getX() + imageSize.getX()/2;
 		float y = getPosition().getY() + imageSize.getY()/2;
 		return new Vector2f(x,y);
+	}
+
+	public void setAbsorbed(boolean isAbsorbed) {
+		this.isAbsorbed = isAbsorbed;
+	}
+
+	public boolean isAbsorbed() {
+		return isAbsorbed;
 	}
 
 }

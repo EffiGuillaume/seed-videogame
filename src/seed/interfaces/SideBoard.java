@@ -13,6 +13,7 @@ import seed.interfaces.Enemy;
 import seed.interfaces.GameBoard;
 import seed.units.Flower;
 import seed.units.Herb;
+import seed.units.Plant;
 import seed.units.Tree;
 
 public class SideBoard extends Entity  {
@@ -94,8 +95,9 @@ public class SideBoard extends Entity  {
 					treeScale += scaleStep * delta;
 	
 				if ( input.isMousePressed(Input.MOUSE_LEFT_BUTTON) ){
-					
-					GameBoard.removePlant(Cursor.getInstance().getOccupant());
+					Plant occupant = (Plant)Cursor.getInstance().getOccupant();
+					if(occupant != null)
+						GameBoard.removePlant(occupant);
 					Tree new_tree = new Tree("");
 					GameBoard.addPlant(new_tree);
 					
@@ -110,9 +112,11 @@ public class SideBoard extends Entity  {
 					mushroomScale += scaleStep * delta;
 	
 				if ( input.isMousePressed(Input.MOUSE_LEFT_BUTTON) ){
-					GameBoard.removePlant(Cursor.getInstance().getOccupant());
-					//Mushroom new_mushroom = new Mushroom("");
-					//GameBoard.addPlant(new_mushroom);
+					Plant occupant = (Plant)Cursor.getInstance().getOccupant();
+					if(occupant != null)
+						GameBoard.removePlant(occupant);
+//					Mushroom new_mushroom = new Mushroom("");
+//					GameBoard.addPlant(new_mushroom);
 				}
 			}else{
 				if(mushroomScale > 0.75f)
@@ -124,7 +128,9 @@ public class SideBoard extends Entity  {
 					herbScale += scaleStep * delta;
 	
 				if ( input.isMousePressed(Input.MOUSE_LEFT_BUTTON) ){
-					GameBoard.removePlant(Cursor.getInstance().getOccupant());
+					Plant occupant = (Plant)Cursor.getInstance().getOccupant();
+					if(occupant != null)
+						GameBoard.removePlant(occupant);
 					Herb new_herb = new Herb("");
 					GameBoard.addPlant( new_herb);
 				}
@@ -139,7 +145,9 @@ public class SideBoard extends Entity  {
 					flowerScale += scaleStep * delta;
 	
 				if ( input.isMousePressed(Input.MOUSE_LEFT_BUTTON) ){
-					GameBoard.removePlant(Cursor.getInstance().getOccupant());
+					Plant occupant = (Plant)Cursor.getInstance().getOccupant();
+					if(occupant != null)
+						GameBoard.removePlant(occupant);
 					Flower new_flower = new Flower("");
 					GameBoard.addPlant(new_flower);
 				}
