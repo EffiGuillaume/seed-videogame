@@ -12,19 +12,8 @@ public class Tree extends Plant {
 
 	public Tree(String id) throws SlickException {
 		super(id);
-		this.evolution = "TREE_LVL1";
-		this.delay = Integer.parseInt(Configs.getPlantConfig("TREE_LVL1").getProperty("DELAY"));
-		this.range = Integer.parseInt(Configs.getPlantConfig("TREE_LVL1").getProperty("RANGE"));
-		this.storage = 0;
-		this.energy = 0;
-		this.energyDelay = Integer.parseInt(Configs.getPlantConfig("TREE_LVL1").getProperty("ENERGYDELAY"));
-		this.cost = Integer.parseInt(Configs.getPlantConfig("TREE_LVL1").getProperty("COST"));
-		this.waterEvolQty = Integer.parseInt(Configs.getPlantConfig("TREE_LVL1").getProperty("WATEREVOLQTY"));
-		this.airProd = Integer.parseInt(Configs.getPlantConfig("TREE_LVL1").getProperty("AIRPROD"));
-		this.waterRegressQty = Integer.parseInt(Configs.getPlantConfig("TREE_LVL1").getProperty("WATERREGRESSQTY"));
-		this.energyRegressQty = Integer.parseInt(Configs.getPlantConfig("TREE_LVL1").getProperty("ENERGYREGRESSQTY"));
-		this.imageReference = Integer.parseInt(Configs.getPlantConfig("TREE_LVL1").getProperty("IMAGEREFERENCE"));
 		
+		Configs.LoadPlantConfig("TREE_LVL0", this);
 		
 		addComponent(new PlantRenderComponent(id+"_Render", new Image("res/treeSprite.png")));
 	}

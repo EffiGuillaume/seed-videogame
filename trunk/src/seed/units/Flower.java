@@ -12,18 +12,8 @@ public class Flower extends Plant {
 	
 	public Flower(String id) throws SlickException {
 		super(id);
-		this.evolution = "FLOWER_LVL1";
-		this.delay = Integer.parseInt(Configs.getPlantConfig("FLOWER_LVL1").getProperty("DELAY"));
-		this.range = Integer.parseInt(Configs.getPlantConfig("FLOWER_LVL1").getProperty("RANGE"));
-		this.storage = 0;
-		this.energy = 0;
-		this.energyDelay = Integer.parseInt(Configs.getPlantConfig("FLOWER_LVL1").getProperty("ENERGYDELAY"));
-		this.cost = Integer.parseInt(Configs.getPlantConfig("FLOWER_LVL1").getProperty("COST"));
-		this.waterEvolQty = Integer.parseInt(Configs.getPlantConfig("FLOWER_LVL1").getProperty("WATEREVOLQTY"));
-		this.airProd = Integer.parseInt(Configs.getPlantConfig("FLOWER_LVL1").getProperty("AIRPROD"));
-		this.waterRegressQty = Integer.parseInt(Configs.getPlantConfig("FLOWER_LVL1").getProperty("WATERREGRESSQTY"));
-		this.energyRegressQty = Integer.parseInt(Configs.getPlantConfig("FLOWER_LVL1").getProperty("ENERGYREGRESSQTY"));
-		this.imageReference = Integer.parseInt(Configs.getPlantConfig("FLOWER_LVL1").getProperty("IMAGEREFERENCE"));
+		
+		Configs.LoadPlantConfig("FLOWER_LVL0", this);
 		
 		addComponent(new PlantRenderComponent(id+"_Render", new Image("res/flowerSprite.png")));
 	}

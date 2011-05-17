@@ -1,5 +1,7 @@
 package seed.units;
 
+import java.util.ArrayList;
+
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
@@ -20,7 +22,8 @@ public class Plant extends Absorber {
 	protected int airProd;
 	protected int waterRegressQty;
 	protected int energyRegressQty;
-	
+	protected ArrayList<String> evolutionHistory = new ArrayList<String>();
+
 	protected String evolution;
 
 	public Plant(String id) throws SlickException {
@@ -38,33 +41,6 @@ public class Plant extends Absorber {
 		addComponent(new ProduceAirComponent());
 		addComponent(new PlantRenderComponent(id+"_Render", new Image("res/point.png")));
 	}
-	
-	/*public Plant(String id, 
-			int delay, 
-			float range, 
-			int energyDelay, 
-			int cost, 
-			int waterEvolQty, 
-			int airProd, 
-			int waterRegressQty, 
-			int energyRegressQty, 
-			ArrayList<Evolution> evolutions, 
-			int imageReference,
-			Image image) {
-		super(id, delay, range, imageReference, image);
-		this.energy = 0;
-		this.energyDelay = energyDelay;
-		this.cost = cost;
-		this.waterEvolQty = waterEvolQty;
-		this.airProd = airProd;
-		this.waterRegressQty = waterRegressQty;
-		this.energyRegressQty = energyRegressQty;
-		this.evolutions = evolutions;
-
-		addComponent(new SunLitComponent());
-		addComponent(new EvolveComponent());
-		addComponent(new PlantRenderComponent(id+"_Render", image));
-	}*/
 	
 	public Plant(String id, 
 			int delay, 
@@ -157,6 +133,19 @@ public class Plant extends Absorber {
 	
 	public boolean isReadyToEvolve() {
 		return (this.storage >= this.waterEvolQty);
+	}
+	
+	public String getLastEvolution() {
+		if(evolutionHistory.size() > 0){
+			String lastEvol = evolutionHistory.get(evolutionHistory.size()-1);
+			evolutionHistory.remove(evolutionHistory.size()-1);
+			return lastEvol;
+		}
+		return null;
+	}
+	
+	public void addEvolutionHistory(String evolution) {
+		evolutionHistory.add(evolution);
 	}
 
 }

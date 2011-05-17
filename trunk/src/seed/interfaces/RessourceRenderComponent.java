@@ -20,8 +20,8 @@ public class RessourceRenderComponent extends RenderComponent {
 		{
 			if(owner instanceof Ressource)
 			{
-				gr.drawString(String.valueOf(((Ressource) owner).getAir()), 750, 0);
-				gr.drawString(String.valueOf(((Ressource) owner).getPollution()), 750, 20);
+				gr.drawString("Air : "+String.valueOf(((Ressource) owner).getAir()), 710, 0);
+				gr.drawString("Pol : "+String.valueOf(((Ressource) owner).getPollution()), 710, 20);
 			}
 			else 
 				throw new Exception("RessourceRenderComponent ne s'applique qu'à l'Entity Ressource");
