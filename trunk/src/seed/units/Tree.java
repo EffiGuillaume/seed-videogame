@@ -12,6 +12,7 @@ public class Tree extends Plant {
 
 	public Tree(String id) throws SlickException {
 		super(id);
+		this.evolution = "TREE_LVL1";
 		this.delay = Integer.parseInt(Configs.getPlantConfig("TREE_LVL1").getProperty("DELAY"));
 		this.range = Integer.parseInt(Configs.getPlantConfig("TREE_LVL1").getProperty("RANGE"));
 		this.storage = 0;

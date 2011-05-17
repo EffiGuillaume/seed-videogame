@@ -50,6 +50,9 @@ public class TDtest extends BasicGame {
 		Configs.init();
 		GameBoard.getInstance().init(gc, field);
 		SideBoard.getInstance().init(gc,SIDEBOARD_WIDTH,SIDEBOARD_HEIGHT);
+		/* test Ressource */
+		Ressource.getInstance().setPollution(10000); // pollution de départ
+		Ressource.getInstance().setAir(400); // air de déÈpart
 
 
 	}

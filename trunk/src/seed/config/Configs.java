@@ -144,7 +144,7 @@ public final class Configs {
 			Evolution tree_lvl3 = new Evolution("LVL3_TREE_Evolution");
 			tree_lvl3.setEnergyCost(Integer.parseInt(Configs.getPlantConfig("TREE_LVL3").getProperty("EVOLCOST"))); 
 			ArrayList<BlockType> tree_fields2 = new ArrayList<BlockType>();
-				tree_fields.add(BlockType.DESERT);
+				tree_fields2.add(BlockType.DESERT);
 				tree_fields2.add(BlockType.FORET);
 			tree_lvl3.setFields(tree_fields2);
 			tree_lvl3.setType("TREE");

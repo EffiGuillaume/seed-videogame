@@ -14,6 +14,7 @@ public class Cursor extends Entity {
 	
 	private CursorState state;
 	private Entity occupant = null;
+	private boolean pressed = false;
 
 	private Cursor(String id) {
 		super(id);
@@ -39,5 +40,13 @@ public class Cursor extends Entity {
 
 	public void setOccupant(Entity occupant) {
 		this.occupant = occupant;
+	}
+	
+	public void setPressed(boolean pressed) {
+		this.pressed = pressed;
+	}
+	
+	public boolean isPressed(){
+		return this.pressed;
 	}
 }

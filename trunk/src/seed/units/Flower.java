@@ -12,6 +12,7 @@ public class Flower extends Plant {
 	
 	public Flower(String id) throws SlickException {
 		super(id);
+		this.evolution = "FLOWER_LVL1";
 		this.delay = Integer.parseInt(Configs.getPlantConfig("FLOWER_LVL1").getProperty("DELAY"));
 		this.range = Integer.parseInt(Configs.getPlantConfig("FLOWER_LVL1").getProperty("RANGE"));
 		this.storage = 0;

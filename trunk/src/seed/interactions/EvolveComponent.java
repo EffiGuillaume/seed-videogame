@@ -47,7 +47,6 @@ public class EvolveComponent extends Component{
 							//TODO Modifier tout les caractéristiques de la Plant(owner) suivant l'évolution
 							Configs.LoadPlantConfig(typeName+"_"+evolName,(Plant)owner);
 							System.out.println("Evolution : "+((Plant)owner).getEvolution());
-							System.out.println("Air prod : "+((Plant)owner).getAirProd());
 							
 							surProdActivate = false;
 							((Plant)owner).setStorage(0);
@@ -78,13 +77,15 @@ public class EvolveComponent extends Component{
 		ArrayList<Evolution> evolutions = Configs.getEvolution(((Plant)owner).getEvolution());
 		Iterator<Evolution> it = evolutions.iterator();
 		Evolution evolution=null;
-		while(it.hasNext()){
-			Evolution curEvol = (Evolution) it.next();
-			if(curEvol.isConstructibleOnField(field)){
-				if(energy>=curEvol.getEnergyCost())	//on a trouvé une evolution, on en cherche une autre meilleure
-					evolution = curEvol;
-				else
-					return evolution;	//l'évolution suivant coût plus que ce que l'on possède
+		if(evolutions!=null){
+			while(it.hasNext()){
+				Evolution curEvol = (Evolution) it.next();
+				if(curEvol.isConstructibleOnField(field)){
+					if(energy>=curEvol.getEnergyCost())	//on a trouvé une evolution, on en cherche une autre meilleure
+						evolution = curEvol;
+					else
+						return evolution;	//l'évolution suivant coût plus que ce que l'on possède
+				}
 			}
 		}
 		return evolution;
