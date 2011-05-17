@@ -1,7 +1,6 @@
 package seed.interactions;
 
 import seed.engine.Entity;
-import seed.units.Plant;
  
 /**
  * Classe Cursor

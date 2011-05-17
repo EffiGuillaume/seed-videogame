@@ -8,7 +8,7 @@ import org.newdawn.slick.state.StateBasedGame;
 import seed.engine.Component;
 import seed.field.Block;
 import seed.field.Field;
-import seed.tests.GameBoard;
+import seed.interfaces.GameBoard;
 
 public class PlacementComponent extends Component {
 
