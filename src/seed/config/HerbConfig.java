@@ -16,7 +16,7 @@ public class HerbConfig extends PlantConfig{
 			properties.setProperty("AIRPROD", "0");
 			properties.setProperty("WATERREGRESSQTY", "0");
 			properties.setProperty("ENERGYREGRESSQTY", "-10");
-			properties.setProperty("IMAGEREFERENCE", "6");
+			properties.setProperty("IMAGEREFERENCE", "5");
 			
 			break;
 		}
@@ -31,7 +31,7 @@ public class HerbConfig extends PlantConfig{
 			properties.setProperty("AIRPROD", "100");
 			properties.setProperty("WATERREGRESSQTY", "0");
 			properties.setProperty("ENERGYREGRESSQTY", "-5");
-			properties.setProperty("IMAGEREFERENCE", "6");
+			properties.setProperty("IMAGEREFERENCE", "5");
 			
 			break;
 		}
@@ -46,7 +46,7 @@ public class HerbConfig extends PlantConfig{
 			properties.setProperty("AIRPROD", "200");
 			properties.setProperty("WATERREGRESSQTY", "0");
 			properties.setProperty("ENERGYREGRESSQTY", "0");
-			properties.setProperty("IMAGEREFERENCE", "6");
+			properties.setProperty("IMAGEREFERENCE", "5");
 			
 			break;
 		}
@@ -61,7 +61,7 @@ public class HerbConfig extends PlantConfig{
 			properties.setProperty("AIRPROD", "300");
 			properties.setProperty("WATERREGRESSQTY", "5");
 			properties.setProperty("ENERGYREGRESSQTY", "5");
-			properties.setProperty("IMAGEREFERENCE", "6");
+			properties.setProperty("IMAGEREFERENCE", "5");
 			
 			break;
 		}
@@ -75,7 +75,7 @@ public class HerbConfig extends PlantConfig{
 			properties.setProperty("AIRPROD", "0");
 			properties.setProperty("WATERREGRESSQTY", "0");
 			properties.setProperty("ENERGYREGRESSQTY", "-10");
-			properties.setProperty("IMAGEREFERENCE", "6");
+			properties.setProperty("IMAGEREFERENCE", "5");
 		}
 		}//end of switch
 		

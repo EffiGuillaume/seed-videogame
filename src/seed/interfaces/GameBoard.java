@@ -30,7 +30,8 @@ public class GameBoard extends Entity {
 
 	private Field field;
 	private Wave waves;	
-	ArrayList<Plant> plants;
+	private Plant toConstruct;
+	private ArrayList<Plant> plants;
 	private static int nextId = 0;
 
 	public void init(GameContainer gc, Field field) throws SlickException{
@@ -67,15 +68,20 @@ public class GameBoard extends Entity {
 			if(plants.get(i) != null)
 				plants.get(i).update(gc, null, delta);	//mise à jour des plantes
 		}
+		if(toConstruct != null)
+			toConstruct.update(gc, null, delta);
 	}
 
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr) {
 		field.render(gc,null, gr);	//render du terrain
 		waves.render(gc, null, gr);	//render des vagues
 		for(int i = 0; i<plants.size(); i++){
-			if(plants.get(i) != null)
+			if(plants.get(i) != null){
 				plants.get(i).render(gc, null, gr);	//render à jour des plantes
+			}
 		}
+		if(toConstruct != null)
+			toConstruct.render(gc, null, gr);
 		Sunbeam.getInstance().render(gc, null, gr);
 	}
 
@@ -120,12 +126,19 @@ public class GameBoard extends Entity {
 		plants.remove(key);
 	}
 
-	public Plant getPlants(int key) {
-		return plants.get(key);
-	}
 
-	public void addPlant(Plant plant) {
-		this.plants.add(plant);
+	public static void addPlant(Plant plant) {
+		boolean inserted = false;
+		for(int i = 0; i<GameBoard.getInstance().plants.size(); i++)
+		{
+			if(GameBoard.getInstance().plants.get(i).getPosition().getY()>plant.getPosition().getY()){
+				GameBoard.getInstance().plants.add(i, plant);
+				inserted = true;
+				break;
+			}
+		}
+		if(!inserted)
+			GameBoard.getInstance().plants.add(plant);
 	}
 	
 	/*
@@ -155,6 +168,14 @@ public class GameBoard extends Entity {
 	{
 		nextId++;
 		return ("Plant"+nextId);
+	}
+
+	public void setToConstruct(Plant toConstruct) {
+		this.toConstruct = toConstruct;
+	}
+
+	public Plant getToConstruct() {
+		return toConstruct;
 	}
 
 }
