@@ -125,9 +125,23 @@ public class GameBoard extends Entity {
 	public void removePlants(int key) {
 		plants.remove(key);
 	}
+	
+	public void addPlant(Plant plant) {
+		boolean inserted = false;
+		for(int i = 0; i<plants.size(); i++)
+		{
+			if(plants.get(i).getPosition().getY()>plant.getPosition().getY()){
+				plants.add(i, plant);
+				inserted = true;
+				break;
+			}
+		}
+		if(!inserted)
+			plants.add(plant);
+	}
 
 
-	public static void addPlant(Plant plant) {
+	/*public static void addPlant(Plant plant) {
 		boolean inserted = false;
 		for(int i = 0; i<GameBoard.getInstance().plants.size(); i++)
 		{
@@ -139,7 +153,7 @@ public class GameBoard extends Entity {
 		}
 		if(!inserted)
 			GameBoard.getInstance().plants.add(plant);
-	}
+	}*/
 	
 	/*
 	public static void addPlant(Plant plant){
@@ -158,7 +172,9 @@ public class GameBoard extends Entity {
 	
 	public void removePlant(Plant plant){
 		String id = plant.getId();
-		for(int i = 0; i < plants.size(); i++){
+		System.out.println("boom");
+		for(int i = 0; i <= plants.size(); i++){
+			System.out.println(id + " = " + plants.get(i).getId());
 			if(plants.get(i).getId().equalsIgnoreCase(id))
 				plants.remove(i);
 		}

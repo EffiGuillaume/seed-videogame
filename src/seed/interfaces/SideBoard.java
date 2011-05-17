@@ -90,9 +90,10 @@ public class SideBoard extends Entity  {
 					( mouseY >= 2*height/7 && mouseY <= 2*height/7 + flowerButton.getHeight()*flowerScale) ){
 				insideFlower = true;
 			}else if(Cursor.getInstance().isPressed() && SideBoard.inside(mouseX,mouseY)){
-				System.out.println("ta race");
 				Plant occupant = (Plant)Cursor.getInstance().getOccupant();
+				
 				if(occupant != null){
+					System.out.println(occupant.getId());
 					GameBoard.getInstance().removePlant(occupant);
 					Cursor.getInstance().setOccupant(null);
 				}
@@ -100,7 +101,7 @@ public class SideBoard extends Entity  {
 	
 			if(insideTree){
 				if(treeScale < 0.78f)
-					treeScale += scaleStep * delta;
+					treeScale += scaleStep;
 	
 				if (Cursor.getInstance().isPressed()){
 					Plant occupant = (Plant)Cursor.getInstance().getOccupant();
@@ -114,12 +115,12 @@ public class SideBoard extends Entity  {
 				}
 			}else{
 				if(treeScale > 0.75f)
-					treeScale -= scaleStep * delta;
+					treeScale -= scaleStep;
 			}
 	
 			if(insideMushroom){
 				if(mushroomScale < 0.78f)
-					mushroomScale += scaleStep * delta;
+					mushroomScale += scaleStep;
 	
 				if (Cursor.getInstance().isPressed()){
 					Plant occupant = (Plant)Cursor.getInstance().getOccupant();
@@ -131,12 +132,12 @@ public class SideBoard extends Entity  {
 				}
 			}else{
 				if(mushroomScale > 0.75f)
-					mushroomScale -= scaleStep * delta;
+					mushroomScale -= scaleStep;
 			}
 	
 			if(insideHerb){
 				if(herbScale < 0.78f)
-					herbScale += scaleStep * delta;
+					herbScale += scaleStep;
 	
 				if (Cursor.getInstance().isPressed()){
 					Plant occupant = (Plant)Cursor.getInstance().getOccupant();
@@ -144,17 +145,18 @@ public class SideBoard extends Entity  {
 						GameBoard.getInstance().removePlant(occupant);
 					Herb new_herb = new Herb(GameBoard.getNewPlantId());
 					Cursor.getInstance().setOccupant(new_herb);
+					System.out.println(Cursor.getInstance().getOccupant().getId());
 					GameBoard.getInstance().setToConstruct(new_herb);
 				}
 			}else{
 				if(herbScale > 0.75f)
-					herbScale -= scaleStep * delta;
+					herbScale -= scaleStep;
 			}
 	
 	
 			if(insideFlower){
 				if(flowerScale < 0.78f)
-					flowerScale += scaleStep * delta;
+					flowerScale += scaleStep;
 	
 				if (Cursor.getInstance().isPressed()){
 					Plant occupant = (Plant)Cursor.getInstance().getOccupant();
@@ -166,7 +168,7 @@ public class SideBoard extends Entity  {
 				}
 			}else{
 				if(flowerScale > 0.75f)
-					flowerScale -= scaleStep * delta;
+					flowerScale -= scaleStep;
 			}
 			
 		}

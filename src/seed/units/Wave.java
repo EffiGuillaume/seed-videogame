@@ -43,7 +43,8 @@ public class Wave extends Entity {
 		
 		for(int i = 0; i < content.size(); i++)
 		{
-			content.get(i).update(gc, sb, delta);
+			if(content.get(i) != null)
+				content.get(i).update(gc, sb, delta);
 		}
 	}
 

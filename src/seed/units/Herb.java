@@ -12,18 +12,8 @@ public class Herb extends Plant {
 	
 	public Herb(String id) throws SlickException {
 		super(id);
-		this.evolution = "HERB_LVL1";
-		this.delay = Integer.parseInt(Configs.getPlantConfig("HERB_LVL1").getProperty("DELAY"));
-		this.range = Integer.parseInt(Configs.getPlantConfig("HERB_LVL1").getProperty("RANGE"));
-		this.storage = 0;
-		this.energy = 0;
-		this.energyDelay = Integer.parseInt(Configs.getPlantConfig("HERB_LVL1").getProperty("ENERGYDELAY"));
-		this.cost = Integer.parseInt(Configs.getPlantConfig("HERB_LVL1").getProperty("COST"));
-		this.waterEvolQty = Integer.parseInt(Configs.getPlantConfig("HERB_LVL1").getProperty("WATEREVOLQTY"));
-		this.airProd = Integer.parseInt(Configs.getPlantConfig("HERB_LVL1").getProperty("AIRPROD"));
-		this.waterRegressQty = Integer.parseInt(Configs.getPlantConfig("HERB_LVL1").getProperty("WATERREGRESSQTY"));
-		this.energyRegressQty = Integer.parseInt(Configs.getPlantConfig("HERB_LVL1").getProperty("ENERGYREGRESSQTY"));
-		this.imageReference = Integer.parseInt(Configs.getPlantConfig("HERB_LVL1").getProperty("IMAGEREFERENCE"));
+		
+		Configs.LoadPlantConfig("HERB_LVL0", this);
 
 		
 		addComponent(new PlantRenderComponent(id+"_Render", new Image("res/herbSprite.png")));

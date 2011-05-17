@@ -45,7 +45,7 @@ public class HerbConfig extends PlantConfig{
 			properties.setProperty("WATEREVOLQTY", "10");
 			properties.setProperty("AIRPROD", "200");
 			properties.setProperty("WATERREGRESSQTY", "0");
-			properties.setProperty("ENERGYREGRESSQTY", "0");
+			properties.setProperty("ENERGYREGRESSQTY", "-1");
 			properties.setProperty("IMAGEREFERENCE", "5");
 			
 			break;

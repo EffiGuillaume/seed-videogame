@@ -40,7 +40,7 @@ public class Enemy extends Entity{
 	}
 	
 	public void evolve(){
-		if(evolutionNumber<MAX_EVOLUTIONS)
+		if(evolutionNumber<MAX_EVOLUTIONS-1)
 			evolutionNumber++;
 	}
 }

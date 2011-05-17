@@ -11,6 +11,7 @@ import seed.engine.Component;
 import seed.field.BlockType;
 import seed.field.Field;
 import seed.interactions.Evolution;
+import seed.interfaces.GameBoard;
 import seed.units.Plant;
 
 public class EvolveComponent extends Component{
@@ -20,7 +21,7 @@ public class EvolveComponent extends Component{
 	@Override
 	public void update(GameContainer gc, StateBasedGame sb, int delta) {
 		if(((Plant)owner).isPlaced()){
-			//int regressionPoint = ((Plant)owner).getEnergyRegressQty();
+			int regressionPoint = ((Plant)owner).getEnergyRegressQty();
 			int energyQty = ((Plant)owner).getEnergy();
 			float plant_x = owner.getPosition().getX();
 			float plant_y = owner.getPosition().getY();
@@ -33,36 +34,34 @@ public class EvolveComponent extends Component{
 							if(!surProdActivate){
 								surProdActivate = true;
 								((Plant)owner).setAirProd((int)(((Plant)owner).getAirProd() * surprodMultiplier));
-								System.out.println("Surprod !!");
+								System.out.println(owner.getId() +" passe en surproduction");
 							}
 						}
 						else {	//evolution
 							String evolName = evolution.getEvol();
 							String typeName = evolution.getType();
-							System.out.println("Evolution !!! " + evolName);
-							
-							//TODO Aller chercher dans la base de donnée les caractéristiques de l'évolution à partir du nom
-							// Pour ça, il y a juste à faire : 'Configs.getPlantConfig(typeName+"_"+evolName).getProperty("DELAY")' par exemple pour avoir la caractéristique 'delay' du niveau 'evolName' de la plante 'typeName'
-							
-							//TODO Modifier tout les caractéristiques de la Plant(owner) suivant l'évolution
+							((Plant)owner).addEvolutionHistory(((Plant)owner).getEvolution());
 							Configs.LoadPlantConfig(typeName+"_"+evolName,(Plant)owner);
-							System.out.println("Evolution : "+((Plant)owner).getEvolution());
-							
+							System.out.println(owner.getId() +" evolue en "+ ((Plant)owner).getEvolution());
 							surProdActivate = false;
 							((Plant)owner).setStorage(0);
 							((Plant)owner).setEnergy(0);
 						}
 				}
-				/*
 				if(energyQty <= regressionPoint){
-					System.out.println("Rregression!!");
-					
-					//TODO Regression sur le meme principe que l'évolution
-					surProdActivate = false;
-					((Plant)owner).setStorage(0);
-					((Plant)owner).setEnergy(0);
+					String regression = ((Plant)owner).getLastEvolution();
+					if(regression != null) {
+						Configs.LoadPlantConfig(regression,(Plant)owner);
+						surProdActivate = false;
+						((Plant)owner).setStorage(0);
+						((Plant)owner).setEnergy(0);
+						System.out.println(owner.getId() +" regresse en "+((Plant)owner).getEvolution());
+					}
+					else {
+						GameBoard.getInstance().removePlant(((Plant)owner));
+						System.out.println(owner.getId() +" est mort ");
+					}
 				}
-				*/
 			}
 			catch(Exception ex)
 			{
