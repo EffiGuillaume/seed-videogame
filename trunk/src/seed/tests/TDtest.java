@@ -11,6 +11,7 @@ import seed.config.Configs;
 import seed.field.Field;
 import seed.interactions.Cursor;
 import seed.units.Sunbeam;
+import seed.interfaces.GameBoard;
 import seed.interfaces.Ressource;
 import seed.interfaces.SideBoard;
 
