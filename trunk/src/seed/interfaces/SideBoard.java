@@ -109,7 +109,7 @@ public class SideBoard extends Entity  {
 					}
 					Tree new_tree = new Tree(GameBoard.getNewPlantId());
 					Cursor.getInstance().setOccupant(new_tree);
-					GameBoard.getInstance().addPlant(new_tree);
+					GameBoard.getInstance().setToConstruct(new_tree);
 					
 				}
 			}else{
@@ -144,7 +144,7 @@ public class SideBoard extends Entity  {
 						GameBoard.getInstance().removePlant(occupant);
 					Herb new_herb = new Herb(GameBoard.getNewPlantId());
 					Cursor.getInstance().setOccupant(new_herb);
-					GameBoard.getInstance().addPlant(new_herb);
+					GameBoard.getInstance().setToConstruct(new_herb);
 				}
 			}else{
 				if(herbScale > 0.75f)
@@ -162,7 +162,7 @@ public class SideBoard extends Entity  {
 						GameBoard.getInstance().removePlant(occupant);
 					Flower new_flower = new Flower(GameBoard.getNewPlantId());
 					Cursor.getInstance().setOccupant(new_flower);
-					GameBoard.getInstance().addPlant(new_flower);
+					GameBoard.getInstance().setToConstruct(new_flower);
 				}
 			}else{
 				if(flowerScale > 0.75f)

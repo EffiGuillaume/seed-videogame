@@ -16,7 +16,7 @@ public class TreeConfig extends PlantConfig {
 			properties.setProperty("AIRPROD", "100");
 			properties.setProperty("WATERREGRESSQTY", "0");
 			properties.setProperty("ENERGYREGRESSQTY", "-10");
-			properties.setProperty("IMAGEREFERENCE", "6");
+			properties.setProperty("IMAGEREFERENCE", "8");
 			
 			break;
 		}
@@ -31,7 +31,7 @@ public class TreeConfig extends PlantConfig {
 			properties.setProperty("AIRPROD", "500");
 			properties.setProperty("WATERREGRESSQTY", "0");
 			properties.setProperty("ENERGYREGRESSQTY", "-5");
-			properties.setProperty("IMAGEREFERENCE", "6");
+			properties.setProperty("IMAGEREFERENCE", "8");
 			
 			break;
 		}
@@ -46,7 +46,7 @@ public class TreeConfig extends PlantConfig {
 			properties.setProperty("AIRPROD", "1000");
 			properties.setProperty("WATERREGRESSQTY", "5");
 			properties.setProperty("ENERGYREGRESSQTY", "5");
-			properties.setProperty("IMAGEREFERENCE", "6");
+			properties.setProperty("IMAGEREFERENCE", "8");
 			
 			break;
 		}
@@ -61,7 +61,7 @@ public class TreeConfig extends PlantConfig {
 			properties.setProperty("AIRPROD", "1500");
 			properties.setProperty("WATERREGRESSQTY", "10");
 			properties.setProperty("ENERGYREGRESSQTY", "20");
-			properties.setProperty("IMAGEREFERENCE", "6");
+			properties.setProperty("IMAGEREFERENCE", "8");
 			
 			break;
 		}
@@ -75,7 +75,7 @@ public class TreeConfig extends PlantConfig {
 			properties.setProperty("AIRPROD", "100");
 			properties.setProperty("WATERREGRESSQTY", "0");
 			properties.setProperty("ENERGYREGRESSQTY", "-10");
-			properties.setProperty("IMAGEREFERENCE", "6");
+			properties.setProperty("IMAGEREFERENCE", "8");
 		}
 		}//end of switch
 	}

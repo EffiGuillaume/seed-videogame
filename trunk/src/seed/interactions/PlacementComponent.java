@@ -32,6 +32,7 @@ public class PlacementComponent extends Component {
 						if(GameBoard.inside(plant_x, plant_y)){
 							if(Field.getInstance().isBlockFree(plant_x,plant_y)){
 								if(Ressource.getInstance().getAir() >= ((Plant)owner).getCost()){
+									GameBoard.addPlant(GameBoard.getInstance().getToConstruct());
 									((Absorber)owner).setPlaced(true);
 									Field.getInstance().setBlockOccupant(plant_x, plant_y, owner);
 									Cursor.getInstance().setOccupant(null);
