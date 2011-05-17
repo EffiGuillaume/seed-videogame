@@ -9,6 +9,8 @@ import seed.engine.Component;
 import seed.field.Block;
 import seed.field.Field;
 import seed.interfaces.GameBoard;
+import seed.interfaces.Ressource;
+import seed.units.Plant;
 
 public class PlacementComponent extends Component {
 
@@ -26,12 +28,15 @@ public class PlacementComponent extends Component {
 					plant_y = input.getMouseY()/Block.BLOCK_SIZE * Block.BLOCK_SIZE;
 					owner.setPosition(new Vector2f(plant_x, plant_y));
 					
-					if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)){
+					if(Cursor.getInstance().isPressed()){
 						if(GameBoard.inside(plant_x, plant_y)){
 							if(Field.getInstance().isBlockFree(plant_x,plant_y)){
-								((Absorber)owner).setPlaced(true);
-								Field.getInstance().setBlockOccupant(plant_x, plant_y, owner);
-								Cursor.getInstance().setOccupant(null);
+								if(Ressource.getInstance().getAir() >= ((Plant)owner).getCost()){
+									((Absorber)owner).setPlaced(true);
+									Field.getInstance().setBlockOccupant(plant_x, plant_y, owner);
+									Cursor.getInstance().setOccupant(null);
+									Ressource.getInstance().decAir(((Plant)owner).getCost());
+								}
 							}
 						}
 					}

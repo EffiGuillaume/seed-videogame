@@ -28,15 +28,21 @@ public class Ressource extends Entity {
 	public void transformPoluIntoAir(int quantity) {
 		this.air += quantity;
 		this.pollution -= quantity;
+		if(this.pollution < 0)
+			this.pollution = 0;
 	}
 	
 	public void transformAirIntoPolu(int quantity) {
 		this.air -= quantity;
 		this.pollution += quantity;
+		if(this.air < 0)
+			this.air = 0;
 	}
 	
 	public void decAir(int decrementation) {
-		this.air -= air;
+		this.air -= decrementation;
+		if(this.air < 0)
+			this.air = 0;
 	}
 
 	public int getPollution() {

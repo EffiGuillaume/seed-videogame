@@ -74,6 +74,7 @@ public class SideBoard extends Entity  {
 		boolean insideMushroom = false;
 		boolean insideHerb = false;
 		boolean insideFlower = false;
+		
 		try {
 			
 			if( ( mouseX >= GameBoard.getWidth()+width/5 && mouseX <= GameBoard.getWidth()+width/5 + treeButton.getWidth()*treeScale ) &&
@@ -88,18 +89,27 @@ public class SideBoard extends Entity  {
 			}else if( ( mouseX >= GameBoard.getWidth()+width/5 && mouseX <= GameBoard.getWidth()+width/5+ flowerButton.getWidth()*flowerScale) &&
 					( mouseY >= 2*height/7 && mouseY <= 2*height/7 + flowerButton.getHeight()*flowerScale) ){
 				insideFlower = true;
+			}else if(Cursor.getInstance().isPressed() && SideBoard.inside(mouseX,mouseY)){
+				System.out.println("ta race");
+				Plant occupant = (Plant)Cursor.getInstance().getOccupant();
+				if(occupant != null){
+					GameBoard.getInstance().removePlant(occupant);
+					Cursor.getInstance().setOccupant(null);
+				}
 			}
 	
 			if(insideTree){
 				if(treeScale < 0.78f)
 					treeScale += scaleStep * delta;
 	
-				if ( input.isMousePressed(Input.MOUSE_LEFT_BUTTON) ){
+				if (Cursor.getInstance().isPressed()){
 					Plant occupant = (Plant)Cursor.getInstance().getOccupant();
-					if(occupant != null)
-						GameBoard.removePlant(occupant);
-					Tree new_tree = new Tree("");
-					GameBoard.addPlant(new_tree);
+					if(occupant != null){
+						GameBoard.getInstance().removePlant(occupant);
+					}
+					Tree new_tree = new Tree(GameBoard.getNewPlantId());
+					Cursor.getInstance().setOccupant(new_tree);
+					GameBoard.getInstance().addPlant(new_tree);
 					
 				}
 			}else{
@@ -111,12 +121,13 @@ public class SideBoard extends Entity  {
 				if(mushroomScale < 0.78f)
 					mushroomScale += scaleStep * delta;
 	
-				if ( input.isMousePressed(Input.MOUSE_LEFT_BUTTON) ){
+				if (Cursor.getInstance().isPressed()){
 					Plant occupant = (Plant)Cursor.getInstance().getOccupant();
 					if(occupant != null)
-						GameBoard.removePlant(occupant);
-//					Mushroom new_mushroom = new Mushroom("");
-//					GameBoard.addPlant(new_mushroom);
+						GameBoard.getInstance().removePlant(occupant);
+//					Mushroom new_mushroom = new Mushroom(GameBoard.getNewPlantId());
+//					Cursor.getInstance().setOccupant(new_mushroom);
+//					GameBoard.getInstance().addPlant(new_mushroom);
 				}
 			}else{
 				if(mushroomScale > 0.75f)
@@ -127,12 +138,13 @@ public class SideBoard extends Entity  {
 				if(herbScale < 0.78f)
 					herbScale += scaleStep * delta;
 	
-				if ( input.isMousePressed(Input.MOUSE_LEFT_BUTTON) ){
+				if (Cursor.getInstance().isPressed()){
 					Plant occupant = (Plant)Cursor.getInstance().getOccupant();
 					if(occupant != null)
-						GameBoard.removePlant(occupant);
-					Herb new_herb = new Herb("");
-					GameBoard.addPlant( new_herb);
+						GameBoard.getInstance().removePlant(occupant);
+					Herb new_herb = new Herb(GameBoard.getNewPlantId());
+					Cursor.getInstance().setOccupant(new_herb);
+					GameBoard.getInstance().addPlant(new_herb);
 				}
 			}else{
 				if(herbScale > 0.75f)
@@ -144,17 +156,19 @@ public class SideBoard extends Entity  {
 				if(flowerScale < 0.78f)
 					flowerScale += scaleStep * delta;
 	
-				if ( input.isMousePressed(Input.MOUSE_LEFT_BUTTON) ){
+				if (Cursor.getInstance().isPressed()){
 					Plant occupant = (Plant)Cursor.getInstance().getOccupant();
 					if(occupant != null)
-						GameBoard.removePlant(occupant);
-					Flower new_flower = new Flower("");
-					GameBoard.addPlant(new_flower);
+						GameBoard.getInstance().removePlant(occupant);
+					Flower new_flower = new Flower(GameBoard.getNewPlantId());
+					Cursor.getInstance().setOccupant(new_flower);
+					GameBoard.getInstance().addPlant(new_flower);
 				}
 			}else{
 				if(flowerScale > 0.75f)
 					flowerScale -= scaleStep * delta;
 			}
+			
 		}
 		catch(Exception ex)
 		{

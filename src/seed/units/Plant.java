@@ -32,7 +32,6 @@ public class Plant extends Absorber {
 		this.airProd = 0;
 		this.waterRegressQty = 100;
 		this.energyRegressQty = 100;
-		//this.evolutions = new ArrayList<Evolution>();
 		
 		addComponent(new SunLitComponent());
 		addComponent(new EvolveComponent());
@@ -155,14 +154,6 @@ public class Plant extends Absorber {
 	public int getEnergy() {
 		return energy;
 	}
-
-	/*public ArrayList<Evolution> getEvolutions() {
-		return evolutions;
-	}
-
-	public void setEvolutions(ArrayList<Evolution> evolutions) {
-		this.evolutions = evolutions;
-	}*/
 	
 	public boolean isReadyToEvolve() {
 		return (this.storage >= this.waterEvolQty);

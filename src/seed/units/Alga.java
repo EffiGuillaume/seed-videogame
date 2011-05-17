@@ -12,6 +12,7 @@ public class Alga extends Plant {
 	
 	public Alga(String id) throws SlickException {
 		super(id);
+		this.evolution = "ALGA_LVL1";
 		this.delay = Integer.parseInt(Configs.getPlantConfig("ALGA_LVL1").getProperty("DELAY"));
 		this.range = Integer.parseInt(Configs.getPlantConfig("ALGA_LVL1").getProperty("RANGE"));
 		this.storage = 0;

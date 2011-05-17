@@ -22,7 +22,10 @@ public class CursorInteractionComponent extends Component {
 		
 		owner.setPosition(new Vector2f(input.getMouseX(), input.getMouseY()));
 		
-
+		if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON))
+			((Cursor)owner).setPressed(true);
+		else
+			((Cursor)owner).setPressed(false);
 	}
 
 }

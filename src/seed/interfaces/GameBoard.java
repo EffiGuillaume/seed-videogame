@@ -31,6 +31,7 @@ public class GameBoard extends Entity {
 	private Field field;
 	private Wave waves;	
 	ArrayList<Plant> plants;
+	private static int nextId = 0;
 
 	public void init(GameContainer gc, Field field) throws SlickException{
 		this.field = field;
@@ -123,20 +124,37 @@ public class GameBoard extends Entity {
 		return plants.get(key);
 	}
 
-	public void setPlant(Plant plant) {
+	public void addPlant(Plant plant) {
 		this.plants.add(plant);
 	}
-
+	
+	/*
 	public static void addPlant(Plant plant){
 		GameBoard.getInstance().setPlant(plant);
-	}
+	}*/
 	
-	public static void removePlant(Plant plant){
+	/*public static void removePlant(Plant plant){
 		String id = plant.getId();
+		System.out.println("boom");
 		for(int i = 0; i < GameBoard.getInstance().getPlantSize(); i++){
+			System.out.println(id + " = " + GameBoard.getInstance().getPlants(i).getId() + " ? ");
 			if(GameBoard.getInstance().getPlants(i).getId().equalsIgnoreCase(id))
 				GameBoard.getInstance().removePlants(i);
 		}
+	}*/
+	
+	public void removePlant(Plant plant){
+		String id = plant.getId();
+		for(int i = 0; i < plants.size(); i++){
+			if(plants.get(i).getId().equalsIgnoreCase(id))
+				plants.remove(i);
+		}
+	}
+	
+	public static String getNewPlantId()
+	{
+		nextId++;
+		return ("Plant"+nextId);
 	}
 
 }
