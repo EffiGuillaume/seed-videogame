@@ -72,25 +72,13 @@ public class AbsorptionComponent extends Component {
 
 	private void absorb(Wave wave, int position) 
 	{
-		System.out.print("t la?");
 		if(wave.content.get(position) != null){
 			if(!wave.content.get(position).isAbsorbed())
 			{
 				wave.content.get(position).setAbsorbed(true);
 				wave.content.get(position).setToReach(owner.getPosition());
-				//			wave.addComponent(new AbsorbedComponent("absorbedByAbsorber"+owner.getId(), (Absorber)owner, position));
+				wave.content.get(position).addComponent(new AbsorbedComponent("absorbedByAbsorber"+owner.getId(), (Absorber)owner, wave, position));
 			}
-			if(wave.content.get(position).getPosition().distance(owner.getPosition()) < 10)
-			{
-				((Absorber)owner).setStorage(((Absorber)owner).getStorage()+1);
-				System.out.println("tabsorbe oui ou merde?");
-				wave.content.remove(position);
-				Wave.nbOfAbsorbable--;
-
-				if(Wave.nbOfAbsorbable == 0)
-					Wave.newWave();
-			}
-
 		}
 	}
 
