@@ -172,11 +172,11 @@ public class GameBoard extends Entity {
 	
 	public void removePlant(Plant plant){
 		String id = plant.getId();
-		System.out.println("boom");
 		for(int i = 0; i <= plants.size(); i++){
-			System.out.println(id + " = " + plants.get(i).getId());
-			if(plants.get(i).getId().equalsIgnoreCase(id))
+			if(plants.get(i).getId().equalsIgnoreCase(id)){
 				plants.remove(i);
+				break;
+			}
 		}
 	}
 	
