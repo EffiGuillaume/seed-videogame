@@ -48,8 +48,8 @@ public class AbsorptionComponent extends Component {
 
 								if(Math.sqrt(Math.pow(water_x - plant_x, 2) + Math.pow(water_y - plant_y, 2)) < ((Absorber)owner).getRange()) //regarde si la goutte d'eau est à portée et absorbe si c'est le cas
 								{
-									absorb(wave, j);
-									timer = 0;
+									if(absorb(wave, j))
+										timer = 0;
 									return;
 								}
 							}
@@ -70,7 +70,7 @@ public class AbsorptionComponent extends Component {
 
 	}
 
-	private void absorb(Wave wave, int position) 
+	private boolean absorb(Wave wave, int position) 
 	{
 		if(wave.content.get(position) != null){
 			if(!wave.content.get(position).isAbsorbed())
@@ -78,8 +78,10 @@ public class AbsorptionComponent extends Component {
 				wave.content.get(position).setAbsorbed(true);
 				wave.content.get(position).setToReach(owner.getPosition());
 				wave.content.get(position).addComponent(new AbsorbedComponent("absorbedByAbsorber"+owner.getId(), (Absorber)owner, wave, position));
+				return true;
 			}
 		}
+		return false;
 	}
 
 }

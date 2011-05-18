@@ -13,7 +13,6 @@ public class Cursor extends Entity {
 	private static final Cursor instance = new Cursor("cursor");
 	
 	private CursorState state;
-	private Entity occupant = null;
 	private boolean pressed = false;
 
 	private Cursor(String id) {
@@ -34,14 +33,6 @@ public class Cursor extends Entity {
 		return state;
 	}
 
-	public Entity getOccupant() {
-		return occupant;
-	}
-
-	public void setOccupant(Entity occupant) {
-		this.occupant = occupant;
-	}
-	
 	public void setPressed(boolean pressed) {
 		this.pressed = pressed;
 	}
