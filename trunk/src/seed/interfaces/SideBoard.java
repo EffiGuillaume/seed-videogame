@@ -7,6 +7,7 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import seed.config.Configs;
 import seed.engine.Entity;
 import seed.interactions.Cursor;
 import seed.interfaces.Enemy;
@@ -24,6 +25,7 @@ public class SideBoard extends Entity  {
 	Image mushroomButton;
 	Image herbButton;
 	Image flowerButton;
+	Image unConstructible;
 
 	float treeScale =  0.75f;
 	float mushroomScale =  0.75f;
@@ -50,6 +52,7 @@ public class SideBoard extends Entity  {
 		this.mushroomButton = new Image("res/MushroomButton.png");
 		this.herbButton = new Image("res/HerbButton.png");
 		this.flowerButton = new Image("res/FlowerButton.png");
+		this.unConstructible = new Image("res/unConstructible.png");
 	}
 
 	public void init(GameContainer gc) throws SlickException{
@@ -160,10 +163,24 @@ public class SideBoard extends Entity  {
 
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr){
 		herbButton.draw(GameBoard.getWidth()+width/5, height/7, herbScale);
+		gr.drawString(Configs.getPlantConfig("HERB_LVL0").getProperty("COST"),GameBoard.getWidth()+width/5, height/7);
+		if(Ressource.getInstance().getAir() < Integer.parseInt(Configs.getPlantConfig("HERB_LVL0").getProperty("COST")))
+			unConstructible.draw(GameBoard.getWidth()+width/5, height/7, herbScale);
+			
 		flowerButton.draw(GameBoard.getWidth()+width/5, 2*height/7, flowerScale);
+		gr.drawString(Configs.getPlantConfig("FLOWER_LVL0").getProperty("COST"),GameBoard.getWidth()+width/5, 2*height/7);
+		if(Ressource.getInstance().getAir() < Integer.parseInt(Configs.getPlantConfig("FLOWER_LVL0").getProperty("COST")))
+			unConstructible.draw(GameBoard.getWidth()+width/5, 2*height/7, herbScale);
+		
 		treeButton.draw(GameBoard.getWidth()+width/5, 3*height/7, treeScale);
+		gr.drawString(Configs.getPlantConfig("TREE_LVL0").getProperty("COST"),GameBoard.getWidth()+width/5, 3*height/7);
+		if(Ressource.getInstance().getAir() < Integer.parseInt(Configs.getPlantConfig("TREE_LVL0").getProperty("COST")))
+			unConstructible.draw(GameBoard.getWidth()+width/5, 3*height/7, herbScale);
+		
 		mushroomButton.draw(GameBoard.getWidth()+width/5, 4*height/7, mushroomScale);
-
+		//gr.drawString(Configs.getPlantConfig("MUSHROOM_LVL0").getProperty("COST"),GameBoard.getWidth()+width/5, 4*height/7);
+		//if(Ressource.getInstance().getAir() < Integer.parseInt(Configs.getPlantConfig("MUSHROOM_LVL0").getProperty("COST")))
+			//unConstructible.draw(GameBoard.getWidth()+width/5, 4*height/7, herbScale);
 	}
 
 	public static boolean inside(float x, float y){
