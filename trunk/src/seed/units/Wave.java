@@ -60,6 +60,6 @@ public class Wave extends Entity {
 
 	public static void newWave() {
 		System.out.println("NEW WAVE");
-		GameBoard.getInstance().setWaves(new Wave((level+1)+"Wave", level+1, level*20, 500, 100, 1, "res/WaterSprite.png"));
+		GameBoard.getInstance().setWaves(new Wave((level+1)+"Wave", level+1, level*20, 500, 75, 1, "res/WaterSprite.png"));
 	}
 }

@@ -23,7 +23,8 @@ public class Field  extends Entity{
 	int blockRowNumber;
 	int blockColumnNumber;
 	
-	ImageEntity background;
+//	ImageEntity background;
+	Image background;
 	Block[][] grid;
 	boolean show_grid=false;
 	
@@ -50,12 +51,13 @@ public class Field  extends Entity{
 	}
 	
 	public void init(GameContainer gc) throws SlickException {
-		background = new ImageEntity("background", new Image("res/texture.png"));
+//		background = new ImageEntity("background", new Image("res/Fond.png"));
+		background = new Image("res/Fond.png");
 		
 		grid = new Block[blockRowNumber][blockColumnNumber];
 		for(int i=0;i<blockRowNumber;i++){
 			for(int j=0;j<blockColumnNumber;j++){
-				grid[i][j] = new Block("Block["+i+"]["+j+"]",new Image("res/desert.png"));
+				grid[i][j] = new Block("Block["+i+"]["+j+"]",new Image("res/textdesert2.png"));
 				Vector2f position = new Vector2f(i*Block.BLOCK_SIZE, j*Block.BLOCK_SIZE);
 				grid[i][j].setPosition(position);
 				grid[i][j].addType(BlockType.DESERT);
@@ -76,7 +78,7 @@ public class Field  extends Entity{
 				dist_x =  cur_coord.getX() - prev_coord.getX();
 				dist_y =  cur_coord.getY() - prev_coord.getY();
 				while(!((Math.abs(dist_x)+Math.abs(dist_y))<1)){
-					this.changeBlockTexture((int)prev_coord.getX(),(int)prev_coord.getY(), new Image("res/path.png"));
+					this.changeBlockTexture((int)prev_coord.getX(),(int)prev_coord.getY(), new Image("res/Litfonce.png"));
 					this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(), BlockType.CHEMIN);
 					this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(), BlockType.NON_CONSTRUCTIBLE);
 					double angle = Math.atan2(dist_y, dist_x);
@@ -84,7 +86,7 @@ public class Field  extends Entity{
 					dist_x =  cur_coord.getX() - prev_coord.getX();
 					dist_y =  cur_coord.getY() - prev_coord.getY();
 				}
-				this.changeBlockTexture((int)prev_coord.getX(),(int)prev_coord.getY(), new Image("res/path.png"));
+				this.changeBlockTexture((int)prev_coord.getX(),(int)prev_coord.getY(), new Image("res/Litfonce.png"));
 				this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(), BlockType.CHEMIN);
 				this.addBlockType((int)prev_coord.getX(),(int)prev_coord.getY(), BlockType.NON_CONSTRUCTIBLE);
 			}
@@ -126,13 +128,14 @@ public class Field  extends Entity{
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr){
-		background.render(gc, null, gr);
+
 		for(int i=0;i<blockRowNumber;i++){
 			for(int j=0;j<blockColumnNumber;j++){
 				grid[i][j].setBorderVisibility(show_grid);
 				grid[i][j].render(gc, sb, gr);
 			}
 		}
+		background.draw(0,0,0.5f);
 	}
 	
 	public int getNumRowBlock(){
