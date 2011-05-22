@@ -52,7 +52,7 @@ public class TDtest extends BasicGame {
 		SideBoard.getInstance().init(gc,SIDEBOARD_WIDTH,SIDEBOARD_HEIGHT);
 		/* test Ressource */
 		Ressource.getInstance().setPollution(10000); // pollution de départ
-		Ressource.getInstance().setAir(400); // air de déÈpart
+		Ressource.getInstance().setAir(1000); // air de déÈpart
 
 
 	}
@@ -63,12 +63,16 @@ public class TDtest extends BasicGame {
 		GameBoard.getInstance().update(gc, null, delta);
 		Ressource.getInstance().update(gc, null, delta);
 		SideBoard.getInstance().update(gc, null, delta);
+		/*if(Ressource.getInstance().getAir() <= 0){
+			System.out.println("Game Over");
+			gc.reinit();
+		}*/
 	}
 
 	public void render(GameContainer gc, Graphics gr) throws SlickException {
 		GameBoard.getInstance().render(gc, null, gr);
-		Ressource.getInstance().render(gc, null, gr);
 		SideBoard.getInstance().render(gc, null, gr);
+		Ressource.getInstance().render(gc, null, gr);
 	}
 
 }
