@@ -60,7 +60,7 @@ public class Field  extends Entity{
 				grid[i][j] = new Block("Block["+i+"]["+j+"]",new Image("res/textdesert2.png"));
 				Vector2f position = new Vector2f(i*Block.BLOCK_SIZE, j*Block.BLOCK_SIZE);
 				grid[i][j].setPosition(position);
-				grid[i][j].addType(BlockType.DESERT);
+				grid[i][j].addType(BlockType.FORET);
 			}
 		}
 		
