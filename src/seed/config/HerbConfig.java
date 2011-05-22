@@ -12,11 +12,11 @@ public class HerbConfig extends PlantConfig{
 			properties.setProperty("RANGE", "100");
 			properties.setProperty("ENERGYDELAY", "200");
 			properties.setProperty("COST", "100");
-			properties.setProperty("WATEREVOLQTY", "5");
-			properties.setProperty("AIRPROD", "0");
+			properties.setProperty("WATEREVOLQTY", "2");
+			properties.setProperty("AIRPROD", "10");
 			properties.setProperty("WATERREGRESSQTY", "0");
 			properties.setProperty("ENERGYREGRESSQTY", "-10");
-			properties.setProperty("IMAGEREFERENCE", "5");
+			properties.setProperty("IMAGEREFERENCE", "4");
 			
 			break;
 		}
@@ -26,7 +26,7 @@ public class HerbConfig extends PlantConfig{
 			properties.setProperty("DELAY", "300");
 			properties.setProperty("RANGE", "100");
 			properties.setProperty("ENERGYDELAY", "100");
-			properties.setProperty("COST", "100");
+			properties.setProperty("COST", "50");
 			properties.setProperty("WATEREVOLQTY", "5");
 			properties.setProperty("AIRPROD", "100");
 			properties.setProperty("WATERREGRESSQTY", "0");
@@ -45,8 +45,8 @@ public class HerbConfig extends PlantConfig{
 			properties.setProperty("WATEREVOLQTY", "10");
 			properties.setProperty("AIRPROD", "200");
 			properties.setProperty("WATERREGRESSQTY", "0");
-			properties.setProperty("ENERGYREGRESSQTY", "-1");
-			properties.setProperty("IMAGEREFERENCE", "5");
+			properties.setProperty("ENERGYREGRESSQTY", "-3");
+			properties.setProperty("IMAGEREFERENCE", "6");
 			
 			break;
 		}
@@ -60,8 +60,8 @@ public class HerbConfig extends PlantConfig{
 			properties.setProperty("WATEREVOLQTY", "10");
 			properties.setProperty("AIRPROD", "300");
 			properties.setProperty("WATERREGRESSQTY", "5");
-			properties.setProperty("ENERGYREGRESSQTY", "5");
-			properties.setProperty("IMAGEREFERENCE", "5");
+			properties.setProperty("ENERGYREGRESSQTY", "-5");
+			properties.setProperty("IMAGEREFERENCE", "7");
 			
 			break;
 		}
@@ -75,7 +75,7 @@ public class HerbConfig extends PlantConfig{
 			properties.setProperty("AIRPROD", "0");
 			properties.setProperty("WATERREGRESSQTY", "0");
 			properties.setProperty("ENERGYREGRESSQTY", "-10");
-			properties.setProperty("IMAGEREFERENCE", "5");
+			properties.setProperty("IMAGEREFERENCE", "4");
 		}
 		}//end of switch
 		

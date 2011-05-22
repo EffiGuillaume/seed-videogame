@@ -9,14 +9,14 @@ public class FlowerConfig extends PlantConfig {
 		case(0): //création d'un FlowerConfig LVL0
 		{
 			properties.setProperty("DELAY", "600");
-			properties.setProperty("RANGE", "50");
+			properties.setProperty("RANGE", "75");
 			properties.setProperty("ENERGYDELAY", "300");
 			properties.setProperty("COST", "150");
-			properties.setProperty("WATEREVOLQTY", "5");
+			properties.setProperty("WATEREVOLQTY", "2");
 			properties.setProperty("AIRPROD", "10");
 			properties.setProperty("WATERREGRESSQTY", "0");
 			properties.setProperty("ENERGYREGRESSQTY", "-5");
-			properties.setProperty("IMAGEREFERENCE", "6");
+			properties.setProperty("IMAGEREFERENCE", "4");
 			
 			break;
 		}
@@ -24,14 +24,14 @@ public class FlowerConfig extends PlantConfig {
 		{
 			properties.setProperty("EVOLCOST", "10");
 			properties.setProperty("DELAY", "300");
-			properties.setProperty("RANGE", "100");
+			properties.setProperty("RANGE", "150");
 			properties.setProperty("ENERGYDELAY", "150");
 			properties.setProperty("COST", "150");
 			properties.setProperty("WATEREVOLQTY", "5");
-			properties.setProperty("AIRPROD", "300");
+			properties.setProperty("AIRPROD", "100");
 			properties.setProperty("WATERREGRESSQTY", "0");
 			properties.setProperty("ENERGYREGRESSQTY", "-1");
-			properties.setProperty("IMAGEREFERENCE", "6");
+			properties.setProperty("IMAGEREFERENCE", "5");
 			
 			break;
 		}
@@ -39,13 +39,13 @@ public class FlowerConfig extends PlantConfig {
 		{
 			properties.setProperty("EVOLCOST", "20");
 			properties.setProperty("DELAY", "300");
-			properties.setProperty("RANGE", "100");
+			properties.setProperty("RANGE", "150");
 			properties.setProperty("ENERGYDELAY", "150");
 			properties.setProperty("COST", "150");
 			properties.setProperty("WATEREVOLQTY", "10");
 			properties.setProperty("AIRPROD", "600");
 			properties.setProperty("WATERREGRESSQTY", "0");
-			properties.setProperty("ENERGYREGRESSQTY", "5");
+			properties.setProperty("ENERGYREGRESSQTY", "-5");
 			properties.setProperty("IMAGEREFERENCE", "6");
 			
 			break;
@@ -59,9 +59,9 @@ public class FlowerConfig extends PlantConfig {
 			properties.setProperty("COST", "150");
 			properties.setProperty("WATEREVOLQTY", "10");
 			properties.setProperty("AIRPROD", "900");
-			properties.setProperty("WATERREGRESSQTY", "5");
+			properties.setProperty("WATERREGRESSQTY", "-5");
 			properties.setProperty("ENERGYREGRESSQTY", "10");
-			properties.setProperty("IMAGEREFERENCE", "6");
+			properties.setProperty("IMAGEREFERENCE", "7");
 			
 			break;
 		}
@@ -75,7 +75,7 @@ public class FlowerConfig extends PlantConfig {
 			properties.setProperty("AIRPROD", "10");
 			properties.setProperty("WATERREGRESSQTY", "0");
 			properties.setProperty("ENERGYREGRESSQTY", "-5");
-			properties.setProperty("IMAGEREFERENCE", "6");
+			properties.setProperty("IMAGEREFERENCE", "4");
 		}
 		}//end of switch
 
