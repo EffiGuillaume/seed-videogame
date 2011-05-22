@@ -42,7 +42,7 @@ public class InGameState extends BasicGameState {
 
 		//---mise en place des ressources
 		Ressource.getInstance().setPollution(10000); // pollution de départ
-		Ressource.getInstance().setAir(35000); // air de départ
+		Ressource.getInstance().setAir(350); // air de départ
 
 	}
 

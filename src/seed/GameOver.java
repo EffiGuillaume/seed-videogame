@@ -25,7 +25,7 @@ public class GameOver extends BasicGameState {
 	@Override
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr)
 			throws SlickException {
-		gr.drawString("Félicitations ! Vous avez créé suffisamment de plantes pour consommer toute la pollution produite !", 500, 500);
+		gr.drawString("Bouh t'as perdu !", 500, 500);
 
 	}
 
