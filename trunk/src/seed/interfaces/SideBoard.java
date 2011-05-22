@@ -219,22 +219,22 @@ public class SideBoard extends Entity  {
 		herbButton.draw(GameBoard.getWidth()+width/5, height/7, herbScale);
 		gr.drawString(Configs.getPlantConfig("HERB_LVL0").getProperty("COST"),GameBoard.getWidth()+width/5+10, height/7+10);
 		if(Ressource.getInstance().getAir() < Integer.parseInt(Configs.getPlantConfig("HERB_LVL0").getProperty("COST")))
-			unConstructible.draw(GameBoard.getWidth()+width/5, height/7, herbScale);
+			unConstructible.draw(GameBoard.getWidth()+width/5+5, height/7+5, herbScale);
 
 		flowerButton.draw(GameBoard.getWidth()+width/5, 2*height/7, flowerScale);
 		gr.drawString(Configs.getPlantConfig("FLOWER_LVL0").getProperty("COST"),GameBoard.getWidth()+width/5+10, 2*height/7+10);
 		if(Ressource.getInstance().getAir() < Integer.parseInt(Configs.getPlantConfig("FLOWER_LVL0").getProperty("COST")))
-			unConstructible.draw(GameBoard.getWidth()+width/5, 2*height/7, herbScale);
+			unConstructible.draw(GameBoard.getWidth()+width/5+5, 2*height/7+5, herbScale);
 
 		treeButton.draw(GameBoard.getWidth()+width/5, 3*height/7, treeScale);
 		gr.drawString(Configs.getPlantConfig("TREE_LVL0").getProperty("COST"),GameBoard.getWidth()+width/5+10, 3*height/7+10);
 		if(Ressource.getInstance().getAir() < Integer.parseInt(Configs.getPlantConfig("TREE_LVL0").getProperty("COST")))
-			unConstructible.draw(GameBoard.getWidth()+width/5, 3*height/7, herbScale);
+			unConstructible.draw(GameBoard.getWidth()+width/5+5, 3*height/7+5, herbScale);
 
 		mushroomButton.draw(GameBoard.getWidth()+width/5, 4*height/7, mushroomScale);
 		//gr.drawString(Configs.getPlantConfig("MUSHROOM_LVL0").getProperty("COST"),GameBoard.getWidth()+width/5+10, 4*height/7+10);
 		//if(Ressource.getInstance().getAir() < Integer.parseInt(Configs.getPlantConfig("MUSHROOM_LVL0").getProperty("COST")))
-		//unConstructible.draw(GameBoard.getWidth()+width/5, 4*height/7, herbScale);
+		//unConstructible.draw(GameBoard.getWidth()+width/5+10, 4*height/7+10, herbScale);
 	}
 
 	public static boolean inside(float x, float y){
