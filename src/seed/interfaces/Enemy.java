@@ -3,7 +3,7 @@ package seed.interfaces;
 import seed.engine.Entity;
 
 public class Enemy extends Entity{
-	int MAX_EVOLUTIONS = 3;
+	int MAX_EVOLUTIONS = 50;
 	
 	int evolutionNumber = 0;
 	int[][] evolutions = new int[MAX_EVOLUTIONS][3];
@@ -15,13 +15,14 @@ public class Enemy extends Entity{
 		//evolutions[x][1] = delai de production
 		//evolutions[x][2] = delai avant d'évoluer
 		int pollutionProfQty = 1;
-		int delayBeforeEvolve = 1000000;
+		int delayBeforeEvolve = 10000;
 		for(int i=0;i < MAX_EVOLUTIONS; i++){
 			evolutions[i][0] = pollutionProfQty;
-			evolutions[i][1] = 500;
+			evolutions[i][1] = 250;
 			evolutions[i][2] = delayBeforeEvolve;
-			pollutionProfQty += 1;
-			delayBeforeEvolve += 1000000;
+			//pollutionProfQty += 1;
+			pollutionProfQty = (int)(pollutionProfQty*1.2)+1;
+			delayBeforeEvolve += 1000;
 		}
 		
 		addComponent(new EnemyComponent());
