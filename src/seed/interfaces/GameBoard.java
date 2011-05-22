@@ -49,7 +49,13 @@ public class GameBoard extends Entity {
 		path.add(new Vector2f(12,5));
 		path.add(new Vector2f(12,10));
 		path.add(new Vector2f(6,10));
-		path.add(new Vector2f(6,12));
+		path.add(new Vector2f(6,18));
+		path.add(new Vector2f(18,12));
+		path.add(new Vector2f(18,5));
+		path.add(new Vector2f(23,5));
+		path.add(new Vector2f(23,15));
+		path.add(new Vector2f(18,15));
+		path.add(new Vector2f(18,20));
 		path.add(new Vector2f(field.getNumRowBlock(),field.getNumColumnBlock()));
 		field.createPath(path);
 
@@ -58,7 +64,7 @@ public class GameBoard extends Entity {
 
 		//---création de la première vague
 		//--------->Wave(name,		level,	numberOfAbsorbable,	delayOfApparition,	speed,	waterQuantity,	imageFilePath);
-		waves = new Wave("1stWave",	1,		10, 				500, 				100, 	1,				"res/WaterSprite.png");
+		waves = new Wave("1stWave",	1,		10, 				500, 				75, 	1,				"res/WaterSprite.png");
 
 	}
 

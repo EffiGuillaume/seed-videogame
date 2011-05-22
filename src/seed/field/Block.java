@@ -10,7 +10,7 @@ import org.newdawn.slick.geom.Vector2f;
 import seed.engine.Entity;
 
 public class Block extends Entity {
-	public static int BLOCK_SIZE = 50;
+	public static int BLOCK_SIZE = 25;
 	
 	boolean used;
 	boolean showBorder = false;

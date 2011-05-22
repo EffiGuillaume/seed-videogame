@@ -31,7 +31,7 @@ public class SunLitRenderComponent extends RenderComponent {
 				{
 					scope = ((Sunbeam)owner).getScope();
 					Graphics circle = new Graphics();
-					circle.setColor(new Color(255,255,0,50));
+					circle.setColor(new Color(255,200,50,50));
 					circle.fillOval(position.x - scope/2, position.y - scope/2, scope, scope);
 				}
 				else throw new Exception("SunLitComponent ne peut être associé qu'à une Entity Sunbeam");
