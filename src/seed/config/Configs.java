@@ -61,6 +61,11 @@ public final class Configs {
 			setPlantConfig("TREE_LVL2", new TreeConfig(2));
 			setPlantConfig("TREE_LVL3", new TreeConfig(3));
 			
+			setPlantConfig("MUSHROOM_LVL0", new MushroomConfig(0));
+			setPlantConfig("MUSHROOM_LVL1", new MushroomConfig(1));
+			setPlantConfig("MUSHROOM_LVL2", new MushroomConfig(2));
+			setPlantConfig("MUSHROOM_LVL3", new MushroomConfig(3));
+			
 			setPlantConfig("ALGA_LVL0", new AlgaConfig(0));
 			setPlantConfig("ALGA_LVL1", new AlgaConfig(1));
 			setPlantConfig("ALGA_LVL2", new AlgaConfig(2));
@@ -96,6 +101,31 @@ public final class Configs {
 			herb_lvl3.setFields(herb_fields2);
 			herb_lvl3.setType("HERB");
 			herb_lvl3.setEvol("LVL3");
+			
+			//MUSHROOM
+			Evolution mushroom_lvl1 = new Evolution("MUSHROOM_LVL1_Evolution");
+			mushroom_lvl1.setEnergyCost(Integer.parseInt(Configs.getPlantConfig("MUSHROOM_LVL1").getProperty("EVOLCOST")));
+			ArrayList<BlockType> mushroom_fields0 = new ArrayList<BlockType>();
+				mushroom_fields0.add(BlockType.FORET);
+			mushroom_lvl1.setFields(mushroom_fields0);
+			mushroom_lvl1.setType("MUSHROOM");
+			mushroom_lvl1.setEvol("LVL1");
+			
+			Evolution mushroom_lvl2 = new Evolution("MUSHROOM_LVL2_Evolution");
+			mushroom_lvl2.setEnergyCost(Integer.parseInt(Configs.getPlantConfig("MUSHROOM_LVL2").getProperty("EVOLCOST")));
+			ArrayList<BlockType> mushroom_fields = new ArrayList<BlockType>();
+				mushroom_fields.add(BlockType.FORET);
+			mushroom_lvl2.setFields(mushroom_fields);
+			mushroom_lvl2.setType("MUSHROOM");
+			mushroom_lvl2.setEvol("LVL2");
+			
+			Evolution mush_lvl3 = new Evolution("MUSHROOM_LVL3_Evolution");
+			mush_lvl3.setEnergyCost(Integer.parseInt(Configs.getPlantConfig("MUSHROOM_LVL3").getProperty("EVOLCOST"))); 
+			ArrayList<BlockType> mush_fields2 = new ArrayList<BlockType>();
+				mush_fields2.add(BlockType.FORET);
+			mush_lvl3.setFields(mush_fields2);
+			mush_lvl3.setType("MUSHROOM");
+			mush_lvl3.setEvol("LVL3");
 			
 			//FLOWER
 			Evolution flower_lvl1 = new Evolution("FLOWER_LVL1_Evolution");
@@ -194,6 +224,21 @@ public final class Configs {
 			ArrayList<Evolution> evol_herb_lvl3= new ArrayList<Evolution>();
 			evol_herb_lvl3.add(flower_lvl2);
 			setEvolution("HERB_LVL3",evol_herb_lvl3); //à voir si ça convient
+			
+			//MUSHROOM
+			ArrayList<Evolution> evol_mush_lvl0 = new ArrayList<Evolution>();
+			evol_mush_lvl0.add(mushroom_lvl1);
+			setEvolution("MUSHROOM_LVL0",evol_mush_lvl0);
+			
+			ArrayList<Evolution> evol_mush_lvl1= new ArrayList<Evolution>();
+			evol_mush_lvl1.add(mushroom_lvl2);
+			evol_mush_lvl1.add(mush_lvl3);
+			setEvolution("MUSHROOM_LVL1",evol_mush_lvl1);
+			
+			ArrayList<Evolution> evol_mush_lvl2= new ArrayList<Evolution>();
+			evol_mush_lvl2.add(mush_lvl3);
+			setEvolution("MUSHROOM_LVL2",evol_mush_lvl2);
+		
 			
 			//FLOWER
 			ArrayList<Evolution> evol_flower_lvl0= new ArrayList<Evolution>();
