@@ -24,7 +24,7 @@ public class SunLitComponent extends Component {
 //					{
 						if(((Plant)owner).getCenter().distance(Sunbeam.getInstance().getPosition()) < Sunbeam.getInstance().getScope()/2)
 						{
-							if(timer < ((Plant)owner).getDelay() * 5/*gamma*/) // * une valeur gamma trouvée expérimentalement
+							if(timer < (600000/*gamma*/ / ((Plant)owner).getDelay())) // * une valeur gamma trouvée expérimentalement
 							{
 								timer += delta;
 							}
@@ -37,7 +37,7 @@ public class SunLitComponent extends Component {
 						}
 						else
 						{
-							if(timer_decrement < ((Plant)owner).getDelay() * 10/*gamma*2*/) //décrémente deux fois plus lentement que l'incrémentation (donc gamma * 2)
+							if(timer_decrement < (1200000/*gamma*2*/ / ((Plant)owner).getDelay())) //décrémente deux fois plus lentement que l'incrémentation (donc gamma * 2)
 							{
 								timer_decrement += delta;
 							}
