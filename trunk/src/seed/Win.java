@@ -6,6 +6,11 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import seed.interfaces.GameBoard;
+import seed.interfaces.Ressource;
+import seed.interfaces.SideBoard;
+import seed.units.Sunbeam;
+
 public class Win extends BasicGameState {
 int stateID = -1;
 	
@@ -22,9 +27,14 @@ int stateID = -1;
 	}
 
 	@Override
-	public void render(GameContainer arg0, StateBasedGame arg1, Graphics arg2)
+	public void render(GameContainer gc, StateBasedGame sb, Graphics gr)
 			throws SlickException {
-		// TODO Auto-generated method stub
+		GameBoard.getInstance().render(gc, sb, gr);
+		SideBoard.getInstance().render(gc, sb, gr);
+		Ressource.getInstance().render(gc, sb, gr);
+		Sunbeam.getInstance().render(gc, sb, gr);
+		
+		gr.drawString("Félicitations, vous avez gagné !", 250, 250);
 
 	}
 

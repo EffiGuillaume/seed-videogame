@@ -9,7 +9,7 @@ import org.newdawn.slick.state.StateBasedGame;
 public class SeedMainv09 extends StateBasedGame  {
 	public static final int INGAME = 0;
     public static final int WIN = 1;
-    public static final int LOSE = 1;
+    public static final int LOSE = 2;
 	
 	public static int GAMEBOARD_WIDTH = 700;
 	public static int GAMEBOARD_HEIGHT = 600;
