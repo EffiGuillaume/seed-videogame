@@ -14,22 +14,15 @@ public class EnemyComponent extends Component {
 		{
 			if(owner instanceof Enemy)
 			{
-				if(timerEvolution < ((Enemy) owner).getEvolutionDelay())
+				timerEvolution += delta;
+				if(timerDelay < ((Enemy) owner).getPollutionProdDelay())
 				{
-					timerEvolution += delta;
-					if(timerDelay < ((Enemy) owner).getPollutionProdDelay())
-					{
-						timerDelay += delta;
-					}
-					else
-					{
-						Ressource.getInstance().transformAirIntoPolu(((Enemy) owner).getPollutionProdQty());
-						timerDelay = 0;
-					}
+					timerDelay += delta;
 				}
-				else {
-					((Enemy) owner).evolve();
-					timerEvolution = 0;
+				else
+				{
+					Ressource.getInstance().transformAirIntoPolu(((Enemy) owner).getPollutionProdQty());
+					timerDelay = 0;
 				}
 			}
 			else
