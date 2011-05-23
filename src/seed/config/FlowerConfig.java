@@ -12,8 +12,8 @@ public class FlowerConfig extends PlantConfig {
 			properties.setProperty("RANGE", "75");
 			properties.setProperty("ENERGYDELAY", "300");
 			properties.setProperty("COST", "150");
-			properties.setProperty("WATEREVOLQTY", "2");
-			properties.setProperty("AIRPROD", "10");
+			properties.setProperty("WATEREVOLQTY", "5");
+			properties.setProperty("AIRPROD", "20");
 			properties.setProperty("WATERREGRESSQTY", "0");
 			properties.setProperty("ENERGYREGRESSQTY", "-5");
 			properties.setProperty("IMAGEREFERENCE", "4");
@@ -22,28 +22,28 @@ public class FlowerConfig extends PlantConfig {
 		}
 		case(1): //création d'un FlowerConfig LVL1
 		{
-			properties.setProperty("EVOLCOST", "10");
+			properties.setProperty("EVOLCOST", "15");
 			properties.setProperty("DELAY", "300");
 			properties.setProperty("RANGE", "150");
-			properties.setProperty("ENERGYDELAY", "150");
+			properties.setProperty("ENERGYDELAY", "300");
 			properties.setProperty("COST", "150");
-			properties.setProperty("WATEREVOLQTY", "5");
+			properties.setProperty("WATEREVOLQTY", "13");
 			properties.setProperty("AIRPROD", "100");
 			properties.setProperty("WATERREGRESSQTY", "0");
-			properties.setProperty("ENERGYREGRESSQTY", "-1");
+			properties.setProperty("ENERGYREGRESSQTY", "-3");
 			properties.setProperty("IMAGEREFERENCE", "5");
 			
 			break;
 		}
 		case(2): //création d'un FlowerConfig LVL2
 		{
-			properties.setProperty("EVOLCOST", "20");
+			properties.setProperty("EVOLCOST", "30");
 			properties.setProperty("DELAY", "300");
 			properties.setProperty("RANGE", "150");
-			properties.setProperty("ENERGYDELAY", "150");
+			properties.setProperty("ENERGYDELAY", "200");
 			properties.setProperty("COST", "150");
-			properties.setProperty("WATEREVOLQTY", "10");
-			properties.setProperty("AIRPROD", "600");
+			properties.setProperty("WATEREVOLQTY", "20");
+			properties.setProperty("AIRPROD", "200");
 			properties.setProperty("WATERREGRESSQTY", "0");
 			properties.setProperty("ENERGYREGRESSQTY", "-5");
 			properties.setProperty("IMAGEREFERENCE", "6");
@@ -52,15 +52,15 @@ public class FlowerConfig extends PlantConfig {
 		}
 		case(3): //création d'un FlowerConfig LVL3
 		{
-			properties.setProperty("EVOLCOST", "30");
+			properties.setProperty("EVOLCOST", "50");
 			properties.setProperty("DELAY", "300");
 			properties.setProperty("RANGE", "100");
-			properties.setProperty("ENERGYDELAY", "100");
+			properties.setProperty("ENERGYDELAY", "150");
 			properties.setProperty("COST", "150");
-			properties.setProperty("WATEREVOLQTY", "10");
-			properties.setProperty("AIRPROD", "900");
+			properties.setProperty("WATEREVOLQTY", "35");
+			properties.setProperty("AIRPROD", "400");
 			properties.setProperty("WATERREGRESSQTY", "-5");
-			properties.setProperty("ENERGYREGRESSQTY", "10");
+			properties.setProperty("ENERGYREGRESSQTY", "-5");
 			properties.setProperty("IMAGEREFERENCE", "7");
 			
 			break;

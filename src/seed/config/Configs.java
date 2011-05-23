@@ -214,7 +214,7 @@ public final class Configs {
 			
 			ArrayList<Evolution> evol_herb_lvl1= new ArrayList<Evolution>();
 			evol_herb_lvl1.add(herb_lvl2);
-			evol_herb_lvl1.add(herb_lvl3);
+			//evol_herb_lvl1.add(herb_lvl3);
 			setEvolution("HERB_LVL1",evol_herb_lvl1);
 			
 			ArrayList<Evolution> evol_herb_lvl2= new ArrayList<Evolution>();
