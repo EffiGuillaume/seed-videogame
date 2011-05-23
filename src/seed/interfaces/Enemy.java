@@ -3,9 +3,9 @@ package seed.interfaces;
 import seed.engine.Entity;
 
 public class Enemy extends Entity{
-	int MAX_EVOLUTIONS = 50;
+	static int MAX_EVOLUTIONS = 50;
 	
-	int evolutionNumber = 0;
+	static int evolutionNumber = 0;
 	int[][] evolutions = new int[MAX_EVOLUTIONS][3];
 	
 	public Enemy(String id) {
@@ -21,7 +21,10 @@ public class Enemy extends Entity{
 			evolutions[i][1] = 250;
 			evolutions[i][2] = delayBeforeEvolve;
 			//pollutionProfQty += 1;
-			pollutionProfQty = (int)(pollutionProfQty*1.2)+1;
+			if(pollutionProfQty < 100)
+				pollutionProfQty = (int)(pollutionProfQty*2.5);
+			else 
+				pollutionProfQty = (int)(pollutionProfQty*1.5);
 			delayBeforeEvolve += 1000;
 		}
 		
@@ -40,7 +43,7 @@ public class Enemy extends Entity{
 		return evolutions[evolutionNumber][2];
 	}
 	
-	public void evolve(){
+	static public void evolve(){
 		if(evolutionNumber<MAX_EVOLUTIONS-1)
 			evolutionNumber++;
 	}
