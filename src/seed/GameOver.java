@@ -6,6 +6,11 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import seed.interfaces.GameBoard;
+import seed.interfaces.Ressource;
+import seed.interfaces.SideBoard;
+import seed.units.Sunbeam;
+
 public class GameOver extends BasicGameState {
 	
 	int stateID = -1;
@@ -25,7 +30,11 @@ public class GameOver extends BasicGameState {
 	@Override
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr)
 			throws SlickException {
-		gr.drawString("Bouh t'as perdu !", 500, 500);
+		GameBoard.getInstance().render(gc, sb, gr);
+		SideBoard.getInstance().render(gc, sb, gr);
+		Ressource.getInstance().render(gc, sb, gr);
+		Sunbeam.getInstance().render(gc, sb, gr);
+		gr.drawString("Désolé, vous avez perdu !", 250, 250);
 
 	}
 

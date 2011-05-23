@@ -69,9 +69,9 @@ public class InGameState extends BasicGameState {
 			Sunbeam.getInstance().update(gc, sb, delta);
 			SideBoard.getInstance().update(gc, sb, delta);
 			
-			if(Ressource.getInstance().getPollution() > 10100)
+			if(Ressource.getInstance().getPollution() > 10200)
 				sb.enterState(SeedMainv09.LOSE);
-			if(Ressource.getInstance().getPollution() <= 200)
+			if(Ressource.getInstance().getPollution() <= 100)
 				sb.enterState(SeedMainv09.WIN);
 		}
 	}
