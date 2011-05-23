@@ -15,6 +15,7 @@ import seed.interfaces.Enemy;
 import seed.interfaces.GameBoard;
 import seed.units.Flower;
 import seed.units.Herb;
+import seed.units.Mushroom;
 import seed.units.Tree;
 
 public class SideBoard extends Entity  {
@@ -132,9 +133,9 @@ public class SideBoard extends Entity  {
 					mushroomScale += scaleStep;
 
 				if (Cursor.getInstance().isPressed()){
-					//					Mushroom new_mushroom = new Mushroom(GameBoard.getNewPlantId());
-					//					if(Ressource.getInstance().getAir() >= new_mushroom.getCost())
-					//						GameBoard.getInstance().setToConstruct(new_mushroom);
+					Mushroom new_mushroom = new Mushroom(GameBoard.getNewPlantId());
+					if(Ressource.getInstance().getAir() >= new_mushroom.getCost())
+						GameBoard.getInstance().setToConstruct(new_mushroom);
 				}
 			}else{
 				if(mushroomScale > 0.75f)
@@ -232,9 +233,9 @@ public class SideBoard extends Entity  {
 			unConstructible.draw(GameBoard.getWidth()+width/5+5, 3*height/7+5, herbScale);
 
 		mushroomButton.draw(GameBoard.getWidth()+width/5, 4*height/7, mushroomScale);
-		//gr.drawString(Configs.getPlantConfig("MUSHROOM_LVL0").getProperty("COST"),GameBoard.getWidth()+width/5+10, 4*height/7+10);
-		//if(Ressource.getInstance().getAir() < Integer.parseInt(Configs.getPlantConfig("MUSHROOM_LVL0").getProperty("COST")))
-		//unConstructible.draw(GameBoard.getWidth()+width/5+10, 4*height/7+10, herbScale);
+		gr.drawString(Configs.getPlantConfig("MUSHROOM_LVL0").getProperty("COST"),GameBoard.getWidth()+width/5+10, 4*height/7+10);
+		if(Ressource.getInstance().getAir() < Integer.parseInt(Configs.getPlantConfig("MUSHROOM_LVL0").getProperty("COST")))
+			unConstructible.draw(GameBoard.getWidth()+width/5+5, 4*height/7+5, mushroomScale);
 	}
 
 	public static boolean inside(float x, float y){
