@@ -24,6 +24,8 @@ public class Menu extends BasicGameState {
 	Image sideBoard;
 	
 	float playScale = 0.5f;
+	float playX = 300;
+	float playY = 300;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame arg1)
@@ -37,7 +39,7 @@ public class Menu extends BasicGameState {
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr)
 	throws SlickException {
 		background.draw(0,0,0.5f);
-		playButton.draw(300,300, playScale);
+		playButton.draw(playX,playY, playScale);
 		sideBoard.draw(SeedMainv09.GAMEBOARD_WIDTH,0);
 	}
 
@@ -51,19 +53,27 @@ public class Menu extends BasicGameState {
 		
 		boolean insidePlay = false;
 		
-		if( ( mouseX >= 300 && mouseX <= 300 + playButton.getWidth()*playScale ) &&
-				( mouseY >= 300 && mouseY <= 300 + playButton.getHeight()*playScale ))
+		if( ( mouseX >= playX && mouseX <= playX + playButton.getWidth()*playScale ) &&
+				( mouseY >= playY && mouseY <= playY + playButton.getHeight()*playScale ))
 			insidePlay = true;
 		
 		if(insidePlay){
 			if(playScale > 0.48f)
 				playScale -= 0.01f;
+			if(playX < 309)
+				playX += 3;
+			if(playY < 309)
+				playY += 3;
 			if (input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)){
 				sb.enterState(SeedMainv09.INGAME);
 			}
 		}else{
 			if(playScale < 0.50f)
 				playScale += 0.01f;
+			if(playX > 300)
+				playX -= 3;
+			if(playY > 300)
+				playY -= 3;
 		}
 
 	}
