@@ -57,10 +57,28 @@ public class Field  extends Entity{
 		grid = new Block[blockRowNumber][blockColumnNumber];
 		for(int i=0;i<blockRowNumber;i++){
 			for(int j=0;j<blockColumnNumber;j++){
-				grid[i][j] = new Block("Block["+i+"]["+j+"]",new Image("res/textdesert2.png"));
+				grid[i][j] = new Block("Block["+i+"]["+j+"]",new Image("res/texture.png"));
 				Vector2f position = new Vector2f(i*Block.BLOCK_SIZE, j*Block.BLOCK_SIZE);
 				grid[i][j].setPosition(position);
 				grid[i][j].addType(BlockType.FORET);
+			}
+		}
+		
+		for(int i=15;i<blockRowNumber;i++){
+			for(int j=8;j<blockColumnNumber;j++){
+				grid[i][j] = new Block("Block["+i+"]["+j+"]",new Image("res/textdesert2.png"));
+				Vector2f position = new Vector2f(i*Block.BLOCK_SIZE, j*Block.BLOCK_SIZE);
+				grid[i][j].setPosition(position);
+				grid[i][j].addType(BlockType.DESERT);
+			}
+		}
+		
+		for(int i=20;i<blockRowNumber;i++){
+			for(int j=0;j<blockColumnNumber;j++){
+				grid[i][j] = new Block("Block["+i+"]["+j+"]",new Image("res/textdesert2.png"));
+				Vector2f position = new Vector2f(i*Block.BLOCK_SIZE, j*Block.BLOCK_SIZE);
+				grid[i][j].setPosition(position);
+				grid[i][j].addType(BlockType.DESERT);
 			}
 		}
 		
