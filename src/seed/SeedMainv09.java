@@ -7,9 +7,10 @@ import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.StateBasedGame;
 
 public class SeedMainv09 extends StateBasedGame  {
-	public static final int INGAME = 0;
-    public static final int WIN = 1;
-    public static final int LOSE = 2;
+	public static final int MENU = 0;
+	public static final int INGAME = 1;
+    public static final int WIN = 2;
+    public static final int LOSE = 3;
 	
 	public static int GAMEBOARD_WIDTH = 700;
 	public static int GAMEBOARD_HEIGHT = 600;
@@ -21,10 +22,11 @@ public class SeedMainv09 extends StateBasedGame  {
 	public SeedMainv09(String title) {
 		super(title);
 		
+		this.addState(new Menu(MENU));
 		this.addState(new InGameState(INGAME));
         this.addState(new Win(WIN));
         this.addState(new GameOver(LOSE));
-        this.enterState(INGAME);
+        this.enterState(MENU);
 	}
 
 	public SeedMainv09() {
@@ -47,6 +49,7 @@ public class SeedMainv09 extends StateBasedGame  {
 
 	@Override
 	public void initStatesList(GameContainer gc) throws SlickException {
+		this.getState(MENU).init(gc, this);
 		this.getState(INGAME).init(gc, this);
         this.getState(WIN).init(gc, this);
         this.getState(LOSE).init(gc, this);
