@@ -6,7 +6,7 @@ public class MushroomConfig extends PlantConfig{
 		super(level);
 		
 		switch(level){
-		case(0): //création d'un HerbConfig LVL0
+		case(0): //création d'un MushroomConfig LVL0
 		{
 			properties.setProperty("DELAY", "700");
 			properties.setProperty("RANGE", "75");
@@ -20,7 +20,7 @@ public class MushroomConfig extends PlantConfig{
 			
 			break;
 		}
-		case(1): //création d'un HerbConfig LVL1
+		case(1): //création d'un MushroomConfig LVL1
 		{
 			properties.setProperty("EVOLCOST", "5");
 			properties.setProperty("DELAY", "600");
@@ -35,7 +35,7 @@ public class MushroomConfig extends PlantConfig{
 			
 			break;
 		}
-		case(2): //création d'un HerbConfig LVL2
+		case(2): //création d'un MushroomConfig LVL2
 		{
 			properties.setProperty("EVOLCOST", "10");
 			properties.setProperty("DELAY", "500");
@@ -50,7 +50,7 @@ public class MushroomConfig extends PlantConfig{
 			
 			break;
 		}
-		case(3): //création d'un HerbConfig LVL3
+		case(3): //création d'un MushroomConfig LVL3
 		{
 			properties.setProperty("EVOLCOST", "15");
 			properties.setProperty("DELAY", "200");
@@ -65,7 +65,7 @@ public class MushroomConfig extends PlantConfig{
 			
 			break;
 		}
-		default: //création d'un HerbConfig par défaut
+		default: //création d'un MushroomConfig par défaut
 		{
 			properties.setProperty("DELAY", "700");
 			properties.setProperty("RANGE", "75");
