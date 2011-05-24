@@ -21,10 +21,14 @@ public class Enemy extends Entity{
 			evolutions[i][1] = 250;
 			evolutions[i][2] = delayBeforeEvolve;
 			//pollutionProfQty += 1;
-			if(pollutionProfQty < 100)
+			if(pollutionProfQty < 10)
 				pollutionProfQty = (int)(pollutionProfQty*2.5);
-			else 
-				pollutionProfQty = (int)(pollutionProfQty*1.3);
+			else if(pollutionProfQty < 30)
+				pollutionProfQty = (int)(pollutionProfQty*3.2);
+			else if(pollutionProfQty < 300)
+				pollutionProfQty = (int)(pollutionProfQty*1.5);
+			else
+				pollutionProfQty = (int)(pollutionProfQty*1.1);
 			delayBeforeEvolve += 1000;
 		}
 		
@@ -46,5 +50,6 @@ public class Enemy extends Entity{
 	static public void evolve(){
 		if(evolutionNumber<MAX_EVOLUTIONS-1)
 			evolutionNumber++;
+		System.out.println("Enemi lvl : " + evolutionNumber);
 	}
 }
