@@ -40,7 +40,7 @@ public class TreeConfig extends PlantConfig {
 			properties.setProperty("EVOLCOST", "50");
 			properties.setProperty("DELAY", "100");
 			properties.setProperty("RANGE", "250");
-			properties.setProperty("ENERGYDELAY", "75");
+			properties.setProperty("ENERGYDELAY", "100");
 			properties.setProperty("COST", "500");
 			properties.setProperty("WATEREVOLQTY", "35");
 			properties.setProperty("AIRPROD", "600");
@@ -55,7 +55,7 @@ public class TreeConfig extends PlantConfig {
 			properties.setProperty("EVOLCOST", "50");
 			properties.setProperty("DELAY", "100");
 			properties.setProperty("RANGE", "250");
-			properties.setProperty("ENERGYDELAY", "50");
+			properties.setProperty("ENERGYDELAY", "100");
 			properties.setProperty("COST", "500");
 			properties.setProperty("WATEREVOLQTY", "70");
 			properties.setProperty("AIRPROD", "1500");

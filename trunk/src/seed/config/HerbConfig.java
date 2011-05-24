@@ -10,7 +10,7 @@ public class HerbConfig extends PlantConfig{
 		{
 			properties.setProperty("DELAY", "600");
 			properties.setProperty("RANGE", "100");
-			properties.setProperty("ENERGYDELAY", "200");
+			properties.setProperty("ENERGYDELAY", "500");
 			properties.setProperty("COST", "100");
 			properties.setProperty("WATEREVOLQTY", "3");
 			properties.setProperty("AIRPROD", "10");
@@ -25,7 +25,7 @@ public class HerbConfig extends PlantConfig{
 			properties.setProperty("EVOLCOST", "15");
 			properties.setProperty("DELAY", "300");
 			properties.setProperty("RANGE", "100");
-			properties.setProperty("ENERGYDELAY", "100");
+			properties.setProperty("ENERGYDELAY", "250");
 			properties.setProperty("COST", "50");
 			properties.setProperty("WATEREVOLQTY", "10");
 			properties.setProperty("AIRPROD", "50");
@@ -40,7 +40,7 @@ public class HerbConfig extends PlantConfig{
 			properties.setProperty("EVOLCOST", "20");
 			properties.setProperty("DELAY", "200");
 			properties.setProperty("RANGE", "125");
-			properties.setProperty("ENERGYDELAY", "75");
+			properties.setProperty("ENERGYDELAY", "200");
 			properties.setProperty("COST", "100");
 			properties.setProperty("WATEREVOLQTY", "20");
 			properties.setProperty("AIRPROD", "100");
@@ -55,7 +55,7 @@ public class HerbConfig extends PlantConfig{
 			properties.setProperty("EVOLCOST", "25");
 			properties.setProperty("DELAY", "150");
 			properties.setProperty("RANGE", "150");
-			properties.setProperty("ENERGYDELAY", "75");
+			properties.setProperty("ENERGYDELAY", "150");
 			properties.setProperty("COST", "100");
 			properties.setProperty("WATEREVOLQTY", "30");
 			properties.setProperty("AIRPROD", "200");
