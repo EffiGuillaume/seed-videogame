@@ -222,7 +222,7 @@ public final class Configs {
 			setEvolution("HERB_LVL2",evol_herb_lvl2);
 			
 			ArrayList<Evolution> evol_herb_lvl3= new ArrayList<Evolution>();
-			evol_herb_lvl3.add(flower_lvl2);
+			evol_herb_lvl3.add(flower_lvl3);
 			setEvolution("HERB_LVL3",evol_herb_lvl3); //à voir si ça convient
 			
 			//MUSHROOM
@@ -247,7 +247,7 @@ public final class Configs {
 			
 			ArrayList<Evolution> evol_flower_lvl1= new ArrayList<Evolution>();
 			evol_flower_lvl1.add(flower_lvl2);
-			evol_flower_lvl1.add(flower_lvl3);
+			//evol_flower_lvl1.add(flower_lvl3);
 			setEvolution("FLOWER_LVL1",evol_flower_lvl1);
 			
 			ArrayList<Evolution> evol_flower_lvl2= new ArrayList<Evolution>();
@@ -262,7 +262,7 @@ public final class Configs {
 			
 			ArrayList<Evolution> evol_tree_lvl1= new ArrayList<Evolution>();
 			evol_tree_lvl1.add(tree_lvl2);
-			evol_tree_lvl1.add(tree_lvl3);
+			//evol_tree_lvl1.add(tree_lvl3);
 			setEvolution("TREE_LVL1",evol_tree_lvl1);
 			
 			ArrayList<Evolution> evol_tree_lvl2= new ArrayList<Evolution>();
