@@ -10,7 +10,7 @@ public class FlowerConfig extends PlantConfig {
 		{
 			properties.setProperty("DELAY", "600");
 			properties.setProperty("RANGE", "75");
-			properties.setProperty("ENERGYDELAY", "300");
+			properties.setProperty("ENERGYDELAY", "500");
 			properties.setProperty("COST", "150");
 			properties.setProperty("WATEREVOLQTY", "5");
 			properties.setProperty("AIRPROD", "20");
@@ -25,7 +25,7 @@ public class FlowerConfig extends PlantConfig {
 			properties.setProperty("EVOLCOST", "15");
 			properties.setProperty("DELAY", "300");
 			properties.setProperty("RANGE", "150");
-			properties.setProperty("ENERGYDELAY", "300");
+			properties.setProperty("ENERGYDELAY", "250");
 			properties.setProperty("COST", "150");
 			properties.setProperty("WATEREVOLQTY", "13");
 			properties.setProperty("AIRPROD", "100");
