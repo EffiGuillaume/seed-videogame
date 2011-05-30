@@ -21,10 +21,11 @@ public class GameOver extends BasicGameState {
 	int stateID = -1;
 	
 	Image playButton;
+	Image gameover;
 	
 	float playScale = 0.5f;
 	float playX = 300;
-	float playY = 300;
+	float playY = 450;
 	
 	public GameOver(int stateID ) 
 	{
@@ -35,6 +36,7 @@ public class GameOver extends BasicGameState {
 	public void init(GameContainer arg0, StateBasedGame arg1)
 			throws SlickException {
 		playButton = new Image("res/retry.png");
+		gameover = new Image("res/gameover.png");
 
 	}
 
@@ -45,7 +47,7 @@ public class GameOver extends BasicGameState {
 		SideBoard.getInstance().render(gc, sb, gr);
 		Ressource.getInstance().render(gc, sb, gr);
 		Sunbeam.getInstance().render(gc, sb, gr);
-		gr.drawString("Désolé, vous avez perdu !", 250, 250);
+		gameover.draw(100,50);
 		playButton.draw(playX,playY, playScale);
 
 	}
@@ -69,7 +71,7 @@ public class GameOver extends BasicGameState {
 				playScale -= 0.01f;
 			if(playX < 309)
 				playX += 3;
-			if(playY < 309)
+			if(playY < 459)
 				playY += 3;
 			if (input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)){
 				InGameState.music = new Music("res/music.ogg");
@@ -96,7 +98,7 @@ public class GameOver extends BasicGameState {
 				playScale += 0.01f;
 			if(playX > 300)
 				playX -= 3;
-			if(playY > 300)
+			if(playY > 450)
 				playY -= 3;
 		}
 
