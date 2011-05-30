@@ -22,9 +22,10 @@ public class Menu extends BasicGameState {
 	Image background;
 	Image playButton;
 	Image sideBoard;
+	Image intro;
 	
 	float playScale = 0.5f;
-	float playX = 300;
+	float playX = 450;
 	float playY = 300;
 
 	@Override
@@ -33,6 +34,7 @@ public class Menu extends BasicGameState {
 		background = new Image("res/Accueil.png");
 		playButton = new Image("res/play.png");
 		sideBoard = new Image("res/Panel.png");
+		intro = new Image("res/pitch.png");
 	}
 
 	@Override
@@ -41,6 +43,7 @@ public class Menu extends BasicGameState {
 		background.draw(0,0,0.5f);
 		playButton.draw(playX,playY, playScale);
 		sideBoard.draw(SeedMainv09.GAMEBOARD_WIDTH,0);
+		intro.draw(0,125);
 	}
 
 	@Override
@@ -60,7 +63,7 @@ public class Menu extends BasicGameState {
 		if(insidePlay){
 			if(playScale > 0.48f)
 				playScale -= 0.01f;
-			if(playX < 309)
+			if(playX < 459)
 				playX += 3;
 			if(playY < 309)
 				playY += 3;
@@ -70,7 +73,7 @@ public class Menu extends BasicGameState {
 		}else{
 			if(playScale < 0.50f)
 				playScale += 0.01f;
-			if(playX > 300)
+			if(playX > 450)
 				playX -= 3;
 			if(playY > 300)
 				playY -= 3;
