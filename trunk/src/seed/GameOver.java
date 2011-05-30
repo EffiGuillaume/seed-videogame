@@ -2,10 +2,14 @@ package seed;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import seed.config.Configs;
+import seed.field.Field;
 import seed.interfaces.GameBoard;
 import seed.interfaces.Ressource;
 import seed.interfaces.SideBoard;
@@ -15,6 +19,12 @@ public class GameOver extends BasicGameState {
 	
 	int stateID = -1;
 	
+	Image playButton;
+	
+	float playScale = 0.5f;
+	float playX = 300;
+	float playY = 300;
+	
 	public GameOver(int stateID ) 
 	{
 		this.stateID = stateID;
@@ -23,7 +33,7 @@ public class GameOver extends BasicGameState {
 	@Override
 	public void init(GameContainer arg0, StateBasedGame arg1)
 			throws SlickException {
-		// TODO Auto-generated method stub
+		playButton = new Image("res/play.png");
 
 	}
 
@@ -35,19 +45,62 @@ public class GameOver extends BasicGameState {
 		Ressource.getInstance().render(gc, sb, gr);
 		Sunbeam.getInstance().render(gc, sb, gr);
 		gr.drawString("Désolé, vous avez perdu !", 250, 250);
+		playButton.draw(playX,playY, playScale);
 
 	}
 
 	@Override
-	public void update(GameContainer arg0, StateBasedGame arg1, int arg2)
+	public void update(GameContainer gc, StateBasedGame sb, int delta)
 			throws SlickException {
-		// TODO Auto-generated method stub
+		Input input = gc.getInput();
+
+		int mouseX = input.getMouseX();
+		int mouseY = input.getMouseY();
+		
+		boolean insidePlay = false;
+		
+		if( ( mouseX >= playX && mouseX <= playX + playButton.getWidth()*playScale ) &&
+				( mouseY >= playY && mouseY <= playY + playButton.getHeight()*playScale ))
+			insidePlay = true;
+		
+		if(insidePlay){
+			if(playScale > 0.48f)
+				playScale -= 0.01f;
+			if(playX < 309)
+				playX += 3;
+			if(playY < 309)
+				playY += 3;
+			if (input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)){
+				gc.setMouseCursor(new Image("res/cursor.png"), 25, 25);
+				Field field = new Field("Field", SeedMainv09.GAMEBOARD_WIDTH, SeedMainv09.GAMEBOARD_HEIGHT);
+				field.init(gc);
+				Configs.init();
+				GameBoard.getInstance().init(gc, field);
+				SideBoard.getInstance().init(gc,SeedMainv09.SIDEBOARD_WIDTH,SeedMainv09.SIDEBOARD_HEIGHT);
+
+				//---Mise en place de l'ensoleillement
+				Sunbeam.getInstance().setScope(150);
+
+				//---mise en place des ressources
+				Ressource.getInstance().setPollution(10000); // pollution de déŽpart
+				Ressource.getInstance().setAir(350); // air de dŽépart
+				
+				
+				sb.enterState(SeedMainv09.INGAME);
+			}
+		}else{
+			if(playScale < 0.50f)
+				playScale += 0.01f;
+			if(playX > 300)
+				playX -= 3;
+			if(playY > 300)
+				playY -= 3;
+		}
 
 	}
 
 	@Override
 	public int getID() {
-		// TODO Auto-generated method stub
 		return stateID;
 	}
 
