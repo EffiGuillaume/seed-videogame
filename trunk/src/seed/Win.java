@@ -2,6 +2,7 @@ package seed;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -12,7 +13,10 @@ import seed.interfaces.SideBoard;
 import seed.units.Sunbeam;
 
 public class Win extends BasicGameState {
-int stateID = -1;
+	int stateID = -1;
+
+	Image acorn;
+	Image win;
 	
 	public Win(int stateID ) 
 	{
@@ -22,7 +26,8 @@ int stateID = -1;
 	@Override
 	public void init(GameContainer arg0, StateBasedGame arg1)
 			throws SlickException {
-		// TODO Auto-generated method stub
+		win = new Image("res/win.png");
+		acorn = new Image("res/acorn.png");
 
 	}
 
@@ -34,7 +39,8 @@ int stateID = -1;
 		Ressource.getInstance().render(gc, sb, gr);
 		Sunbeam.getInstance().render(gc, sb, gr);
 		
-		gr.drawString("Félicitations, vous avez gagné !", 250, 250);
+		win.draw(100,50);
+		acorn.draw(285,350, 1);
 
 	}
 
