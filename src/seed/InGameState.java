@@ -22,7 +22,7 @@ public class InGameState extends BasicGameState {
 
 	public static boolean pause;
 	
-	public Music music;
+	public static Music music;
 
 	public InGameState(int stateID ) 
 	{
@@ -37,7 +37,8 @@ public class InGameState extends BasicGameState {
 		Field field = new Field("Field", SeedMainv09.GAMEBOARD_WIDTH, SeedMainv09.GAMEBOARD_HEIGHT);
 		field.init(gc);
 		Configs.init();
-//		music = new Music("res/music.mp3");
+		InGameState.music = new Music("res/music.ogg");
+		InGameState.music.play(1,0.5f);
 		GameBoard.getInstance().init(gc, field);
 		SideBoard.getInstance().init(gc,SeedMainv09.SIDEBOARD_WIDTH,SeedMainv09.SIDEBOARD_HEIGHT);
 
@@ -65,10 +66,8 @@ public class InGameState extends BasicGameState {
 		if(pause){
 			Cursor.getInstance().update(gc, sb, delta);
 			SideBoard.getInstance().update(gc, sb, delta);
-//			music.pause();
 		}
 		else{
-//			music.play();
 			Cursor.getInstance().update(gc, sb, delta);
 			Ressource.getInstance().update(gc, sb, delta);
 			GameBoard.getInstance().update(gc, sb, delta);
