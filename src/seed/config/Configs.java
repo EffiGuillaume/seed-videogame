@@ -256,7 +256,7 @@ public final class Configs {
 			
 			//TREE
 			ArrayList<Evolution> evol_tree_lvl0= new ArrayList<Evolution>();
-			evol_tree_lvl0.add(herb_lvl1);
+			//evol_tree_lvl0.add(herb_lvl1);
 			evol_tree_lvl0.add(tree_lvl1);
 			setEvolution("TREE_LVL0",evol_tree_lvl0); //à voir si ça convient (cas où les conditions sont déplorables : l'arbre ne repousse qu'en HERB !)
 			

@@ -3,6 +3,7 @@ package seed;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -20,6 +21,8 @@ public class InGameState extends BasicGameState {
 	int stateID = -1;
 
 	public static boolean pause;
+	
+	public Music music;
 
 	public InGameState(int stateID ) 
 	{
@@ -34,6 +37,7 @@ public class InGameState extends BasicGameState {
 		Field field = new Field("Field", SeedMainv09.GAMEBOARD_WIDTH, SeedMainv09.GAMEBOARD_HEIGHT);
 		field.init(gc);
 		Configs.init();
+//		music = new Music("res/music.mp3");
 		GameBoard.getInstance().init(gc, field);
 		SideBoard.getInstance().init(gc,SeedMainv09.SIDEBOARD_WIDTH,SeedMainv09.SIDEBOARD_HEIGHT);
 
@@ -61,8 +65,10 @@ public class InGameState extends BasicGameState {
 		if(pause){
 			Cursor.getInstance().update(gc, sb, delta);
 			SideBoard.getInstance().update(gc, sb, delta);
+//			music.pause();
 		}
 		else{
+//			music.play();
 			Cursor.getInstance().update(gc, sb, delta);
 			Ressource.getInstance().update(gc, sb, delta);
 			GameBoard.getInstance().update(gc, sb, delta);
