@@ -74,9 +74,9 @@ public class EvolveComponent extends Component{
 		 
 		// /!\ le tableau d'évolution doit être trié suivant le coût d'énergie /!\
 		ArrayList<Evolution> evolutions = Configs.getEvolution(((Plant)owner).getEvolution());
-		Iterator<Evolution> it = evolutions.iterator();
 		Evolution evolution=null;
 		if(evolutions!=null){
+			Iterator<Evolution> it = evolutions.iterator();
 			while(it.hasNext()){
 				Evolution curEvol = (Evolution) it.next();
 				if(curEvol.isConstructibleOnField(field)){
