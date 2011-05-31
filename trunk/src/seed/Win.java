@@ -17,6 +17,7 @@ public class Win extends BasicGameState {
 
 	Image acorn;
 	Image win;
+	Image credits;
 	
 	public Win(int stateID ) 
 	{
@@ -28,6 +29,7 @@ public class Win extends BasicGameState {
 			throws SlickException {
 		win = new Image("res/win.png");
 		acorn = new Image("res/acorn.png");
+		credits = new Image("res/credits.png");
 
 	}
 
@@ -40,8 +42,8 @@ public class Win extends BasicGameState {
 		Sunbeam.getInstance().render(gc, sb, gr);
 		
 		win.draw(100,50);
-		acorn.draw(285,350, 1);
-
+		acorn.draw(285,300, 1);
+		credits.draw(2, 300);
 	}
 
 	@Override

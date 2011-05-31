@@ -46,7 +46,7 @@ public class InGameState extends BasicGameState {
 		Sunbeam.getInstance().setScope(150);
 
 		//---mise en place des ressources
-		Ressource.getInstance().setPollution(200); // pollution de déŽpart
+		Ressource.getInstance().setPollution(10000); // pollution de déŽpart
 		Ressource.getInstance().setAir(350); // air de dŽépart
 
 	}
