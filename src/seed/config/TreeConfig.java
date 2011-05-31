@@ -11,7 +11,7 @@ public class TreeConfig extends PlantConfig {
 			properties.setProperty("DELAY", "400");
 			properties.setProperty("RANGE", "100");
 			properties.setProperty("ENERGYDELAY", "400");
-			properties.setProperty("COST", "500");
+			properties.setProperty("COST", "1000");
 			properties.setProperty("WATEREVOLQTY", "15");
 			properties.setProperty("AIRPROD", "100");
 			properties.setProperty("WATERREGRESSQTY", "0");
@@ -26,7 +26,7 @@ public class TreeConfig extends PlantConfig {
 			properties.setProperty("DELAY", "200");
 			properties.setProperty("RANGE", "200");
 			properties.setProperty("ENERGYDELAY", "200");
-			properties.setProperty("COST", "500");
+			properties.setProperty("COST", "1000");
 			properties.setProperty("WATEREVOLQTY", "25");
 			properties.setProperty("AIRPROD", "300");
 			properties.setProperty("WATERREGRESSQTY", "0");
@@ -41,7 +41,7 @@ public class TreeConfig extends PlantConfig {
 			properties.setProperty("DELAY", "100");
 			properties.setProperty("RANGE", "250");
 			properties.setProperty("ENERGYDELAY", "100");
-			properties.setProperty("COST", "500");
+			properties.setProperty("COST", "1000");
 			properties.setProperty("WATEREVOLQTY", "35");
 			properties.setProperty("AIRPROD", "600");
 			properties.setProperty("WATERREGRESSQTY", "5");
@@ -56,7 +56,7 @@ public class TreeConfig extends PlantConfig {
 			properties.setProperty("DELAY", "100");
 			properties.setProperty("RANGE", "250");
 			properties.setProperty("ENERGYDELAY", "100");
-			properties.setProperty("COST", "500");
+			properties.setProperty("COST", "1000");
 			properties.setProperty("WATEREVOLQTY", "70");
 			properties.setProperty("AIRPROD", "1500");
 			properties.setProperty("WATERREGRESSQTY", "10");
@@ -70,7 +70,7 @@ public class TreeConfig extends PlantConfig {
 			properties.setProperty("DELAY", "400");
 			properties.setProperty("RANGE", "100");
 			properties.setProperty("ENERGYDELAY", "400");
-			properties.setProperty("COST", "500");
+			properties.setProperty("COST", "1000");
 			properties.setProperty("WATEREVOLQTY", "5");
 			properties.setProperty("AIRPROD", "100");
 			properties.setProperty("WATERREGRESSQTY", "0");
