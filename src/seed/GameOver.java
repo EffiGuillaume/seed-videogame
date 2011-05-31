@@ -77,6 +77,7 @@ public class GameOver extends BasicGameState {
 			if(playY < 409)
 				playY += 3;
 			if (input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)){
+				SideBoard.getInstance().destroySideBoard();
 				InGameState.music = new Music("res/music.ogg");
 				InGameState.music.play(1,0.5f);
 				gc.setMouseCursor(new Image("res/cursor.png"), 25, 25);

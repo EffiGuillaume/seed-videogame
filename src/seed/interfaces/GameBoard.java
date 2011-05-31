@@ -145,36 +145,6 @@ public class GameBoard extends Entity {
 		if(!inserted)
 			plants.add(plant);
 	}
-
-
-	/*public static void addPlant(Plant plant) {
-		boolean inserted = false;
-		for(int i = 0; i<GameBoard.getInstance().plants.size(); i++)
-		{
-			if(GameBoard.getInstance().plants.get(i).getPosition().getY()>plant.getPosition().getY()){
-				GameBoard.getInstance().plants.add(i, plant);
-				inserted = true;
-				break;
-			}
-		}
-		if(!inserted)
-			GameBoard.getInstance().plants.add(plant);
-	}*/
-	
-	/*
-	public static void addPlant(Plant plant){
-		GameBoard.getInstance().setPlant(plant);
-	}*/
-	
-	/*public static void removePlant(Plant plant){
-		String id = plant.getId();
-		System.out.println("boom");
-		for(int i = 0; i < GameBoard.getInstance().getPlantSize(); i++){
-			System.out.println(id + " = " + GameBoard.getInstance().getPlants(i).getId() + " ? ");
-			if(GameBoard.getInstance().getPlants(i).getId().equalsIgnoreCase(id))
-				GameBoard.getInstance().removePlants(i);
-		}
-	}*/
 	
 	public void removePlant(Plant plant){
 		String id = plant.getId();

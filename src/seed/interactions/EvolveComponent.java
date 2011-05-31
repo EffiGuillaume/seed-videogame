@@ -8,6 +8,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import seed.config.Configs;
 import seed.engine.Component;
+import seed.field.Block;
 import seed.field.BlockType;
 import seed.field.Field;
 import seed.interactions.Evolution;
@@ -58,8 +59,21 @@ public class EvolveComponent extends Component{
 						System.out.println(owner.getId() +" regresse en "+((Plant)owner).getEvolution());
 					}
 					else {
+						//la plante meurt
 						GameBoard.getInstance().removePlant(((Plant)owner));
 						System.out.println(owner.getId() +" est mort ");
+						int num_x = (int) owner.getPosition().getX()/Block.BLOCK_SIZE;
+						int num_y = (int) owner.getPosition().getY()/Block.BLOCK_SIZE;
+						if(num_x != 0 && num_x != Field.getInstance().getNumRowBlock() && num_y != 0 && num_y != Field.getInstance().getNumColumnBlock())
+						{
+							for(int i = num_x - 1; i <= num_x + 2 ; i++)
+							{
+								for(int j = num_y -1 ; j <= num_y + 2; j++)
+								{
+									Field.getInstance().removeBlockType(i, j, BlockType.NON_CONSTRUCTIBLE);
+								}
+							}
+						}
 					}
 				}
 			}

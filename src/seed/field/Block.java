@@ -83,7 +83,7 @@ public class Block extends Entity {
 	}
 	
 	public boolean isFree() {
-		return (!isType(BlockType.NON_CONSTRUCTIBLE) && occupant==null);
+		return (!isType(BlockType.NON_CONSTRUCTIBLE) && occupant==null && !isType(BlockType.CHEMIN));
 	}
 	
 	public void setOccupant(Entity e){

@@ -32,9 +32,14 @@ public class PlantRenderComponent extends AbsorberRenderComponent {
 				if((!((Plant) owner).isPlaced()) || Cursor.getInstance().getPosition().distance(((Plant)owner).getCenter()) < Block.BLOCK_SIZE)
 				{
 					if(Cursor.getInstance().getState() != CursorState.NOT_VISIBLE){
-						gr.setColor(Color.yellow);
-						gr.drawString(String.valueOf(((Plant)owner).getEnergy()), center.getX()+15, center.getY()-15);
-						gr.setColor(Color.white);
+						Graphics rectangle = new Graphics(); 
+						if(((Plant)owner).getEnergy() > 0)
+							rectangle.setColor(Color.yellow);
+						else rectangle.setColor(Color.red);
+						rectangle.fillRect(center.getX()+15, center.getY(), 10, -((Plant)owner).getEnergy());
+//						gr.setColor(Color.yellow);
+//						gr.drawString(String.valueOf(((Plant)owner).getEnergy()), center.getX()+15, center.getY()-15);
+//						gr.setColor(Color.white);
 					}
 				}
 

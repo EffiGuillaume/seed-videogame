@@ -42,7 +42,7 @@ public class InGameState extends BasicGameState {
 		SideBoard.getInstance().init(gc,SeedMainv09.SIDEBOARD_WIDTH,SeedMainv09.SIDEBOARD_HEIGHT);
 
 		//---Mise en place de l'ensoleillement
-		Sunbeam.getInstance().setScope(150);
+		Sunbeam.getInstance().setScope(125);
 
 		//---mise en place des ressources
 		Ressource.getInstance().setPollution(10000); // pollution de déŽpart
@@ -71,7 +71,7 @@ public class InGameState extends BasicGameState {
 			Sunbeam.getInstance().update(gc, sb, delta);
 			SideBoard.getInstance().update(gc, sb, delta);
 			
-			if(Ressource.getInstance().getAir() <= 0)
+			if(Ressource.getInstance().getPollution() >= 10200)
 				sb.enterState(SeedMainv09.LOSE);
 			if(Ressource.getInstance().getPollution() <= 100)
 				sb.enterState(SeedMainv09.WIN);
