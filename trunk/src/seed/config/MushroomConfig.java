@@ -11,7 +11,7 @@ public class MushroomConfig extends PlantConfig{
 			properties.setProperty("DELAY", "700");
 			properties.setProperty("RANGE", "75");
 			properties.setProperty("ENERGYDELAY", "400");
-			properties.setProperty("COST", "250");
+			properties.setProperty("COST", "500");
 			properties.setProperty("WATEREVOLQTY", "2");
 			properties.setProperty("AIRPROD", "50");
 			properties.setProperty("WATERREGRESSQTY", "0");
@@ -26,7 +26,7 @@ public class MushroomConfig extends PlantConfig{
 			properties.setProperty("DELAY", "600");
 			properties.setProperty("RANGE", "75");
 			properties.setProperty("ENERGYDELAY", "300");
-			properties.setProperty("COST", "250");
+			properties.setProperty("COST", "500");
 			properties.setProperty("WATEREVOLQTY", "5");
 			properties.setProperty("AIRPROD", "75");
 			properties.setProperty("WATERREGRESSQTY", "0");
@@ -41,7 +41,7 @@ public class MushroomConfig extends PlantConfig{
 			properties.setProperty("DELAY", "500");
 			properties.setProperty("RANGE", "75");
 			properties.setProperty("ENERGYDELAY", "75");
-			properties.setProperty("COST", "250");
+			properties.setProperty("COST", "500");
 			properties.setProperty("WATEREVOLQTY", "10");
 			properties.setProperty("AIRPROD", "75");
 			properties.setProperty("WATERREGRESSQTY", "0");
@@ -56,7 +56,7 @@ public class MushroomConfig extends PlantConfig{
 			properties.setProperty("DELAY", "200");
 			properties.setProperty("RANGE", "75");
 			properties.setProperty("ENERGYDELAY", "75");
-			properties.setProperty("COST", "250");
+			properties.setProperty("COST", "500");
 			properties.setProperty("WATEREVOLQTY", "10");
 			properties.setProperty("AIRPROD", "100");
 			properties.setProperty("WATERREGRESSQTY", "5");

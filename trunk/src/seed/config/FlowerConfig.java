@@ -11,7 +11,7 @@ public class FlowerConfig extends PlantConfig {
 			properties.setProperty("DELAY", "600");
 			properties.setProperty("RANGE", "75");
 			properties.setProperty("ENERGYDELAY", "500");
-			properties.setProperty("COST", "150");
+			properties.setProperty("COST", "300");
 			properties.setProperty("WATEREVOLQTY", "5");
 			properties.setProperty("AIRPROD", "20");
 			properties.setProperty("WATERREGRESSQTY", "0");
@@ -26,7 +26,7 @@ public class FlowerConfig extends PlantConfig {
 			properties.setProperty("DELAY", "300");
 			properties.setProperty("RANGE", "150");
 			properties.setProperty("ENERGYDELAY", "250");
-			properties.setProperty("COST", "150");
+			properties.setProperty("COST", "300");
 			properties.setProperty("WATEREVOLQTY", "13");
 			properties.setProperty("AIRPROD", "100");
 			properties.setProperty("WATERREGRESSQTY", "0");
@@ -41,7 +41,7 @@ public class FlowerConfig extends PlantConfig {
 			properties.setProperty("DELAY", "300");
 			properties.setProperty("RANGE", "150");
 			properties.setProperty("ENERGYDELAY", "200");
-			properties.setProperty("COST", "150");
+			properties.setProperty("COST", "300");
 			properties.setProperty("WATEREVOLQTY", "20");
 			properties.setProperty("AIRPROD", "200");
 			properties.setProperty("WATERREGRESSQTY", "0");
@@ -56,7 +56,7 @@ public class FlowerConfig extends PlantConfig {
 			properties.setProperty("DELAY", "300");
 			properties.setProperty("RANGE", "100");
 			properties.setProperty("ENERGYDELAY", "150");
-			properties.setProperty("COST", "150");
+			properties.setProperty("COST", "300");
 			properties.setProperty("WATEREVOLQTY", "35");
 			properties.setProperty("AIRPROD", "400");
 			properties.setProperty("WATERREGRESSQTY", "-5");
