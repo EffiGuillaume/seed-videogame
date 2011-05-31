@@ -5,7 +5,7 @@ import seed.engine.Entity;
 public class Enemy extends Entity{
 	static int MAX_EVOLUTIONS = 50;
 	
-	static int evolutionNumber = 0;
+	public static int evolutionNumber = 0;
 	int[][] evolutions = new int[MAX_EVOLUTIONS][3];
 	
 	public Enemy(String id) {

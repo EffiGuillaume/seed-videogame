@@ -16,7 +16,7 @@ public class Sunbeam extends Entity {
 
 	private Sunbeam(String id) {
 		super(id);
-		this.scope = 100;
+		this.scope = 50;
 		
 		addComponent(new SunLitRenderComponent(id+"_Render"));
 	}

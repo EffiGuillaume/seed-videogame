@@ -28,14 +28,13 @@ public class AbsorbableRenderComponent extends RenderComponent{
 	@Override
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr) {		
 		Vector2f pos = owner.getPosition();
-		anim.getCurrentFrame().setRotation(angle);
+		anim.getCurrentFrame().setRotation(owner.getRotation());
 		anim.draw(pos.x - image.getWidth()/2 + Block.BLOCK_SIZE/2, pos.y - image.getWidth()/2 + Block.BLOCK_SIZE/2);
 
 	}
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sb, int delta) {
-		angle = owner.getRotation() - image.getRotation();
 
 	}
 }

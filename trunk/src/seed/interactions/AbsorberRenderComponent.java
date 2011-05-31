@@ -42,7 +42,6 @@ public class AbsorberRenderComponent extends RenderComponent {
 					if(Cursor.getInstance().getState() != CursorState.NOT_VISIBLE){
 						anim.draw(pos.x - image.getWidth()/2 + Block.BLOCK_SIZE/2, pos.y - image.getWidth()/2 + Block.BLOCK_SIZE/2);
 						circle.drawOval(center.getX() - range, center.getY() - range, range*2, range*2);
-						gr.drawString(String.valueOf(((Absorber)owner).getStorage()), center.getX()+15, center.getY());
 					}
 				}
 				else
@@ -51,7 +50,10 @@ public class AbsorberRenderComponent extends RenderComponent {
 					if(Cursor.getInstance().getPosition().distance(((Absorber)owner).getCenter()) < Block.BLOCK_SIZE)
 					{
 						circle.drawOval(center.getX() - range, center.getY() - range, range*2, range*2);
-						gr.drawString(String.valueOf(((Absorber)owner).getStorage()), center.getX()+15, center.getY());
+						Graphics rectangle = new Graphics(); 
+						rectangle.setColor(Color.blue);
+						rectangle.fillRect(center.getX()+5, center.getY(), 10, -((Absorber)owner).getStorage());
+//						gr.drawString(String.valueOf(((Absorber)owner).getStorage()), center.getX()+15, center.getY());
 					}
 				}
 

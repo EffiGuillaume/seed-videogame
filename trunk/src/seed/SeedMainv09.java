@@ -41,6 +41,8 @@ public class SeedMainv09 extends StateBasedGame  {
 		AppGameContainer app = new AppGameContainer(new SeedMainv09("Seed v0.9"));
 		app.setDisplayMode(GAMEBOARD_WIDTH + SIDEBOARD_WIDTH, GAMEBOARD_HEIGHT, false);
 		app.setUpdateOnlyWhenVisible(false);
+		app.setTargetFrameRate(60);
+		app.setShowFPS(false);
 		
 		app.start();
 		
