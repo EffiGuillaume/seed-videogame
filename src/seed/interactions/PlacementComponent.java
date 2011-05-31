@@ -36,7 +36,7 @@ public class PlacementComponent extends Component {
 									GameBoard.getInstance().setToConstruct(null);
 									((Absorber)owner).setPlaced(true);
 									Field.getInstance().setBlockOccupant(plant_x, plant_y, owner);
-									Ressource.getInstance().decAir(((Plant)owner).getCost());
+									Ressource.getInstance().transformAirIntoPolu(((Plant)owner).getCost());
 								}
 							}
 						}
