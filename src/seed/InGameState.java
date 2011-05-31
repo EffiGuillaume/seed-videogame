@@ -30,7 +30,6 @@ public class InGameState extends BasicGameState {
 		InGameState.pause = false;
 	}
 
-	@Override
 	public void init(GameContainer gc, StateBasedGame arg1)
 	throws SlickException {
 		gc.setMouseCursor(new Image("res/cursor.png"), 25, 25);
@@ -51,7 +50,6 @@ public class InGameState extends BasicGameState {
 
 	}
 
-	@Override
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr)
 	throws SlickException {
 		GameBoard.getInstance().render(gc, sb, gr);
@@ -60,7 +58,6 @@ public class InGameState extends BasicGameState {
 		Sunbeam.getInstance().render(gc, sb, gr);
 	}
 
-	@Override
 	public void update(GameContainer gc, StateBasedGame sb, int delta)
 	throws SlickException {
 		if(pause){
@@ -74,7 +71,7 @@ public class InGameState extends BasicGameState {
 			Sunbeam.getInstance().update(gc, sb, delta);
 			SideBoard.getInstance().update(gc, sb, delta);
 			
-			if(Ressource.getInstance().getPollution() > 10200)
+			if(Ressource.getInstance().getAir() <= 0)
 				sb.enterState(SeedMainv09.LOSE);
 			if(Ressource.getInstance().getPollution() <= 100)
 				sb.enterState(SeedMainv09.WIN);
