@@ -22,11 +22,11 @@ public class Enemy extends Entity{
 			evolutions[i][2] = delayBeforeEvolve;
 			//pollutionProfQty += 1;
 			if(pollutionProfQty < 10)
-				pollutionProfQty = (int)(pollutionProfQty*2.5);
+				pollutionProfQty = (int)(pollutionProfQty*2);
 			else if(pollutionProfQty < 30)
-				pollutionProfQty = (int)(pollutionProfQty*3.2);
+				pollutionProfQty = (int)(pollutionProfQty*2.5);
 			else if(pollutionProfQty < 300)
-				pollutionProfQty = (int)(pollutionProfQty*1.5);
+				pollutionProfQty = (int)(pollutionProfQty*1.3);
 			else
 				pollutionProfQty = (int)(pollutionProfQty*1.1);
 			delayBeforeEvolve += 1000;
