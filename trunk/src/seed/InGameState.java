@@ -36,7 +36,7 @@ public class InGameState extends BasicGameState {
 		Field field = new Field("Field", SeedMainv09.GAMEBOARD_WIDTH, SeedMainv09.GAMEBOARD_HEIGHT);
 		field.init(gc);
 		Configs.init();
-		InGameState.music = new Music("res/music.ogg");
+		InGameState.music = new Music("res/music.ogg", true);
 		InGameState.music.play(1,0.5f);
 		GameBoard.getInstance().init(gc, field);
 		SideBoard.getInstance().init(gc,SeedMainv09.SIDEBOARD_WIDTH,SeedMainv09.SIDEBOARD_HEIGHT);

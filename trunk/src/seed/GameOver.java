@@ -15,6 +15,7 @@ import seed.interfaces.GameBoard;
 import seed.interfaces.Ressource;
 import seed.interfaces.SideBoard;
 import seed.units.Sunbeam;
+import seed.units.Wave;
 
 public class GameOver extends BasicGameState {
 	
@@ -78,7 +79,8 @@ public class GameOver extends BasicGameState {
 				playY += 3;
 			if (input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)){
 				SideBoard.getInstance().destroySideBoard();
-				InGameState.music = new Music("res/music.ogg");
+				Wave.level = 1;
+				InGameState.music = new Music("res/music.ogg", true);
 				InGameState.music.play(1,0.5f);
 				gc.setMouseCursor(new Image("res/cursor.png"), 25, 25);
 				Field field = new Field("Field", SeedMainv09.GAMEBOARD_WIDTH, SeedMainv09.GAMEBOARD_HEIGHT);
