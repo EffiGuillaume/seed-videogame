@@ -208,6 +208,7 @@ public class SideBoard extends Entity  {
 				if(!InGameState.pause){
 					if (Cursor.getInstance().isPressed()){
 						pause = true;
+						InGameState.music.pause();
 						InGameState.pause = true;
 						pauseButton = new Image("res/playButton.png");
 					}
@@ -215,6 +216,7 @@ public class SideBoard extends Entity  {
 				else{
 					if (Cursor.getInstance().isPressed()){
 						pause = false;
+						InGameState.music.play();
 						InGameState.pause = false;
 						pauseButton = new Image("res/pauseButton.png");
 					}
