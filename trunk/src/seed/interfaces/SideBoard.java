@@ -289,7 +289,7 @@ public class SideBoard extends Entity  {
 		if(Ressource.getInstance().getAir() < Integer.parseInt(Configs.getPlantConfig("MUSHROOM_LVL0").getProperty("COST")))
 			unConstructible.draw(GameBoard.getWidth()+width/5+5, 4*height/7+5, mushroomScale);
 		if(insideMushroom)
-			herbTips.draw(300,100);
+			mushTips.draw(300,100);
 		
 		if(showTips){
 			tipsMessage0.draw(300,0);
