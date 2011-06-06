@@ -36,7 +36,7 @@ public class AbsorberRenderComponent extends RenderComponent {
 			if(owner instanceof Absorber)
 			{
 				float range = ((Absorber) owner).getRange();
-				circle.setColor(Color.red);
+				circle.setColor(Color.blue);
 				if(!((Absorber) owner).isPlaced())
 				{
 					if(Cursor.getInstance().getState() != CursorState.NOT_VISIBLE){

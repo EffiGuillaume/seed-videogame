@@ -38,6 +38,7 @@ public class GameBoard extends Entity {
 		this.field = field;
 		GameBoard.width = field.getScreenWidth();
 		GameBoard.height = field.getScreenHeight();
+		GameBoard.nextId = 0;
 
 		//!\Attention le chemin est ici fait à la main
 		//path
