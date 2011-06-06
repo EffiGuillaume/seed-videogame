@@ -24,9 +24,9 @@ public class Enemy extends Entity{
 			if(pollutionProfQty < 10)
 				pollutionProfQty = (int)(pollutionProfQty*2);
 			else if(pollutionProfQty < 30)
-				pollutionProfQty = (int)(pollutionProfQty*2.5);
+				pollutionProfQty = (int)(pollutionProfQty*2.7);
 			else if(pollutionProfQty < 300)
-				pollutionProfQty = (int)(pollutionProfQty*1.3);
+				pollutionProfQty = (int)(pollutionProfQty*1.6);
 			else
 				pollutionProfQty = (int)(pollutionProfQty*1.1);
 			delayBeforeEvolve += 1000;
