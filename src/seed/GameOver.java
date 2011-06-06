@@ -9,7 +9,6 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-import seed.config.Configs;
 import seed.field.Field;
 import seed.interfaces.GameBoard;
 import seed.interfaces.Ressource;
@@ -80,12 +79,11 @@ public class GameOver extends BasicGameState {
 			if (input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)){
 				SideBoard.getInstance().destroySideBoard();
 				Wave.level = 1;
+				Wave.nbOfAbsorbable = 10;
 				InGameState.music = new Music("res/music.ogg", true);
 				InGameState.music.play(1,0.5f);
-				gc.setMouseCursor(new Image("res/cursor.png"), 25, 25);
 				Field field = new Field("Field", SeedMainv09.GAMEBOARD_WIDTH, SeedMainv09.GAMEBOARD_HEIGHT);
 				field.init(gc);
-				Configs.init();
 				GameBoard.getInstance().init(gc, field);
 				SideBoard.getInstance().init(gc,SeedMainv09.SIDEBOARD_WIDTH,SeedMainv09.SIDEBOARD_HEIGHT);
 
