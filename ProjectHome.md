@@ -1,0 +1,2 @@
+Seed est un petit jeu vidéo développé par deux étudiants de l'Université de Technologie de Compiègne (France) dans le cadre de l'UV IC06 "Industrie et conception du jeu vidéo".
+Il s'agit d'un jeu de type Tower Defense non guerrier dont le flot d'ennemis arrivant est remplacé par de l'eau. Le joueur doit gérer l'environnement, l'ensoleillement et l'arrosage de ses plantes pour produire de l'oxygène.
